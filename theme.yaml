@@ -3,5 +3,10 @@ Id: playnite-defaultextend-theme
 Name: DefaultExtend
 Author: Lacro59
 Version: 1.0
+Links:
+  - Name: Theme forum
+    Url: https://playnite.link/forum/
+  - Name: Theme Github
+    Url: https://github.com/Lacro59/playnite-defaultextend-theme
 Constants:
   - GA_DetailsInToggleButton: Display detailed information in GameActivity button
