@@ -1,0 +1,7 @@
+ThemeApiVersion: 1.9.0
+Id: playnite-defaultextend-theme
+Name: DefaultExtend
+Author: Lacro59
+Version: 1.0
+Constants:
+  - GA_DetailsInToggleButton: Display detailed information in GameActivity button

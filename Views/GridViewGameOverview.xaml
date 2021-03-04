@@ -1,0 +1,400 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    mc:Ignorable="d">
+
+    <Style TargetType="{x:Type GridViewGameOverview}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridViewGameOverview}">
+                    <Border Padding="10,0,5,0" BorderBrush="{DynamicResource PanelSeparatorBrush}"
+                            d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="1,0,0,0" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Settings GridViewDetailsPosition}" Value="Left">
+                                        <Setter Property="BorderThickness" Value="0,0,1,0" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Settings ShowPanelSeparators}" Value="False">
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <DockPanel>
+                            <Button HorizontalAlignment="Right" VerticalAlignment="Top"
+                                    Content="r" FontFamily="Marlett"
+                                    Style="{DynamicResource SimpleButton}"
+                                    Command="{MainViewModel CloseGameSideBarCommand}"
+                                    DockPanel.Dock="Top" Margin="0,10,15,5" />
+
+                            <TextBlock Text="{DynamicResource LOCErrorNoGameSelected}" 
+                                   Margin="0,20,0,0" DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <Trigger Property="DataContext" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <DockPanel DockPanel.Dock="Top">
+                                <DockPanel.Style>
+                                    <Style TargetType="DockPanel">
+                                        <Style.Triggers>
+                                            <Trigger Property="DataContext" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DockPanel.Style>
+
+                                <DockPanel DockPanel.Dock="Top">
+                                    <Image Name="PART_ImageIcon" DockPanel.Dock="Left" MaxHeight="32" MaxWidth="32"
+                                           RenderOptions.BitmapScalingMode="Fant" Margin="0,0,10,0" />
+                                    <TextBlock Text="{Binding Game.DisplayName}" FontSize="{DynamicResource FontSizeLarger}"
+                                               TextWrapping="Wrap" DockPanel.Dock="Left"
+                                               VerticalAlignment="Center" Foreground="{DynamicResource TextBrush}">
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect ShadowDepth="3"/>
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                </DockPanel>
+
+                                <Grid DockPanel.Dock="Top" Margin="0,10,0,10" Background="Transparent">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" MaxWidth="150" />
+                                        <ColumnDefinition Width="*" MaxWidth="150" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Name="PART_ButtonPlayAction" Grid.Column="0"
+                                            Height="40" Style="{DynamicResource PlayButton}" />
+                                    <Button Name="PART_ButtonContextAction"
+                                            Height="40" Grid.Column="0" />
+                                    <Button Name="PART_ButtonMoreActions"
+                                            Content="{DynamicResource LOCMoreAction}"
+                                            Height="40" Grid.Column="1" Margin="10,0,0,0" />
+                                    <Button Name="PART_ButtonEditGame" Grid.Column="2"
+                                            Margin="10,0,0,0" Height="40" Focusable="False"
+                                            Content="&#xeded;" FontFamily="{DynamicResource FontIcoFont}">
+                                        <Button.Style>
+                                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Grid}}"  Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+
+                                    <!-- CheckLocalizations plugin button -->
+                                    <ContentControl x:Name="CheckLocalizations_CheckLocButton" Height="40" Margin="10,0,0,0" 
+                                                    Grid.Column="3" FontSize="14"
+                                                    Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                    Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
+
+                                    <!-- GameActivity ToggleButton -->
+                                    <StackPanel Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}"
+                                                Grid.Column="4">
+                                        <ToggleButton Height="40" Margin="10,0,0,0" IsChecked="False"
+                                                      Name="PART_ToggleButtonGameActivity" 
+                                                      Tag="{PluginSettings Plugin=GameActivity, Path=EnableIntegrationButton}"
+                                                      MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}">
+                                            <ToggleButton.Style>
+                                                <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ToggleButton.Style>
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto" />
+                                                    <ColumnDefinition Width="auto" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <!-- Without details -->
+                                                <TextBlock Text="" FontFamily="{DynamicResource CommonFont}"
+                                                           FontSize="18"
+                                                           Grid.Column="0" VerticalAlignment="Center" />
+
+                                                <!-- With details -->
+                                                <StackPanel Grid.Column="1"
+                                                            Visibility="{Binding GA_DetailsInToggleButton, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <Grid Tag="{PluginSettings Plugin=GameActivity, Path=HasData}" Margin="3,0,0,0">
+                                                        <Grid.Style>
+                                                            <Style TargetType="{x:Type Grid}">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Grid.Style>
+
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                            <RowDefinition Height="*" />
+                                                        </Grid.RowDefinitions>
+
+                                                        <Label Grid.Row="0" Content="{PluginSettings Plugin=GameActivity, Path=LastDateSession}" 
+                                                               FontSize="10" Margin="0,-2,0,0">
+                                                            <Label.Style>
+                                                                <Style TargetType="Label">
+                                                                    <Setter Property="Padding" Value="5,3,5,5" />
+                                                                    <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Label.Style>
+                                                        </Label>
+                                                        <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"
+                                                               Content="{PluginSettings Plugin=GameActivity, Path=LastPlaytimeSession}"
+                                                               FontSize="10" Margin="0,-4,0,0">
+                                                            <Label.Style>
+                                                                <Style TargetType="Label">
+                                                                    <Setter Property="Padding" Value="5,3,5,5" />
+                                                                    <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Label.Style>
+                                                        </Label>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Grid>
+                                        </ToggleButton>
+                                    </StackPanel>
+                                </Grid>
+
+                                <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"
+                                              HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                    <DockPanel>
+                                        <StackPanel DockPanel.Dock="Top" Margin="5,0,0,0">
+                                            <StackPanel.Resources>
+                                                <Style TargetType="ItemsControl">
+                                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                                </Style>
+                                                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                    <Setter Property="Margin" Value="0,4,8,4" />
+                                                    <Setter Property="VerticalAlignment" Value="Top" />
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                </Style>
+                                                <Style TargetType="Button" BasedOn="{StaticResource PropertyItemButton}" />
+                                            </StackPanel.Resources>
+
+                                            <GridEx Margin="0,5,0,10"
+                                                    ColumnCount="2" StarColumns="1"
+                                                    RowCount="21" AutoLayoutColumns="2">
+                                                <Grid.Resources>
+                                                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" />
+                                                </Grid.Resources>
+
+                                                <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" />
+                                                <TextBlock Name="PART_TextPlayTime" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}" />
+                                                <TextBlock Name="PART_TextLastActivity" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" />
+                                                <TextBlock Name="PART_TextCompletionStatus" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" />
+                                                <Button Name="PART_ButtonLibrary" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" />
+                                                <Button Name="PART_ButtonPlatform" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemGenres" Content="{DynamicResource LOCGenreLabel}" />
+                                                <ItemsControl Name="PART_ItemsGenres"  />
+
+                                                <Label Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" />
+                                                <ItemsControl Name="PART_ItemsDevelopers" />
+
+                                                <Label Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" />
+                                                <ItemsControl Name="PART_ItemsPublishers" />
+
+                                                <Label Name="PART_ElemReleaseDate" Content="{DynamicResource LOCGameReleaseDateTitle}" />
+                                                <Button Name="PART_ButtonReleaseDate" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemCategories" Content="{DynamicResource LOCGameCategoriesTitle}" />
+                                                <ItemsControl Name="PART_ItemsCategories" />
+
+                                                <Label Name="PART_ElemFeatures" Content="{DynamicResource LOCFeaturesLabel}" />
+                                                <ItemsControl Name="PART_ItemsFeatures" />
+
+                                                <Label Name="PART_ElemTags" Content="{DynamicResource LOCTagsLabel}" />
+                                                <ItemsControl Name="PART_ItemsTags" />
+
+                                                <Label Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" />
+                                                <Button Name="PART_ButtonAgeRating" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" />
+                                                <Button Name="PART_ButtonSeries" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemSource" Content="{DynamicResource LOCSourceLabel}" />
+                                                <Button Name="PART_ButtonSource" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemRegion" Content="{DynamicResource LOCRegionLabel}" />
+                                                <Button Name="PART_ButtonRegion" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" />
+                                                <Button Name="PART_ButtonVersion" VerticalAlignment="Center" />
+
+                                                <Label Name="PART_ElemCommunityScore" Content="{DynamicResource LOCCommunityScore}" />
+                                                <TextBlock Name="PART_TextCommunityScore" VerticalAlignment="Center"
+                                                           Style="{DynamicResource TextBlockGameScore}" />
+
+                                                <Label Name="PART_ElemCriticScore" Content="{DynamicResource LOCCriticScore}" />
+                                                <TextBlock Name="PART_TextCriticScore" VerticalAlignment="Center"
+                                                           Style="{DynamicResource TextBlockGameScore}" />
+
+                                                <Label Name="PART_ElemUserScore" Content="{DynamicResource LOCUserScore}" />
+                                                <TextBlock Name="PART_TextUserScore" VerticalAlignment="Center"
+                                                           Style="{DynamicResource TextBlockGameScore}" />
+
+                                                <Label Name="PART_ElemLinks" Content="{DynamicResource LOCLinksLabel}" />
+                                                <ItemsControl Name="PART_ItemsLinks" />
+                                            </GridEx>
+                                        </StackPanel>
+
+                                        <DockPanel>
+                                            <DockPanel.Style>
+                                                <Style TargetType="{x:Type DockPanel}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonGameActivity, Path=IsChecked}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </DockPanel.Style>
+                                            
+                                            <StackPanel Name="PART_ElemNotes" DockPanel.Dock="Top"
+                                                        Margin="5,0,5,15">
+                                                <TextBlock Text="{DynamicResource LOCNotesLabel}"
+                                                           Style="{DynamicResource BaseTextBlockStyle}" />
+                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                <TextBox Name="PART_TextNotes" IsReadOnly="True"
+                                                         BorderThickness="0"
+                                                         AcceptsReturn="True" TextWrapping="Wrap"
+                                                         Margin="-1,0,-1,0" Padding="0"/>
+                                            </StackPanel>
+
+                                            <!-- CheckLocalizations list languages -->
+                                            <StackPanel Name="PART_CheckLocContenerListLanguages" DockPanel.Dock="Top"
+                                                        Margin="5,0,5,0" 
+                                                        Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationListLanguages}">
+                                                <StackPanel.Style>
+                                                    <Style TargetType="{x:Type StackPanel}">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <StackPanel Visibility="{Binding ElementName=CheckLocalizations_CheckLocListLanguages, Path=Visibility}">
+                                                    <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                    <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                    <ContentControl x:Name="CheckLocalizations_CheckLocListLanguages" Margin="0,5,0,5"
+                                                                MinHeight="60" MaxHeight="300"
+                                                                Width="{Binding ElementName=PART_CheckLocContenerListLanguages, Path=ActualWidth}" />
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <StackPanel Name="PART_ElemDescription" DockPanel.Dock="Top" Margin="5,0,5,0">
+                                                <TextBlock Text="{DynamicResource LOCGameDescriptionTitle}"
+                                                           Style="{DynamicResource BaseTextBlockStyle}" />
+                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                <HtmlTextView Name="PART_HtmlDescription"
+                                                          HtmlFontSize="{DynamicResource FontSize}"
+                                                          HtmlFontFamily="{DynamicResource FontFamily}"
+                                                          HtmlForeground="{DynamicResource TextColor}"
+                                                          LinkForeground="{DynamicResource GlyphColor}"                                      
+                                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                          ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                                            </StackPanel>
+                                        </DockPanel>
+
+                                        <!-- GameActivity elements -->
+                                        <StackPanel Grid.Column="1" Margin="5,0,5,0">
+                                            <StackPanel.Style>
+                                                <Style TargetType="{x:Type StackPanel}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonGameActivity, Path=IsChecked}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonGameActivity, Path=IsChecked}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </StackPanel.Style>
+
+                                            <StackPanel>
+                                                <TextBlock Text="{DynamicResource LOCGameActivityTitle}"
+                                                           Style="{DynamicResource BaseTextBlockStyle}" />
+                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+
+                                                <!-- GameActivity time chart -->
+                                                <ContentControl x:Name="GameActivity_GameActivityChartTime" Margin="0,5,0,5"
+                                                            MinHeight="50" MaxHeight="300"
+                                                            Width="{Binding ElementName=PART_GameActivityContenerChartTime, Path=ActualWidth}" />
+
+                                                <!-- GameActivity log chart -->
+                                                <ContentControl x:Name="GameActivity_GameActivityChartLog" Margin="0,5,0,5"
+                                                            MinHeight="50" MaxHeight="300"
+                                                            Width="{Binding ElementName=PART_GameActivityContenerChartLog, Path=ActualWidth}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </ScrollViewer>
+                            </DockPanel>
+                        </DockPanel>
+                    </Border>                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
