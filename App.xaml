@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="PluginLocalizations/PluginCommon.xaml" />
                 <ResourceDictionary Source="PluginLocalizations/CheckLocalizations.xaml" />
                 <ResourceDictionary Source="PluginLocalizations/GameActivity.xaml" />
+                <ResourceDictionary Source="PluginLocalizations/HowLongToBeat.xaml" />
 
                 <ResourceDictionary Source="LocSource.xaml" />
                 <ResourceDictionary Source="GlobalResources.xaml" />

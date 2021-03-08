@@ -46,11 +46,41 @@
                                    Width="{Settings GridItemWidth}" 
                                    Visibility="{Settings ShowNamesUnderCovers}" />
 
-                            <StackPanel Width="{Settings GridItemWidth}" Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal">
                                 <!-- CheckLocalizations view item -->
                                 <ContentControl x:Name="CheckLocalizations_CheckLocViewItem"
+                                                Foreground="{DynamicResource TextBrush}" 
                                                 VerticalAlignment="Center" Margin="2,5,2,5"
                                                 Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
+
+                                <!-- HowLongToBeat view item -->
+                                <StackPanel Orientation="Horizontal" 
+                                            Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <TextBlock Text="&#xea4b;" FontFamily="{DynamicResource CommonFont}"
+                                               Foreground="{DynamicResource TextBrush}" 
+                                               Visibility="{Binding ElementName=HowLongToBeat_HltbViewItem, Path=Content.Visibility}"
+                                               VerticalAlignment="Center" Margin="8,0,0,0" />
+
+                                    <ContentControl x:Name="HowLongToBeat_HltbViewItem"
+                                                    Foreground="{DynamicResource TextBrush}"  
+                                                    VerticalAlignment="Center"
+                                                    Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}"
+                                                    Margin="8,0,0,0" />
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
                     </Border>

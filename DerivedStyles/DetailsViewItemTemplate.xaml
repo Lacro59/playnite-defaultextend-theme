@@ -1,4 +1,4 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -31,6 +31,33 @@
                                                 VerticalAlignment="Center"
                                                 Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}"
                                                 Margin="8,0,0,0" />
+                                
+                                <!-- HowLongToBeat view item -->
+                                <StackPanel Orientation="Horizontal" 
+                                            Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <TextBlock Text="&#xea4b;" FontFamily="{DynamicResource CommonFont}"
+                                               Visibility="{Binding ElementName=HowLongToBeat_HltbViewItem, Path=Content.Visibility}"
+                                               VerticalAlignment="Center" Margin="8,0,0,0" />
+
+                                    <ContentControl x:Name="HowLongToBeat_HltbViewItem"
+                                                    VerticalAlignment="Center"
+                                                    Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}"
+                                                    Margin="8,0,0,0" />
+                                </StackPanel>
                             </StackPanel>
                         </Grid>
                     </Border>

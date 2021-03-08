@@ -75,6 +75,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Button Name="PART_ButtonPlayAction" Grid.Column="0"
                                             Height="40" Style="{DynamicResource PlayButton}" />
@@ -100,13 +101,19 @@
 
                                     <!-- CheckLocalizations plugin button -->
                                     <ContentControl x:Name="CheckLocalizations_CheckLocButton" Height="40" Margin="10,0,0,0" 
-                                                    Grid.Column="3" FontSize="14"
+                                                    Grid.Column="3" FontSize="18"
                                                     Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
 
+                                    <!-- HowLongToBeat plugin button -->
+                                    <ContentControl x:Name="HowLongToBeat_HltbButton" Height="40" Margin="10,0,0,0"
+                                                            FontSize="18" Grid.Column="4"
+                                                            MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                            Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" />
+
                                     <!-- GameActivity ToggleButton -->
                                     <StackPanel Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}"
-                                                Grid.Column="4">
+                                                Grid.Column="5">
                                         <ToggleButton Height="40" Margin="10,0,0,0" IsChecked="False"
                                                       Name="PART_ToggleButtonGameActivity" 
                                                       Tag="{PluginSettings Plugin=GameActivity, Path=EnableIntegrationButton}"
@@ -132,7 +139,7 @@
                                                 </Grid.ColumnDefinitions>
 
                                                 <!-- Without details -->
-                                                <TextBlock Text="" FontFamily="{DynamicResource CommonFont}"
+                                                <TextBlock Text="&#xe90f;" FontFamily="{DynamicResource CommonFont}"
                                                            FontSize="18"
                                                            Grid.Column="0" VerticalAlignment="Center" />
 
@@ -304,8 +311,7 @@
                                                 </Style>
                                             </DockPanel.Style>
                                             
-                                            <StackPanel Name="PART_ElemNotes" DockPanel.Dock="Top"
-                                                        Margin="5,0,5,15">
+                                            <StackPanel Name="PART_ElemNotes" DockPanel.Dock="Top" Margin="5,0,5,15">
                                                 <TextBlock Text="{DynamicResource LOCNotesLabel}"
                                                            Style="{DynamicResource BaseTextBlockStyle}" />
                                                 <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
@@ -315,9 +321,33 @@
                                                          Margin="-1,0,-1,0" Padding="0"/>
                                             </StackPanel>
 
+                                            <!-- HowLongToBeat progress bar -->
+                                            <StackPanel Name="PART_HltbProgressBar" DockPanel.Dock="Top" Margin="5,0,5,15" 
+                                                    Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar}">
+                                                <StackPanel.Style>
+                                                    <Style TargetType="{x:Type StackPanel}">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <StackPanel Visibility="{Binding ElementName=HowLongToBeat_HltbProgressBar, Path=Content.Visibility}">
+                                                    <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                    <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                    <ContentControl x:Name="HowLongToBeat_HltbProgressBar" Margin="0,5,0,5" Height="50"
+                                                                Width="{Binding ElementName=PART_HltbProgressBar, Path=ActualWidth}" />
+                                                </StackPanel>
+                                            </StackPanel>
+
                                             <!-- CheckLocalizations list languages -->
-                                            <StackPanel Name="PART_CheckLocContenerListLanguages" DockPanel.Dock="Top"
-                                                        Margin="5,0,5,0" 
+                                            <StackPanel Name="PART_CheckLocContenerListLanguages" DockPanel.Dock="Top" Margin="5,0,5,15" 
                                                         Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationListLanguages}">
                                                 <StackPanel.Style>
                                                     <Style TargetType="{x:Type StackPanel}">
@@ -333,7 +363,7 @@
                                                     </Style>
                                                 </StackPanel.Style>
 
-                                                <StackPanel Visibility="{Binding ElementName=CheckLocalizations_CheckLocListLanguages, Path=Visibility}">
+                                                <StackPanel Visibility="{Binding ElementName=CheckLocalizations_CheckLocListLanguages, Path=Content.Visibility}">
                                                     <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
                                                     <Separator Background="{DynamicResource PanelSeparatorBrush}" />
                                                     <ContentControl x:Name="CheckLocalizations_CheckLocListLanguages" Margin="0,5,0,5"
