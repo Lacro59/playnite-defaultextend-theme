@@ -48,13 +48,51 @@
 
                             <StackPanel Orientation="Horizontal">
                                 <!-- CheckLocalizations view item -->
-                                <ContentControl x:Name="CheckLocalizations_CheckLocViewItem"
-                                                Foreground="{DynamicResource TextBrush}" 
-                                                VerticalAlignment="Center" Margin="2,5,2,5"
-                                                Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
+                                <StackPanel VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    
+                                    <ContentControl x:Name="CheckLocalizations_CheckLocViewItem"
+                                                    Foreground="{DynamicResource TextBrush}" 
+                                                    VerticalAlignment="Center" Margin="2,5,2,5" />
+                                </StackPanel>
+
+                                <!-- ScreenshotsVisualizer view item -->
+                                <StackPanel VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    
+                                    <ContentControl x:Name="ScreenshotsVisualizer_SsvViewItem"
+                                                    Foreground="{DynamicResource TextBrush}" 
+                                                    VerticalAlignment="Center" Margin="2,5,2,5" />
+                                </StackPanel>
 
                                 <!-- HowLongToBeat view item -->
-                                <StackPanel Orientation="Horizontal" 
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                             Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -77,9 +115,7 @@
 
                                     <ContentControl x:Name="HowLongToBeat_HltbViewItem"
                                                     Foreground="{DynamicResource TextBrush}"  
-                                                    VerticalAlignment="Center"
-                                                    Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}"
-                                                    Margin="8,0,0,0" />
+                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>

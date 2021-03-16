@@ -76,6 +76,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Button Name="PART_ButtonPlayAction" Grid.Column="0"
@@ -106,15 +107,20 @@
                                                     Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
 
+                                    <!-- ScreenshootsVisualizer plugin button -->
+                                    <ContentControl x:Name="ScreenshotsVisualizer_SsvButton" Height="40" Margin="10,0,0,0"
+                                                            FontSize="20" Grid.Column="4"
+                                                            MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                            Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin, Status=Installed}" />
+
                                     <!-- HowLongToBeat plugin button -->
                                     <ContentControl x:Name="HowLongToBeat_HltbButton" Height="40" Margin="10,0,0,0"
-                                                            FontSize="18" Grid.Column="4"
+                                                            FontSize="18" Grid.Column="5"
                                                             MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                             Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" />
 
                                     <!-- GameActivity ToggleButton -->
-                                    <StackPanel Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}"
-                                                Grid.Column="5">
+                                    <StackPanel Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}" Grid.Column="6">
                                         <ToggleButton Height="40" Margin="10,0,0,0" IsChecked="False"
                                                       Name="PART_ToggleButtonGameActivity" 
                                                       Tag="{PluginSettings Plugin=GameActivity, Path=EnableIntegrationButton}"
@@ -209,8 +215,7 @@
                                     </StackPanel>
 
                                     <!-- LibraryManagement plugin features list -->
-                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right"
-                                                Grid.Column="6"
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="7"
                                                 Tag="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures}">
                                         <StackPanel.Style>
                                             <Style TargetType="{x:Type StackPanel}">
@@ -415,6 +420,58 @@
                                                     <ContentControl x:Name="CheckLocalizations_CheckLocListLanguages" Margin="0,5,0,5"
                                                                 MinHeight="60" MaxHeight="300"
                                                                 Width="{Binding ElementName=PART_CheckLocContenerListLanguages, Path=ActualWidth}" />
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <!-- ScreenshotsVisualizer single picture -->
+                                            <StackPanel Name="PART_SsvContenerListLanguages" DockPanel.Dock="Top" Margin="5,0,5,15" 
+                                                        Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowSinglePicture}">
+                                                <StackPanel.Style>
+                                                    <Style TargetType="{x:Type StackPanel}">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_SsvSinglePicture, Path=Content.Visibility}">
+                                                    <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                    <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                    <ContentControl x:Name="ScreenshotsVisualizer_SsvSinglePicture" Margin="0,5,0,5"
+                                                                MinHeight="100" MaxHeight="300"
+                                                                Width="{Binding ElementName=PART_SsvContenerListLanguages, Path=ActualWidth}" />
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <!-- ScreenshotsVisualizer list pictures -->
+                                            <StackPanel Name="PART_SsvContenerListPictures" DockPanel.Dock="Top" Margin="5,0,5,15" 
+                                                        Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPictures}">
+                                                <StackPanel.Style>
+                                                    <Style TargetType="{x:Type StackPanel}">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_SsvListScreenshots, Path=Content.Visibility}">
+                                                    <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                    <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                    <ContentControl x:Name="ScreenshotsVisualizer_SsvListScreenshots" Margin="0,5,0,5"
+                                                                MinHeight="50" MaxHeight="300"
+                                                                Width="{Binding ElementName=PART_SsvContenerListPictures, Path=ActualWidth}" />
                                                 </StackPanel>
                                             </StackPanel>
 

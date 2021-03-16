@@ -27,13 +27,21 @@
                             
                             <StackPanel Grid.Column="2" Orientation="Horizontal">
                                 <!-- CheckLocalizations view item -->
-                                <ContentControl x:Name="CheckLocalizations_CheckLocViewItem"
-                                                VerticalAlignment="Center"
-                                                Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}"
-                                                Margin="8,0,0,0" />
-                                
+                                <StackPanel VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem}">
+                                    <ContentControl x:Name="CheckLocalizations_CheckLocViewItem"
+                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
+                                </StackPanel>
+
+                                <!-- ScreenshotsVisualizer view item -->
+                                <StackPanel VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationViewItem}">
+                                    <ContentControl x:Name="ScreenshotsVisualizer_SsvViewItem"
+                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
+                                </StackPanel>
+
                                 <!-- HowLongToBeat view item -->
-                                <StackPanel Orientation="Horizontal" 
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                             Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -54,9 +62,7 @@
                                                VerticalAlignment="Center" Margin="8,0,0,0" />
 
                                     <ContentControl x:Name="HowLongToBeat_HltbViewItem"
-                                                    VerticalAlignment="Center"
-                                                    Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}"
-                                                    Margin="8,0,0,0" />
+                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

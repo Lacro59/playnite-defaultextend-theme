@@ -132,6 +132,12 @@
                                                             MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                             Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
 
+                                            <!-- ScreenshootsVisualizer plugin button -->
+                                            <ContentControl x:Name="ScreenshotsVisualizer_SsvButton" Height="40" Margin="10,0,0,0"
+                                                            FontSize="20"
+                                                            MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                            Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin, Status=Installed}" />
+
                                             <!-- HowLongToBeat plugin button -->
                                             <ContentControl x:Name="HowLongToBeat_HltbButton" Height="40" Margin="10,0,0,0"
                                                             FontSize="18"
@@ -408,6 +414,58 @@
                                             </StackPanel>
                                         </StackPanel>
 
+                                        <!-- ScreenshotsVisualizer single picture -->
+                                        <StackPanel Name="PART_SsvContenerSinglePicture"
+                                                    Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowSinglePicture}">
+                                            <StackPanel.Style>
+                                                <Style TargetType="{x:Type StackPanel}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </StackPanel.Style>
+
+                                            <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_SsvSinglePicture, Path=Content.Visibility}">
+                                                <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                <ContentControl x:Name="ScreenshotsVisualizer_SsvSinglePicture" Margin="0,5,0,5"
+                                                                MinHeight="100" MaxHeight="300"
+                                                                Width="{Binding ElementName=PART_SsvContenerSinglePicture, Path=ActualWidth}" />
+                                            </StackPanel>
+                                        </StackPanel>
+
+                                        <!-- ScreenshotsVisualizer list pictures -->
+                                        <StackPanel Name="PART_SsvContenerListPictures"
+                                                    Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPictures}">
+                                            <StackPanel.Style>
+                                                <Style TargetType="{x:Type StackPanel}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </StackPanel.Style>
+
+                                            <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_SsvListScreenshots, Path=Content.Visibility}">
+                                                <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                <ContentControl x:Name="ScreenshotsVisualizer_SsvListScreenshots" Margin="0,5,0,5"
+                                                                MinHeight="50" MaxHeight="300"
+                                                                Width="{Binding ElementName=PART_SsvContenerListPictures, Path=ActualWidth}" />
+                                            </StackPanel>
+                                        </StackPanel>
+
                                         <StackPanel Name="PART_ElemDescription">
                                             <TextBlock Text="{DynamicResource LOCGameDescriptionTitle}" Margin="0,15,0,5"
                                                     Style="{DynamicResource BaseTextBlockStyle}" />
@@ -441,7 +499,7 @@
 
                                         <StackPanel>
                                             <TextBlock Text="{DynamicResource LOCGameActivityTitle}" Margin="0,15,0,5" 
-                                                   Style="{DynamicResource BaseTextBlockStyle}" />
+                                                       Style="{DynamicResource BaseTextBlockStyle}" />
                                             <Separator Background="{DynamicResource PanelSeparatorBrush}" />
 
                                             <!-- GameActivity time chart -->

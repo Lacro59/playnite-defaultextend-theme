@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- MainView -->
+
+    <sys:String x:Key="LOCSsv">ScreenshotsVisualizer</sys:String>
+    <sys:String x:Key="LOCSsvTitle">Screenshots</sys:String>
+
+    <sys:String x:Key="LOCSsvLatest">Latest</sys:String>
+    
+    <sys:String x:Key="LOCSsvViewScreenshots">View game screenshots</sys:String>
+    <sys:String x:Key="LOCSsvOpenScreenshotsDirectory">Open the screenshots directory</sys:String>
+
+
+    <!-- ScreenshotsVisualizerView -->
+
+    <sys:String x:Key="LOCSsvDeleteConfirm">Are you sure to delete {0}?</sys:String>
+
+
+    <!-- ScreenshotsVisualizerSettingsView -->
+
+    <sys:String x:Key="LOCSsvAddTag">Add tag if the game has screenshots</sys:String>
+    <sys:String x:Key="LOCSsvAddSteamGame">Add Steam game</sys:String>
+
+    <sys:String x:Key="LOCSsvShowSinglePicture">Display a control with a  single screenshot</sys:String>
+    <sys:String x:Key="LOCSsvShowPictures">Display a control with a list of screenshots</sys:String>
+    <sys:String x:Key="LOCSsvAddBorder">Add border</sys:String>
+    <sys:String x:Key="LOCSsvAddRoundedCorner">Add rounded corner</sys:String>
+
+    <sys:String x:Key="LOCSsvShowSinglePictureOptions">Single screenshot options</sys:String>
+    
+    <sys:String x:Key="LOCSsvShowPicturesOptions">List of screenshots options</sys:String>
+
+    <sys:String x:Key="LOCSsvOpenViewerWithOnSelection">Open on picture selection</sys:String>
+    <sys:String x:Key="LOCSsvLinkWithSinglePicture">Link selection with single screenshot view</sys:String>
+    
+    <sys:String x:Key="LOCSsvUsedFilePattern">Used a file pattern</sys:String>
+    <sys:String x:Key="LOCSsvUsedFilePatternTooltip" xml:space="preserve">You can directly use a regex pattern or use a simplified version.
+
+To use the simplified version, replace the numbers with {digit} and remove the extension.
+
+Example:
+GameName_20200107-1 => GameName_ {digit} - {digit}</sys:String>
+
+</ResourceDictionary>
