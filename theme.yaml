@@ -9,5 +9,4 @@ Links:
   - Name: Theme Github
     Url: https://github.com/Lacro59/playnite-defaultextend-theme
 Constants:
-  - GA_DetailsInToggleButton: Display detailed information in GameActivity button
   - LM_ShowFeaturesLabel: Display the features label in FeaturesIconsList

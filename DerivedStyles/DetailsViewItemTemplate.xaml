@@ -8,7 +8,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GameListItem}">
-                    <Border Name="PART_PanelHost" Padding="10,3,0,3" Background="Transparent"
+                    <Border Name="PART_PanelHost" Padding="10,3,10,3" Background="Transparent"
                             d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -16,53 +16,100 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
                             
                             <Image Name="PART_ImageIcon"
                                    Height="{Settings DetailsViewListIconSize}"
                                    RenderOptions.BitmapScalingMode="Fant"
-                                   Grid.Column="0" Margin="0,0,8,0" />
+                                   Grid.Column="0" Grid.RowSpan="2"
+                                   Margin="0,0,8,0" />
                             <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis"
                                        VerticalAlignment="Center" Grid.Column="1">
                             </TextBlock>
-                            
-                            <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                <!-- CheckLocalizations view item -->
-                                <StackPanel VerticalAlignment="Center"
-                                            Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem}">
-                                    <ContentControl x:Name="CheckLocalizations_CheckLocViewItem"
-                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
-                                </StackPanel>
 
-                                <!-- ScreenshotsVisualizer view item -->
-                                <StackPanel VerticalAlignment="Center"
-                                            Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationViewItem}">
-                                    <ContentControl x:Name="ScreenshotsVisualizer_SsvViewItem"
-                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
-                                </StackPanel>
-
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="3"
+                                        Orientation="Horizontal" HorizontalAlignment="Right">
                                 <!-- HowLongToBeat view item -->
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                             Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Setter Property="Visibility" Value="Collapsed" />
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </StackPanel.Style>
 
                                     <TextBlock Text="&#xea4b;" FontFamily="{DynamicResource CommonFont}"
-                                               Visibility="{Binding ElementName=HowLongToBeat_HltbViewItem, Path=Content.Visibility}"
-                                               VerticalAlignment="Center" Margin="8,0,0,0" />
+                                               Visibility="{Binding ElementName=HowLongToBeat_PluginViewItem, Path=Content.Visibility}"
+                                               VerticalAlignment="Center" Margin="8,4,0,0" />
 
-                                    <ContentControl x:Name="HowLongToBeat_HltbViewItem"
-                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
+                                    <ContentControl x:Name="HowLongToBeat_PluginViewItem"
+                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                </StackPanel>
+
+                                <!-- CheckLocalizations view item -->
+                                <StackPanel VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <ContentControl x:Name="CheckLocalizations_PluginViewItem"
+                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                </StackPanel>
+
+                                <!-- ScreenshotsVisualizer view item -->
+                                <StackPanel VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <ContentControl x:Name="ScreenshotsVisualizer_PluginViewItem" 
+                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                </StackPanel>
+
+                                <!-- SuccessStory view item -->
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <TextBlock Text="&#xe820;" FontFamily="{DynamicResource FontIcoFont}"
+                                               Visibility="{Binding ElementName=SuccessStory_PluginViewItem, Path=Content.Visibility}"
+                                               VerticalAlignment="Center" Margin="8,4,0,0" />
+
+                                    <ContentControl x:Name="SuccessStory_PluginViewItem" Width="60"
+                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

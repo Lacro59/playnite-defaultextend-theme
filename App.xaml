@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="PluginLocalizations/GameActivity.xaml" />
                 <ResourceDictionary Source="PluginLocalizations/HowLongToBeat.xaml" />
                 <ResourceDictionary Source="PluginLocalizations/ScreenshotsVisualizer.xaml" />
+                <ResourceDictionary Source="PluginLocalizations/SuccessStory.xaml" />
 
                 <ResourceDictionary Source="LocSource.xaml" />
                 <ResourceDictionary Source="GlobalResources.xaml" />
