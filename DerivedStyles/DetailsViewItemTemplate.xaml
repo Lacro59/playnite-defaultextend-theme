@@ -111,6 +111,24 @@
                                     <ContentControl x:Name="SuccessStory_PluginViewItem" Width="60"
                                                     VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
+
+                                <!-- SystemChecker view item -->
+                                <StackPanel VerticalAlignment="Center"
+                                            Tag="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationViewItem}">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <ContentControl x:Name="SystemChecker_PluginViewItem"
+                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                </StackPanel>
                             </StackPanel>
                         </Grid>
                     </Border>

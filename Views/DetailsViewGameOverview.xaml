@@ -456,6 +456,12 @@
                                                     </Grid>
                                                 </ToggleButton>
                                             </StackPanel>
+
+                                            <!-- SystemChecker plugin button -->
+                                            <ContentControl x:Name="SystemChecker_PluginButton" Height="40" Margin="10,0,0,0" FontSize="16"
+                                                            MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                            Visibility="{PluginStatus Plugin=playnite-systemchecker-plugin, Status=Installed}" />
+
                                         </StackPanel>
                                     </StackPanel>
                                 </DockPanel>

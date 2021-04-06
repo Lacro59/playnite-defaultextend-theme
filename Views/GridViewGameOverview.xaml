@@ -78,6 +78,8 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Button Name="PART_ButtonPlayAction" Grid.Column="0"
@@ -341,9 +343,9 @@
 
                                     <!-- HowLongToBeat plugin button -->
                                     <ContentControl x:Name="HowLongToBeat_PluginButton" Height="40" Margin="10,0,0,0"
-                                                            FontSize="12" Grid.Column="6"
-                                                            MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                            Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" />
+                                                    FontSize="12" Grid.Column="6"
+                                                    MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                    Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" />
 
                                     <!-- GameActivity ToggleButton -->
                                     <StackPanel Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}" 
@@ -490,6 +492,12 @@
                                             </StackPanel>
                                         </Border>
                                     </StackPanel>
+
+                                    <!-- SystemChecker plugin button -->
+                                    <ContentControl x:Name="SystemChecker_PluginButton" Height="40" Margin="10,0,0,0" 
+                                                    FontSize="16" Grid.Column="9"
+                                                    MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                    Visibility="{PluginStatus Plugin=playnite-systemchecker-plugin, Status=Installed}" />
                                 </Grid>
 
                                 <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"
