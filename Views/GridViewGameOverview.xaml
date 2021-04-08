@@ -57,8 +57,40 @@
                                 </DockPanel.Style>
 
                                 <DockPanel DockPanel.Dock="Top">
-                                    <Image Name="PART_ImageIcon" DockPanel.Dock="Left" MaxHeight="32" MaxWidth="32"
-                                           RenderOptions.BitmapScalingMode="Fant" Margin="0,0,10,0" />
+                                    <Grid Name="PART_GridImageContener"
+                                          DockPanel.Dock="Left" MaxHeight="32" MaxWidth="32"
+                                          Margin="0,0,10,0"
+                                          Visibility="{Binding ElementName=PART_ImageIcon, Path=Visibility}"
+                                          Tag="{PluginSettings Plugin=ThemeModifier, Path=EnableIntegrationIcon}">
+                                        <Grid>
+                                            <Grid.Style>
+                                                <Style TargetType="{x:Type Grid}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+
+                                            <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" />
+                                        </Grid>
+
+                                        <ContentControl x:Name="ThemeModifier_PluginIcon">
+                                            <ContentControl.Style>
+                                                <Style TargetType="{x:Type ContentControl}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ContentControl.Style>
+                                        </ContentControl>
+                                    </Grid>
+                                    
                                     <TextBlock Text="{Binding Game.DisplayName}" FontSize="{DynamicResource FontSizeLarger}"
                                                TextWrapping="Wrap" DockPanel.Dock="Left"
                                                VerticalAlignment="Center" Foreground="{DynamicResource TextBrush}">
@@ -103,7 +135,7 @@
                                             </Style>
                                         </Button.Style>
                                     </Button>
-
+ 
                                     <!-- CheckLocalizations plugin button -->
                                     <ContentControl x:Name="CheckLocalizations_PluginButton" Height="40" Margin="10,0,0,0" 
                                                     Grid.Column="3" FontSize="14"

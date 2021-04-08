@@ -26,7 +26,7 @@
                                     </RadialGradientBrush>
                                 </FadeImage.ImageOpacityMask>
                             </FadeImage>
-
+ 
                             <!-- LibraryManagement plugin features list -->
                             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right"
                                         Margin="0,10,20,0" 
@@ -85,10 +85,41 @@
                                             RenderOptions.BitmapScalingMode="Fant" />
                                     <StackPanel VerticalAlignment="Bottom" DockPanel.Dock="Left">
                                         <DockPanel>
-                                            <Image Name="PART_ImageIcon" MaxHeight="48" MaxWidth="48"
-                                                    DockPanel.Dock="Left" Margin="0,0,10,0"
-                                                    VerticalAlignment="Center"
-                                                    RenderOptions.BitmapScalingMode="Fant" />
+                                            <Grid Name="PART_GridImageContener"
+                                                  MaxHeight="48" MaxWidth="48"
+                                                  DockPanel.Dock="Left" Margin="0,0,10,0"
+                                                  VerticalAlignment="Center"
+                                                  Visibility="{Binding ElementName=PART_ImageIcon, Path=Visibility}"
+                                                  Tag="{PluginSettings Plugin=ThemeModifier, Path=EnableIntegrationIcon}">
+                                                <Grid>
+                                                    <Grid.Style>
+                                                        <Style TargetType="{x:Type Grid}">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Grid.Style>
+
+                                                    <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" />
+                                                </Grid>
+
+                                                <ContentControl x:Name="ThemeModifier_PluginIcon">
+                                                    <ContentControl.Style>
+                                                        <Style TargetType="{x:Type ContentControl}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ContentControl.Style>
+                                                </ContentControl>
+                                            </Grid>
+
                                             <TextBlock FontFamily="{DynamicResource FontFamily}"
                                                         Text="{Binding Game.DisplayName}" DockPanel.Dock="Left"
                                                         FontSize="{DynamicResource FontSizeLargest}" Margin="0,0,10,0" TextWrapping="Wrap"
@@ -461,7 +492,6 @@
                                             <ContentControl x:Name="SystemChecker_PluginButton" Height="40" Margin="10,0,0,0" FontSize="16"
                                                             MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                             Visibility="{PluginStatus Plugin=playnite-systemchecker-plugin, Status=Installed}" />
-
                                         </StackPanel>
                                     </StackPanel>
                                 </DockPanel>

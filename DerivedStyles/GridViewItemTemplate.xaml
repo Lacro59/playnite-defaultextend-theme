@@ -45,7 +45,7 @@
                                    Padding="2,5,2,5" Grid.Row="1" Grid.Column="0"
                                    Width="{Settings GridItemWidth}" 
                                    Visibility="{Settings ShowNamesUnderCovers}" />
-
+ 
                             <StackPanel Orientation="Horizontal">
                                 <!-- CheckLocalizations view item -->
                                 <StackPanel VerticalAlignment="Center"
@@ -147,7 +147,7 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="SystemChecker_PluginViewItem"
+                                    <ContentControl x:Name="SystemChecker_PluginViewItem" Foreground="{DynamicResource TextBrush}" 
                                                     VerticalAlignment="Center" Margin="8,0,0,0" />
                                 </StackPanel>
                             </StackPanel>

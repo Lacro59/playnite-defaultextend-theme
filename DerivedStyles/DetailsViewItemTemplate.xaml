@@ -3,7 +3,7 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                     mc:Ignorable="d">
-
+ 
     <Style x:Key="DetailsViewItemTemplate" TargetType="{x:Type GameListItem}">
         <Setter Property="Template">
             <Setter.Value>
@@ -20,12 +20,42 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            
-                            <Image Name="PART_ImageIcon"
-                                   Height="{Settings DetailsViewListIconSize}"
-                                   RenderOptions.BitmapScalingMode="Fant"
-                                   Grid.Column="0" Grid.RowSpan="2"
-                                   Margin="0,0,8,0" />
+
+                            <Grid Grid.Column="0" Grid.RowSpan="2"
+                                  Name="PART_GridImageContener"
+                                  Height="{Settings DetailsViewListIconSize}"
+                                  Margin="0,0,8,0"
+                                  VerticalAlignment="Center"
+                                  Tag="{PluginSettings Plugin=ThemeModifier, Path=EnableIntegrationIcon}">
+                                <Grid>
+                                    <Grid.Style>
+                                        <Style TargetType="{x:Type Grid}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Grid.Style>
+                                    
+                                    <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" />
+                                </Grid>
+
+                                <ContentControl x:Name="ThemeModifier_PluginIcon">
+                                    <ContentControl.Style>
+                                        <Style TargetType="{x:Type ContentControl}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
+                            </Grid>
+
                             <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis"
                                        VerticalAlignment="Center" Grid.Column="1">
                             </TextBlock>
