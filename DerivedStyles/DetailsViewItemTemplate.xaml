@@ -14,7 +14,6 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -57,13 +56,46 @@
                             </Grid>
 
                             <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis"
-                                       VerticalAlignment="Center" Grid.Column="1">
+                                       VerticalAlignment="Center" Name="PART_TbGameName"
+                                       Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding ElementName=HowLongToBeat_PluginViewItem, Path=ActualHeight}" Value="0" />
+                                                    <Condition Binding="{Binding ElementName=CheckLocalizations_PluginViewItem, Path=ActualHeight}" Value="0" />
+                                                    <Condition Binding="{Binding ElementName=ScreenshotsVisualizer_PluginViewItem, Path=ActualHeight}" Value="0" />
+                                                    <Condition Binding="{Binding ElementName=SuccessStory_PluginViewItem, Path=ActualHeight}" Value="0" />
+                                                    <Condition Binding="{Binding ElementName=SystemChecker_PluginViewItem, Path=ActualHeight}" Value="0" />
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis"
+                                       VerticalAlignment="Center" 
+                                       Grid.Row="0" Grid.Column="1">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=PART_TbGameName, Path=Visibility}" Value="Visible">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
                             </TextBlock>
 
                             <StackPanel Grid.Row="1" Grid.ColumnSpan="3"
                                         Orientation="Horizontal" HorizontalAlignment="Right">
                                 <!-- HowLongToBeat view item -->
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Name="PART_HltbViewItem"
                                             Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -80,12 +112,11 @@
                                                Visibility="{Binding ElementName=HowLongToBeat_PluginViewItem, Path=Content.Visibility}"
                                                VerticalAlignment="Center" Margin="8,4,0,0" />
 
-                                    <ContentControl x:Name="HowLongToBeat_PluginViewItem"
-                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="HowLongToBeat_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- CheckLocalizations view item -->
-                                <StackPanel VerticalAlignment="Center"
+                                <StackPanel VerticalAlignment="Center" Name="PART_ClViewItem"
                                             Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -98,12 +129,11 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="CheckLocalizations_PluginViewItem"
-                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="CheckLocalizations_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- ScreenshotsVisualizer view item -->
-                                <StackPanel VerticalAlignment="Center"
+                                <StackPanel VerticalAlignment="Center" Name="PART_SsvViewItem"
                                             Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -116,12 +146,11 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="ScreenshotsVisualizer_PluginViewItem" 
-                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="ScreenshotsVisualizer_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- SuccessStory view item -->
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Name="PART_SsViewItem"
                                             Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -138,12 +167,11 @@
                                                Visibility="{Binding ElementName=SuccessStory_PluginViewItem, Path=Content.Visibility}"
                                                VerticalAlignment="Center" Margin="8,4,0,0" />
 
-                                    <ContentControl x:Name="SuccessStory_PluginViewItem" Width="60"
-                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="SuccessStory_PluginViewItem" Width="60" VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- SystemChecker view item -->
-                                <StackPanel VerticalAlignment="Center"
+                                <StackPanel VerticalAlignment="Center" Name="PART_ScViewItem"
                                             Tag="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationViewItem}">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -156,8 +184,7 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="SystemChecker_PluginViewItem"
-                                                    VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="SystemChecker_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
