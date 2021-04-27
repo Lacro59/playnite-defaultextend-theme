@@ -142,77 +142,73 @@
                                                     Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
 
+                                    <!-- SuccessStory Button -->
+                                    <ContentControl x:Name="SuccessStory_PluginButton" Height="40" Margin="10,0,0,0" FontSize="16"
+                                                    Visibility="{DynamicResource SS_ShowButton}" />
+                                    
                                     <!-- SuccessStory ToggleButton -->
-                                    <StackPanel Tag="{PluginSettings Plugin=SuccessStory, Path=HasData}" Grid.Column="4">
-                                        <StackPanel.Style>
-                                            <Style TargetType="{x:Type StackPanel}">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                        <Setter Property="Visibility" Value="Visible" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </StackPanel.Style>
-
-                                        <ToggleButton Height="40" Margin="10,0,0,0" IsChecked="False"
-                                                              Name="PART_ToggleButtonSuccessStory" 
-                                                              Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationButton}"
-                                                              MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}">
-                                            <ToggleButton.Style>
-                                                <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+                                    <StackPanel Visibility="{DynamicResource SS_ShowToggleButton}">
+                                        <StackPanel Name="PART_SsButton" Tag="{PluginSettings Plugin=SuccessStory, Path=HasData}" Grid.Column="4">
+                                            <StackPanel.Style>
+                                                <Style TargetType="{x:Type StackPanel}">
                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
                                                             <Setter Property="Visibility" Value="Visible" />
                                                         </DataTrigger>
-                                                        <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonGameActivity, Path=IsChecked}" Value="True">
-                                                            <Setter Property="IsChecked" Value="True" />
-                                                        </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
-                                            </ToggleButton.Style>
+                                            </StackPanel.Style>
 
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="auto" />
-                                                    <ColumnDefinition Width="auto" />
-                                                </Grid.ColumnDefinitions>
+                                            <ToggleButton Height="40" Margin="10,0,0,0" IsChecked="False"
+                                                              Name="PART_ToggleButtonSuccessStory" 
+                                                              Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationButton}"
+                                                              MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}">
+                                                <ToggleButton.Style>
+                                                    <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonGameActivity, Path=IsChecked}" Value="True">
+                                                                <Setter Property="IsChecked" Value="True" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=PART_SsButton, Path=Tag}" Value="False">
+                                                                <Setter Property="IsChecked" Value="False" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </ToggleButton.Style>
 
-                                                <!-- Without details -->
-                                                <TextBlock Text="&#xe820;" FontFamily="{DynamicResource FontIcoFont}"
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto" />
+                                                        <ColumnDefinition Width="auto" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!-- Without details -->
+                                                    <TextBlock Text="&#xe820;" FontFamily="{DynamicResource FontIcoFont}"
                                                                    FontSize="16"
                                                                    Grid.Column="0" VerticalAlignment="Center"
                                                                    Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationButtonDetails}">
-                                                    <TextBlock.Style>
-                                                        <Style TargetType="{x:Type TextBlock}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                                    <Setter Property="Visibility" Value="Visible" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </TextBlock.Style>
-                                                </TextBlock>
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
 
-                                                <!-- With details -->
-                                                <StackPanel Grid.Column="1"
+                                                    <!-- With details -->
+                                                    <StackPanel Grid.Column="1"
                                                                     Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationButtonDetails}">
-                                                    <StackPanel.Style>
-                                                        <Style TargetType="{x:Type StackPanel}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                    <Setter Property="Visibility" Value="Visible" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </StackPanel.Style>
-
-                                                    <Grid Tag="{PluginSettings Plugin=SuccessStory, Path=HasData}" Margin="3,0,0,0">
-                                                        <Grid.Style>
-                                                            <Style TargetType="{x:Type Grid}">
+                                                        <StackPanel.Style>
+                                                            <Style TargetType="{x:Type StackPanel}">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                 <Style.Triggers>
                                                                     <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
@@ -220,141 +216,154 @@
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
                                                             </Style>
-                                                        </Grid.Style>
+                                                        </StackPanel.Style>
 
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="auto" />
-                                                            <ColumnDefinition Width="auto" />
-                                                            <ColumnDefinition Width="3" />
-                                                            <ColumnDefinition Width="*" />
-                                                            <ColumnDefinition Width="3" />
-                                                        </Grid.ColumnDefinitions>
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="*" />
-                                                            <RowDefinition Height="3" />
-                                                            <RowDefinition Height="*" />
-                                                        </Grid.RowDefinitions>
-
-                                                        <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Content="&#xea33;" FontFamily="{DynamicResource CommonFont}" 
-                                                                       VerticalAlignment="Center" 
-                                                                       Tag="{PluginSettings Plugin=SuccessStory, Path=Is100Percent}"
-                                                                       FontSize="16">
-                                                            <Label.Style>
-                                                                <Style TargetType="Label">
-                                                                    <Setter Property="Padding" Value="5,3,5,5" />
-                                                                    <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                        <Grid Tag="{PluginSettings Plugin=SuccessStory, Path=HasData}">
+                                                            <Grid.Style>
+                                                                <Style TargetType="{x:Type Grid}">
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                     <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
                                                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
                                                                             <Setter Property="Visibility" Value="Visible" />
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
-                                                            </Label.Style>
-                                                        </Label>
+                                                            </Grid.Style>
 
-                                                        <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" 
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="auto" />
+                                                                <ColumnDefinition Width="auto" />
+                                                                <ColumnDefinition Width="3" />
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="3" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="*" />
+                                                                <RowDefinition Height="3" />
+                                                                <RowDefinition Height="*" />
+                                                            </Grid.RowDefinitions>
+
+                                                            <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Content="&#xea33;" FontFamily="{DynamicResource CommonFont}" 
+                                                                       VerticalAlignment="Center" 
+                                                                       Tag="{PluginSettings Plugin=SuccessStory, Path=Is100Percent}"
+                                                                       FontSize="16">
+                                                                <Label.Style>
+                                                                    <Style TargetType="Label">
+                                                                        <Setter Property="Padding" Value="5,3,5,5" />
+                                                                        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Label.Style>
+                                                            </Label>
+
+                                                            <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" 
                                                                        FontSize="9.25" Margin="0,-3,0,-3"
                                                                        Content="{DynamicResource LOCSuccessStoryAchievements}">
-                                                            <Label.Style>
-                                                                <Style TargetType="Label">
-                                                                    <Setter Property="Padding" Value="5,3,5,5" />
-                                                                    <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-                                                                    <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                    </Style.Triggers>
-                                                                </Style>
-                                                            </Label.Style>
-                                                        </Label>
+                                                                <Label.Style>
+                                                                    <Style TargetType="Label">
+                                                                        <Setter Property="Padding" Value="5,3,5,5" />
+                                                                        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Label.Style>
+                                                            </Label>
 
-                                                        <StackPanel Orientation="Horizontal" Margin="0,-3,0,-3" Grid.Column="1" Grid.Row="2" >
-                                                            <Label Content="{PluginSettings Plugin=SuccessStory, Path=Unlocked}" 
+                                                            <StackPanel Orientation="Horizontal" Margin="0,-3,0,-3" Grid.Column="1" Grid.Row="2" >
+                                                                <Label Content="{PluginSettings Plugin=SuccessStory, Path=Unlocked}" 
                                                                            HorizontalAlignment="Left" FontSize="9.25"
                                                                            Padding="5,3,0,5">
-                                                                <Label.Style>
-                                                                    <Style TargetType="Label">
-                                                                        <Setter Property="Padding" Value="5,3,5,5" />
-                                                                        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-                                                                        <Style.Triggers>
-                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                            </DataTrigger>
-                                                                        </Style.Triggers>
-                                                                    </Style>
-                                                                </Label.Style>
-                                                            </Label>
-                                                            <Label Content="/" Padding="0,3,0,5"
+                                                                    <Label.Style>
+                                                                        <Style TargetType="Label">
+                                                                            <Setter Property="Padding" Value="5,3,5,5" />
+                                                                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                </DataTrigger>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Label.Style>
+                                                                </Label>
+                                                                <Label Content="/" Padding="0,3,0,5"
                                                                            HorizontalAlignment="Left" FontSize="9.25">
-                                                                <Label.Style>
-                                                                    <Style TargetType="Label">
-                                                                        <Setter Property="Padding" Value="5,3,5,5" />
-                                                                        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-                                                                        <Style.Triggers>
-                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                            </DataTrigger>
-                                                                        </Style.Triggers>
-                                                                    </Style>
-                                                                </Label.Style>
-                                                            </Label>
-                                                            <Label Content="{PluginSettings Plugin=SuccessStory, Path=Total}" 
+                                                                    <Label.Style>
+                                                                        <Style TargetType="Label">
+                                                                            <Setter Property="Padding" Value="5,3,5,5" />
+                                                                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                </DataTrigger>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Label.Style>
+                                                                </Label>
+                                                                <Label Content="{PluginSettings Plugin=SuccessStory, Path=Total}" 
                                                                            HorizontalAlignment="Left" FontSize="9.25"
                                                                            Padding="0,3,5,5">
-                                                                <Label.Style>
-                                                                    <Style TargetType="Label">
-                                                                        <Setter Property="Padding" Value="5,3,5,5" />
-                                                                        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-                                                                        <Style.Triggers>
-                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                            </DataTrigger>
-                                                                        </Style.Triggers>
-                                                                    </Style>
-                                                                </Label.Style>
-                                                            </Label>
-                                                        </StackPanel>
+                                                                    <Label.Style>
+                                                                        <Style TargetType="Label">
+                                                                            <Setter Property="Padding" Value="5,3,5,5" />
+                                                                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                </DataTrigger>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Label.Style>
+                                                                </Label>
+                                                            </StackPanel>
 
-                                                        <ProgressBar Grid.Column="3" Grid.Row="2" Height="12"
+                                                            <ProgressBar Grid.Column="3" Grid.Row="2" Height="12"
                                                                              MinWidth="40" Margin="0,-2,0,0"
                                                                              Maximum="{PluginSettings Plugin=SuccessStory, Path=Total, FallbackValue=100}"
                                                                              Value="{PluginSettings Plugin=SuccessStory, Path=Unlocked, FallbackValue=0}">
-                                                            <ProgressBar.Style>
-                                                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource {x:Type ProgressBar}}">
-                                                                    <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                    </Style.Triggers>
-                                                                </Style>
-                                                            </ProgressBar.Style>
-                                                        </ProgressBar>
-                                                    </Grid>
-                                                </StackPanel>
-                                            </Grid>
-                                        </ToggleButton>
+                                                                <ProgressBar.Style>
+                                                                    <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource {x:Type ProgressBar}}">
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </ProgressBar.Style>
+                                                            </ProgressBar>
+                                                        </Grid>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </ToggleButton>
+                                        </StackPanel>
                                     </StackPanel>
 
                                     <!-- ScreenshootsVisualizer plugin button -->
@@ -379,55 +388,51 @@
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" />
 
+                                    <!-- GameActivity Button -->
+                                    <ContentControl x:Name="GameActivity_PluginButton" Height="40" Margin="10,0,0,0" FontSize="18"
+                                                    Visibility="{DynamicResource GA_ShowButton}" />
+
                                     <!-- GameActivity ToggleButton -->
-                                    <StackPanel Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}" 
+                                    <StackPanel Visibility="{DynamicResource GA_ShowToggleButton}">
+                                        <StackPanel Name="PART_GaButton" Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}" 
                                                 Grid.Column="7">
-                                        <ToggleButton Height="40" Margin="10,0,0,0" IsChecked="False"
+                                            <ToggleButton Height="40" Margin="10,0,0,0" IsChecked="False"
                                                       Name="PART_ToggleButtonGameActivity" 
                                                       Tag="{PluginSettings Plugin=GameActivity, Path=EnableIntegrationButton}"
                                                       MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}">
-                                            <ToggleButton.Style>
-                                                <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                            <Setter Property="Visibility" Value="Visible" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonSuccessStory, Path=IsChecked}" Value="True">
-                                                            <Setter Property="IsChecked" Value="False" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </ToggleButton.Style>
+                                                <ToggleButton.Style>
+                                                    <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonSuccessStory, Path=IsChecked}" Value="True">
+                                                                <Setter Property="IsChecked" Value="False" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=PART_GaButton, Path=Tag}" Value="False">
+                                                                <Setter Property="IsChecked" Value="False" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </ToggleButton.Style>
 
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="auto" />
-                                                    <ColumnDefinition Width="auto" />
-                                                </Grid.ColumnDefinitions>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto" />
+                                                        <ColumnDefinition Width="auto" />
+                                                    </Grid.ColumnDefinitions>
 
-                                                <!-- Without details -->
-                                                <TextBlock Text="&#xe97f;" FontFamily="{DynamicResource FontIcoFont}"
+                                                    <!-- Without details -->
+                                                    <TextBlock Text="&#xe97f;" FontFamily="{DynamicResource FontIcoFont}"
                                                            FontSize="12"
                                                            Grid.Column="0" VerticalAlignment="Center" />
 
-                                                <!-- With details -->
-                                                <StackPanel Grid.Column="1"
+                                                    <!-- With details -->
+                                                    <StackPanel Grid.Column="1"
                                                             Tag="{PluginSettings Plugin=GameActivity, Path=EnableIntegrationButtonDetails}">
-                                                    <StackPanel.Style>
-                                                        <Style TargetType="{x:Type StackPanel}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                    <Setter Property="Visibility" Value="Visible" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </StackPanel.Style>
-                                                    
-                                                    <Grid Tag="{PluginSettings Plugin=GameActivity, Path=HasData}" Margin="3,0,0,0">
-                                                        <Grid.Style>
-                                                            <Style TargetType="{x:Type Grid}">
+                                                        <StackPanel.Style>
+                                                            <Style TargetType="{x:Type StackPanel}">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                 <Style.Triggers>
                                                                     <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
@@ -435,53 +440,66 @@
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
                                                             </Style>
-                                                        </Grid.Style>
+                                                        </StackPanel.Style>
 
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="*" />
-                                                            <RowDefinition Height="3" />
-                                                            <RowDefinition Height="*" />
-                                                        </Grid.RowDefinitions>
-
-                                                        <Label Grid.Row="0" Content="{PluginSettings Plugin=GameActivity, Path=LastDateSession}" 
-                                                               FontSize="9.25" Margin="0,-3,0,-3">
-                                                            <Label.Style>
-                                                                <Style TargetType="Label">
-                                                                    <Setter Property="Padding" Value="5,3,5,5" />
-                                                                    <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                        <Grid Tag="{PluginSettings Plugin=GameActivity, Path=HasData}">
+                                                            <Grid.Style>
+                                                                <Style TargetType="{x:Type Grid}">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
                                                                     <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                            <Setter Property="Visibility" Value="Visible" />
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
-                                                            </Label.Style>
-                                                        </Label>
-                                                        <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"
+                                                            </Grid.Style>
+
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="*" />
+                                                                <RowDefinition Height="3" />
+                                                                <RowDefinition Height="*" />
+                                                            </Grid.RowDefinitions>
+
+                                                            <Label Grid.Row="0" Content="{PluginSettings Plugin=GameActivity, Path=LastDateSession}" 
+                                                               FontSize="9.25" Margin="0,-3,0,-3">
+                                                                <Label.Style>
+                                                                    <Style TargetType="Label">
+                                                                        <Setter Property="Padding" Value="5,3,5,5" />
+                                                                        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Label.Style>
+                                                            </Label>
+                                                            <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"
                                                                Content="{PluginSettings Plugin=GameActivity, Path=LastPlaytimeSession}"
                                                                FontSize="9.25" Margin="0,-3,0,-3">
-                                                            <Label.Style>
-                                                                <Style TargetType="Label">
-                                                                    <Setter Property="Padding" Value="5,3,5,5" />
-                                                                    <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-                                                                    <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                        </DataTrigger>
-                                                                    </Style.Triggers>
-                                                                </Style>
-                                                            </Label.Style>
-                                                        </Label>
-                                                    </Grid>
-                                                </StackPanel>
-                                            </Grid>
-                                        </ToggleButton>
+                                                                <Label.Style>
+                                                                    <Style TargetType="Label">
+                                                                        <Setter Property="Padding" Value="5,3,5,5" />
+                                                                        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Label.Style>
+                                                            </Label>
+                                                        </Grid>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </ToggleButton>
+                                        </StackPanel>
                                     </StackPanel>
 
                                     <!-- LibraryManagement plugin features list -->
@@ -765,6 +783,9 @@
                                                         <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonSuccessStory, Path=IsChecked}" Value="True">
                                                             <Setter Property="Visibility" Value="Collapsed" />
                                                         </DataTrigger>
+                                                        <DataTrigger Binding="{Binding ElementName=PART_GaButton, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
                                             </DockPanel.Style>
@@ -794,6 +815,9 @@
                                                             <Setter Property="Visibility" Value="Visible" />
                                                         </DataTrigger>
                                                         <DataTrigger Binding="{Binding ElementName=PART_ToggleButtonGameActivity, Path=IsChecked}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding ElementName=PART_SsButton, Path=Tag}" Value="False">
                                                             <Setter Property="Visibility" Value="Collapsed" />
                                                         </DataTrigger>
                                                     </Style.Triggers>

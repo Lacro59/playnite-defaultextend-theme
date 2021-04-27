@@ -4,6 +4,14 @@
 
     <Visibility x:Key="LM_ShowFeaturesLabel">Collapsed</Visibility>
 
+    <Visibility x:Key="GA_ShowButton">Visible</Visibility>
+    <Visibility x:Key="GA_ShowToggleButton">Collapsed</Visibility>
+
+    <Visibility x:Key="SS_ShowButton">Visible</Visibility>
+    <Visibility x:Key="SS_ShowToggleButton">Collapsed</Visibility>
+
+    
+    
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSize">14</sys:Double>
     <sys:Double x:Key="FontSizeLarge">15</sys:Double>
