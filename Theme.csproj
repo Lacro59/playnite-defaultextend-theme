@@ -85,6 +85,19 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Content Include="DescriptionView.html" />
+    <Content Include="Images\applogo.ico" />
+    <Content Include="Images\applogo.png" />
+    <Content Include="Images\applogo_black.ico" />
+    <Content Include="Images\applogo_dark.png" />
+    <Content Include="Images\applogo_white.ico" />
+    <Content Include="Images\csharp.ico" />
+    <Content Include="Images\custom_cover_background.png" />
+    <Content Include="Images\discord.png" />
+    <Content Include="Images\patreon.png" />
+    <Content Include="Images\powershell.ico" />
+    <Content Include="Images\python.ico" />
+    <Content Include="Images\reddit.png" />
+    <Content Include="Images\twitter.png" />
     <Content Include="LocSource.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -416,6 +429,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FilterPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TopPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

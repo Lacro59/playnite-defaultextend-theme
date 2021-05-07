@@ -200,8 +200,19 @@
                                                             Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
 
                                             <!-- SuccessStory Button -->
-                                            <ContentControl x:Name="SuccessStory_PluginButton" Height="40" Margin="10,0,0,0" FontSize="18"
-                                                            Width="130" Visibility="{DynamicResource SS_ShowButton}" />
+                                            <ContentControl x:Name="SuccessStory_PluginButton" Height="40" Margin="10,0,0,0" FontSize="18" Width="130"
+                                                            Tag="{PluginStatus Plugin=playnite-successstory-plugin, Status=Installed}">
+                                                <ContentControl.Style>
+                                                    <Style TargetType="{x:Type ContentControl}">
+                                                        <Setter Property="Visibility" Value="{DynamicResource SS_ShowButton}" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </ContentControl.Style>
+                                            </ContentControl>
 
                                             <!-- SuccessStory ToggleButton -->
                                             <StackPanel Visibility="{DynamicResource SS_ShowToggleButton}">
@@ -434,8 +445,19 @@
                                                             Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" />
 
                                             <!-- GameActivity Button -->
-                                            <ContentControl x:Name="GameActivity_PluginButton" Height="40" Margin="10,0,0,0" FontSize="16"
-                                                            Width="130" Visibility="{DynamicResource GA_ShowButton}" />
+                                            <ContentControl x:Name="GameActivity_PluginButton" Height="40" Margin="10,0,0,0" FontSize="16" Width="130"
+                                                            Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}">
+                                                <ContentControl.Style>
+                                                    <Style TargetType="{x:Type ContentControl}">
+                                                        <Setter Property="Visibility" Value="{DynamicResource GA_ShowButton}" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </ContentControl.Style>
+                                            </ContentControl>
                                             
                                             <!-- GameActivity ToggleButton -->
                                             <StackPanel Visibility="{DynamicResource GA_ShowToggleButton}">
