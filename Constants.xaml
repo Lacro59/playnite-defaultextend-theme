@@ -4,6 +4,8 @@
 
     <Visibility x:Key="LM_ShowFeaturesLabel">Collapsed</Visibility>
 
+    <Visibility x:Key="CL_ShowLocalizationsLabel">Collapsed</Visibility>
+
     <Visibility x:Key="GA_ShowButton">Visible</Visibility>
     <Visibility x:Key="GA_ShowToggleButton">Collapsed</Visibility>
 

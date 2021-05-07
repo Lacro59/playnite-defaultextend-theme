@@ -17,3 +17,5 @@ Constants:
   - SS_ShowToggleButton: Display a button to show plugin data in game details view
   - LibraryManagement
   - LM_ShowFeaturesLabel: Display the features label in FeaturesIconsList
+  - CheckLocalizations
+  - CL_ShowLocalizationsLabel: Display the localizations label in FeaturesIconsList

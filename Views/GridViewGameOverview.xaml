@@ -543,6 +543,47 @@
                                         </Border>
                                     </StackPanel>
 
+                                    <!-- CheckLocalizations flags -->
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="8"
+                                                Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationFlags}">
+                                        <StackPanel.Style>
+                                            <Style TargetType="{x:Type StackPanel}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Style>
+
+                                        <Border Padding="5"
+                                                BorderBrush="{DynamicResource NormalBorderBrush}"
+                                                CornerRadius="{DynamicResource ControlCornerRadius}"
+                                                BorderThickness="{DynamicResource ControlBorderThickness}" 
+                                                Background="{DynamicResource ButtonBackgroundBrush}"  
+                                                Tag="{PluginSettings Plugin=CheckLocalizations, Path=HasData}">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" FontSize="14"
+                                                           Foreground="{DynamicResource TextBrush}"
+                                                           Margin="5,0,5,0" VerticalAlignment="Center"
+                                                           Visibility="{DynamicResource CL_ShowLocalizationsLabel}" />
+                                                <ContentControl x:Name="CheckLocalizations_PluginFlags" Height="26" />
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+
                                     <!-- SystemChecker plugin button -->
                                     <ContentControl x:Name="SystemChecker_PluginButton" Height="40" Margin="10,0,0,0" 
                                                     FontSize="16" Grid.Column="9"
