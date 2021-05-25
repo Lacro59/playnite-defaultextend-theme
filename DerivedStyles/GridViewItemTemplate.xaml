@@ -14,17 +14,48 @@
 
                             <Grid Width="{Settings GridItemWidth}"
                                   Height="{Settings GridItemHeight}">
-                                <Image Name="PART_ImageCover"
-                                        RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
-                                        HorizontalAlignment="Center" VerticalAlignment="Center"
-                                        Stretch="{Settings CoverArtStretch}" />
-                                <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed">
-                                    <TextBlock Text="{Binding DisplayName}"
-                                           TextWrapping="Wrap" Margin="5"
-                                           Style="{StaticResource BaseTextBlockStyle}"
-                                           TextTrimming="CharacterEllipsis" TextAlignment="Center"
-                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
+
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=BackgroundChanger_PluginCoverImage, Path=Visibility}" Value="Visible">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <Image Name="PART_ImageCover"
+                                           RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
+                                           Stretch="{Settings CoverArtStretch}" />
+                                </StackPanel>
+
+                                <!-- BackgroundChanger plugin cover -->
+                                <ContentControl x:Name="BackgroundChanger_PluginCoverImage"
+                                                HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Grid>
+                                    <Grid.Style>
+                                        <Style TargetType="{x:Type Grid}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=BackgroundChanger_PluginCoverImage, Path=Visibility}" Value="Visible">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Grid.Style>
+
+                                    <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed">
+                                        <TextBlock Text="{Binding DisplayName}"
+                                                   TextWrapping="Wrap" Margin="5"
+                                                   Style="{StaticResource BaseTextBlockStyle}"
+                                                   TextTrimming="CharacterEllipsis" TextAlignment="Center"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </Grid>
+                                
                                 <Border Background="#AA000000" x:Name="BorderMouseOver" Visibility="Collapsed" />
                                 <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center"
                                          Name="GameControls"  Visibility="Collapsed">
