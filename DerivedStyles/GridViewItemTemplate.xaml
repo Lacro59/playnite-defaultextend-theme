@@ -34,7 +34,9 @@
 
                                 <!-- BackgroundChanger plugin cover -->
                                 <ContentControl x:Name="BackgroundChanger_PluginCoverImage"
+                                                Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin, Status=Installed}"
                                                 HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                
                                 <Grid>
                                     <Grid.Style>
                                         <Style TargetType="{x:Type Grid}">
