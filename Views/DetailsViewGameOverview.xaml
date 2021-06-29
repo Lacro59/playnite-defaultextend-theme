@@ -272,13 +272,14 @@
                                             <!-- SuccessStory Button -->
                                             <ContentControl x:Name="SuccessStory_PluginButton" Height="40" Margin="10,0,0,0" FontSize="18" 
                                                             MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                            Tag="{PluginStatus Plugin=playnite-successstory-plugin, Status=Installed}">
+                                                            Visibility="{PluginStatus Plugin=playnite-successstory-plugin, Status=Installed}"
+                                                            Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationButtonDetails}">
                                                 <ContentControl.Style>
                                                     <Style TargetType="{x:Type ContentControl}">
                                                         <Setter Property="Visibility" Value="{DynamicResource SS_ShowButton}" />
                                                         <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                <Setter Property="Width" Value="150" />
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
