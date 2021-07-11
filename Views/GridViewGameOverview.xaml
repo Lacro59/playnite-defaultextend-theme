@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -817,6 +817,27 @@
                                                     <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" Margin="0,5,0,5"
                                                                 MinHeight="50" MaxHeight="300"
                                                                 Width="{Binding ElementName=PART_SsvContenerListPictures, Path=ActualWidth}" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <StackPanel Name="PART_SsvContenerListPicturesVertical"
+                                                    Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPicturesVertical}">
+                                                <StackPanel.Style>
+                                                    <Style TargetType="{x:Type StackPanel}">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginListScreenshotsVertical, Path=Content.Visibility}">
+                                                    <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,5,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                    <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                    <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" Margin="0,5,0,5"
+                                                                MinHeight="50" Height="300"
+                                                                Width="{Binding ElementName=PART_SsvContenerListPicturesVertical, Path=ActualWidth}" />
                                                 </StackPanel>
                                             </StackPanel>
 
