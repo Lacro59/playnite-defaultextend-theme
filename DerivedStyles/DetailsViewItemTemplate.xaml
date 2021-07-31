@@ -167,7 +167,7 @@
                                                Visibility="{Binding ElementName=SuccessStory_PluginViewItem, Path=Content.Visibility}"
                                                VerticalAlignment="Center" Margin="8,4,0,0" />
 
-                                    <ContentControl x:Name="SuccessStory_PluginViewItem" Width="60" VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="SuccessStory_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- SystemChecker view item -->
