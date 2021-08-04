@@ -216,7 +216,8 @@
 
                                                     <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" />
                                                 </Grid>
-
+                                                
+                                                <!-- ThemeModifier view item -->
                                                 <ContentControl x:Name="ThemeModifier_PluginIcon">
                                                     <ContentControl.Style>
                                                         <Style TargetType="{x:Type ContentControl}">
