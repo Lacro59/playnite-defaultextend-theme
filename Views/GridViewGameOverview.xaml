@@ -112,6 +112,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Button Name="PART_ButtonPlayAction" Grid.Column="0"
@@ -611,6 +612,46 @@
                                                     FontSize="16" Grid.Column="9"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     Visibility="{PluginStatus Plugin=playnite-systemchecker-plugin, Status=Installed}" />
+
+                                    <!-- GameActivity AvgFps -->
+                                    <StackPanel Margin="10,0,0,0" Grid.Column="10"
+                                                Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}">
+                                        <StackPanel.Style>
+                                            <Style TargetType="{x:Type StackPanel}">
+                                                <Setter Property="Visibility" Value="{DynamicResource GA_ShowAvgFps}" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Style>
+
+                                        <Border Padding="5" Height="40"
+                                                BorderBrush="{DynamicResource NormalBorderBrush}"
+                                                CornerRadius="{DynamicResource ControlCornerRadius}"
+                                                BorderThickness="{DynamicResource ControlBorderThickness}" 
+                                                Background="{DynamicResource ButtonBackgroundBrush}">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                                                <Label Content="{DynamicResource LOCGameActivityAvgFps}" 
+                                                               HorizontalAlignment="Center" />
+                                                <Label Margin="10,0,0,0" 
+                                                               Content="{PluginSettings Plugin=GameActivity, Path=AvgFpsAllSession}"
+                                                               HorizontalAlignment="Center" />
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
                                 </Grid>
 
                                 <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"

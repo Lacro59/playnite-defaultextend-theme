@@ -12,6 +12,7 @@ Constants:
   - GameActivity
   - GA_ShowButton: Display a button to show the plugin view
   - GA_ShowToggleButton: Display a button to show plugin data in game details view
+  - GA_ShowAvgFps: Display the average FPS in game details view
   - SuccessStory
   - SS_ShowButton: Display a button to show the plugin view
   - SS_ShowToggleButton: Display a button to show plugin data in game details view
