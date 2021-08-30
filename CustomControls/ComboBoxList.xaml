@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <ControlTemplate x:Key="FilterSelectionBoxTemplate" TargetType="{x:Type FilterSelectionBoxBase}">
+    <ControlTemplate x:Key="ComboBoxListBaseTemplate" TargetType="{x:Type ComboBoxListBase}">
         <Border BorderThickness="{DynamicResource ControlBorderThickness}"
                 CornerRadius="{DynamicResource ControlCornerRadius}"
                 Style="{DynamicResource HighlightBorder}"
@@ -25,8 +25,6 @@
                               BorderThickness="0" Focusable="False"
                               HorizontalContentAlignment="Stretch"
                               Background="Transparent" />
-                <TextBox x:Name="PART_TextFilterInput" BorderThickness="0"
-                         VerticalAlignment="Center" Margin="1,0,30,0"/>
                 <Button x:Name="PART_ButtonClearFilter"
                         Margin="0,0,20,0" FontSize="18"
                         Background="Transparent" HorizontalAlignment="Right"
@@ -56,25 +54,19 @@
         </Border>
     </ControlTemplate>
 
-    <Style x:Key="FilterSelectionBoxItemStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource {x:Type CheckBox}}">
+    <Style x:Key="ComboBoxListItemStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource {x:Type CheckBox}}">
         <Setter Property="Padding" Value="5" />
     </Style>
-
-    <Style TargetType="{x:Type FilterEnumSelectionBox}">
+    
+    <Style TargetType="{x:Type ComboBoxList}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Height" Value="24" />
-        <Setter Property="Template" Value="{DynamicResource FilterSelectionBoxTemplate}" />
+        <Setter Property="Template" Value="{DynamicResource ComboBoxListBaseTemplate}" />
     </Style>
     
-    <Style TargetType="{x:Type FilterStringSelectionBox}">
+    <Style TargetType="{x:Type DdItemListSelectionBox}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Height" Value="24" />
-        <Setter Property="Template" Value="{DynamicResource FilterSelectionBoxTemplate}" />
-    </Style>
-
-    <Style TargetType="{x:Type FilterSelectionBox}">
-        <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="Height" Value="24" />
-        <Setter Property="Template" Value="{DynamicResource FilterSelectionBoxTemplate}" />
+        <Setter Property="Template" Value="{DynamicResource ComboBoxListBaseTemplate}" />        
     </Style>
 </ResourceDictionary>

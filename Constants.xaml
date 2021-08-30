@@ -13,14 +13,15 @@
     <Visibility x:Key="SS_ShowButton">Visible</Visibility>
     <Visibility x:Key="SS_ShowToggleButton">Collapsed</Visibility>
 
-    
-    
+
+
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSize">14</sys:Double>
     <sys:Double x:Key="FontSizeLarge">15</sys:Double>
     <sys:Double x:Key="FontSizeLarger">20</sys:Double>
     <sys:Double x:Key="FontSizeLargest">29</sys:Double>
     <FontFamily x:Key="FontFamily">Trebuchet MS</FontFamily>
+    <FontFamily x:Key="MonospaceFontFamily">Consolas</FontFamily>
     <Thickness x:Key="PopupBorderThickness">1</Thickness>
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
