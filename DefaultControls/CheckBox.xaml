@@ -21,7 +21,7 @@
                             <Border x:Name="BulletBorder" CornerRadius="{DynamicResource ControlCornerRadius}"
                                     BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
                                     Style="{DynamicResource HighlightBorder}" >
-                                <Grid Width="18" Height="18" Background="{DynamicResource NormalBrushDark}">
+                                <Grid Width="18" Height="18" Background="{DynamicResource CheckBoxCheckMarkBkBrush}">
                                     <Viewbox x:Name="CheckIcon" Visibility="Collapsed">
                                         <TextBlock Text="b" FontFamily="Marlett" Foreground="{DynamicResource GlyphBrush}"
                                                     HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -31,10 +31,10 @@
                                                     HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Viewbox>
                                 </Grid>
-                            </Border>                            
+                            </Border>
                             <ContentPresenter RecognizesAccessKey="True" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
                         </StackPanel>
-                    </Border>                    
+                    </Border>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -56,5 +56,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>                  
+    </Style>
 </ResourceDictionary>
