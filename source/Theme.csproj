@@ -38,9 +38,6 @@
     <Reference Include="Playnite">
       <HintPath>..\..\..\Playnite.dll</HintPath>
     </Reference>
-    <Reference Include="Playnite.Common">
-      <HintPath>..\..\..\Playnite.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Playnite.SDK">
       <HintPath>..\..\..\Playnite.SDK.dll</HintPath>
     </Reference>
@@ -81,6 +78,7 @@
     <None Include="Fonts\font.ttf" />
     <None Include="Fonts\icofont.ttf" />
     <None Include="theme.yaml" />
+    <None Include="thememodifier.yaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
