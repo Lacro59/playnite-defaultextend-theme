@@ -657,12 +657,15 @@
 
                                             <!-- GameActivity AvgFps -->
                                             <StackPanel Margin="10,0,0,0"
-                                                  Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}">
+                                                        Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}">
                                                 <StackPanel.Style>
                                                     <Style TargetType="{x:Type StackPanel}">
                                                         <Setter Property="Visibility" Value="{DynamicResource GA_ShowAvgFps}" />
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{PluginSettings Plugin=GameActivity, Path=AvgFpsAllSession}" Value="0">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                             </DataTrigger>
                                                         </Style.Triggers>
