@@ -665,9 +665,9 @@
                                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                             </DataTrigger>
-                                                            <DataTrigger Binding="{PluginSettings Plugin=GameActivity, Path=AvgFpsAllSession}" Value="0">
+                                                            <!--DataTrigger Binding="{PluginSettings Plugin=GameActivity, Path=AvgFpsAllSession}" Value="0">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
-                                                            </DataTrigger>
+                                                            </DataTrigger-->
                                                         </Style.Triggers>
                                                     </Style>
                                                 </StackPanel.Style>
