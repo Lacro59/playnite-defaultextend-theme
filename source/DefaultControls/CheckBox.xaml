@@ -31,10 +31,10 @@
                                                     HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Viewbox>
                                 </Grid>
-                            </Border>
+                            </Border>                            
                             <ContentPresenter RecognizesAccessKey="True" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
                         </StackPanel>
-                    </Border>
+                    </Border>                    
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -56,5 +56,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>                  
 </ResourceDictionary>

@@ -959,7 +959,7 @@
                                                        Style="{DynamicResource BaseTextBlockStyle}" />
                                                 <Separator Background="{DynamicResource PanelSeparatorBrush}" />
 
-                                                <ContentControl x:Name="SuccessStory_PluginProgressBar" Margin="0,5,0,5" Height="80" />
+                                                <ContentControl x:Name="SuccessStory_PluginProgressBar" Margin="0,5,0,5" />
                                                 <ContentControl x:Name="SuccessStory_PluginChart" Margin="0,5,0,5" MinHeight="50" MaxHeight="200" />
                                                 <ContentControl x:Name="SuccessStory_PluginCompactList" Margin="0,5,0,5" MaxHeight="150" />
                                                 <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,5,0,5" MaxHeight="150" />

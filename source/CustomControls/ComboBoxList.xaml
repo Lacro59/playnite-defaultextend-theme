@@ -71,16 +71,16 @@
     <Style x:Key="ComboBoxListItemStyle" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource {x:Type CheckBox}}">
         <Setter Property="Padding" Value="5" />
     </Style>
-
+    
     <Style TargetType="{x:Type ComboBoxList}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Height" Value="24" />
         <Setter Property="Template" Value="{DynamicResource ComboBoxListBaseTemplate}" />
     </Style>
-
+    
     <Style TargetType="{x:Type DdItemListSelectionBox}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Height" Value="24" />
-        <Setter Property="Template" Value="{DynamicResource ComboBoxListBaseTemplate}" />
+        <Setter Property="Template" Value="{DynamicResource ComboBoxListBaseTemplate}" />        
     </Style>
 </ResourceDictionary>

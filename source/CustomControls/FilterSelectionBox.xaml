@@ -79,7 +79,7 @@
         <Setter Property="Height" Value="24" />
         <Setter Property="Template" Value="{DynamicResource FilterSelectionBoxTemplate}" />
     </Style>
-
+    
     <Style TargetType="{x:Type FilterStringSelectionBox}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Height" Value="24" />
