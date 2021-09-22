@@ -1,8 +1,9 @@
-AddonId: playnite-backgroundchanger-plugin
+AddonId: playnite-defaultextend-theme
 Packages:
-  - Version: 1.0
+  - Version: 0.1
     RequiredApiVersion: 2.0.0
     ReleaseDate: 
     PackageUrl: 
     Changelog:
-      - Playnite 9 support
+      - Playnite 9 beta version (not compatible with Playnite 8)
+      - Supported BackgroundChanger, CheckLocalizations, GameActivity, HowLongToBeat, LibraryManagement, ScreenshotsVisualizer, SuccessStory, SystemChecker, ThemeModifier
