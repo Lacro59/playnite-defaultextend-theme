@@ -2,8 +2,8 @@ AddonId: playnite-defaultextend-theme
 Packages:
   - Version: 0.1
     RequiredApiVersion: 2.0.0
-    ReleaseDate: 
-    PackageUrl: 
+    ReleaseDate: 2021-09-04
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v1.0/playnite-defaultextend-theme_1_0.pthm
     Changelog:
       - Playnite 9 beta version (not compatible with Playnite 8)
       - Supported BackgroundChanger, CheckLocalizations, GameActivity, HowLongToBeat, LibraryManagement, ScreenshotsVisualizer, SuccessStory, SystemChecker, ThemeModifier
