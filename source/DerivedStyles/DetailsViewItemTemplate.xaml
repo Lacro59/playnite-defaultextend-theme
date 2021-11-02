@@ -26,9 +26,10 @@
                                   Margin="0,0,8,0"
                                   VerticalAlignment="Center"
                                   Tag="{PluginSettings Plugin=ThemeModifier, Path=EnableIntegrationIcon}">
-                                <Grid>
-                                    <Grid.Style>
-                                        <Style TargetType="{x:Type Grid}">
+
+                                <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant">
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
                                             <Setter Property="Visibility" Value="Visible" />
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
@@ -36,10 +37,8 @@
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </Grid.Style>
-                                    
-                                    <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" />
-                                </Grid>
+                                    </Image.Style>
+                                </Image>
 
                                 <!-- ThemeModifier view item -->
                                 <ContentControl x:Name="ThemeModifier_PluginIcon">
