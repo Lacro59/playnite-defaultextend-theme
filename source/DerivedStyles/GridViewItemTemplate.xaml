@@ -9,12 +9,16 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GameListItem}">
                     <Border BorderThickness="{Settings GridItemMargin}" BorderBrush="{DynamicResource GridItemBackgroundBrush}">
-                        <StackPanel Name="PART_PanelHost"
+                        <Grid Name="PART_PanelHost" Width="{Settings GridItemWidth}" Height="{Settings GridItemHeight}"
                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
 
-                            <Grid Width="{Settings GridItemWidth}"
-                                  Height="{Settings GridItemHeight}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
 
+                            <Grid Grid.Row="0" Name="PART_ImageContener">
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <StackPanel.Style>
                                         <Style TargetType="{x:Type StackPanel}">
@@ -27,13 +31,18 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <Image Name="PART_ImageCover"
+                                    <Image Name="PART_ImageCover" 
+                                           Width="{Binding ElementName=PART_ImageContener, Path=ActualWidth}"
+                                           Height="{Binding ElementName=PART_ImageContener, Path=ActualHeight}"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"
                                            RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                            Stretch="{Settings CoverArtStretch}" />
                                 </StackPanel>
 
                                 <!-- BackgroundChanger plugin cover -->
                                 <ContentControl x:Name="BackgroundChanger_PluginCoverImage"
+                                                Width="{Binding ElementName=PART_ImageContener, Path=ActualWidth}"
+                                                Height="{Binding ElementName=PART_ImageContener, Path=ActualHeight}"
                                                 Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin, Status=Installed}"
                                                 HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 
@@ -71,15 +80,24 @@
                                     </StackPanel>
                                 </Viewbox>
                             </Grid>
-                            <TextBlock Text="{Binding DisplayName}"
-                                   Style="{DynamicResource BaseTextBlockStyle}"                                                                   
-                                   TextAlignment="Center" TextTrimming="CharacterEllipsis"
-                                   VerticalAlignment="Center"
-                                   Padding="2,5,2,5" Grid.Row="1" Grid.Column="0"
-                                   Width="{Settings GridItemWidth}" 
-                                   Visibility="{Settings ShowNamesUnderCovers}" />
- 
-                            <StackPanel Orientation="Horizontal">
+                            
+                            <TextBlock Grid.Row="1" Text="{Binding DisplayName}"
+                                       Style="{DynamicResource BaseTextBlockStyle}"                                                                   
+                                       TextAlignment="Center" TextTrimming="CharacterEllipsis"
+                                       VerticalAlignment="Center"
+                                       Padding="2,5,2,5"
+                                       Width="{Settings GridItemWidth}" 
+                                       Visibility="{Settings ShowNamesUnderCovers}" />
+
+                            <ContentControl x:Name="DuplicateHider_SourceSelector" MaxHeight="24"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Bottom"
+                                            VerticalContentAlignment="Center"   
+                                            Margin="0,0,0,0"  
+                                            Opacity="0" DockPanel.Dock="Right"
+                                            RenderOptions.BitmapScalingMode="Fant" />
+                            
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" Width="{Settings GridItemWidth}">
                                 <!-- CheckLocalizations view item -->
                                 <StackPanel VerticalAlignment="Center"
                                             Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem}">
@@ -184,8 +202,9 @@
                                                     VerticalAlignment="Center" Margin="8,0,0,0" />
                                 </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                        </Grid>
                     </Border>
+                    
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="False">
                             <Setter Property="Content" Value="&#xef08;" TargetName="PART_ButtonPlay" />
@@ -208,6 +227,114 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="BorderMouseOver"/>
                             <Setter Property="Visibility" Value="Visible" TargetName="GameControls"/>
                         </Trigger>
+
+                        
+                        <!--Fade in effect when mouse enters ListItem.-->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector" 
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1" Duration="0:0:0.10" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <!--Fade out effect when mouse leaves ListItem.-->
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector" 
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.20" Duration="0:0:0.10" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="DuplicateHider_IconContentControlStyle"
+        BasedOn="{StaticResource {x:Type ContentControl}}"
+        TargetType="ContentControl">
+        <Style.Resources>
+            <DropShadowEffect
+                x:Key="glowEffect"
+                BlurRadius="8"
+                Opacity="1"
+                RenderingBias="Quality"
+                ShadowDepth="0"
+                Color="{DynamicResource GlyphColor}" />
+        </Style.Resources>
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Padding" Value="0,0,0,0" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="BorderThickness" Value="0,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ToolTip>
+                            <TextBlock Text="{Binding DisplayString}"/>
+                        </Grid.ToolTip>
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource WindowBackgourndBrushHighlightHover}" Opacity="1" Visibility="Hidden">
+                        </Border>
+                        <StackPanel Orientation="Horizontal" Opacity="{Binding Game.IsInstalled, Converter={StaticResource OpacityBoolConverter}}">
+                            <Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3"/>
+                            <TextBlock x:Name="SourceText" Text="{Binding SourceName}" Style="{DynamicResource BaseTextBlockStyle}" VerticalAlignment="Center"
+                                       TextAlignment="Center" Width="70" 
+                                       TextTrimming="CharacterEllipsis">
+                                <TextBlock.LayoutTransform>
+                                    <ScaleTransform x:Name="SourceNameScale" ScaleX="0"/>
+                                </TextBlock.LayoutTransform>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource WindowBackgourndBrushBright}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
+                            <Setter Property="Effect" Value="{StaticResource glowEffect}" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SourceNameScale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:0.15" To="1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SourceNameScale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:0.15" To="0">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource WindowBackgourndBrushHighlight}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

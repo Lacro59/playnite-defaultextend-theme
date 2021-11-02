@@ -17,7 +17,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
 
                             <Grid Grid.Column="0" Grid.RowSpan="2"
@@ -55,42 +55,34 @@
                                 </ContentControl>
                             </Grid>
 
-                            <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis"
-                                       VerticalAlignment="Center" Name="PART_TbGameName"
-                                       Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                        <Style.Triggers>
-                                            <MultiDataTrigger>
-                                                <MultiDataTrigger.Conditions>
-                                                    <Condition Binding="{Binding ElementName=HowLongToBeat_PluginViewItem, Path=ActualHeight}" Value="0" />
-                                                    <Condition Binding="{Binding ElementName=CheckLocalizations_PluginViewItem, Path=ActualHeight}" Value="0" />
-                                                    <Condition Binding="{Binding ElementName=ScreenshotsVisualizer_PluginViewItem, Path=ActualHeight}" Value="0" />
-                                                    <Condition Binding="{Binding ElementName=SuccessStory_PluginViewItem, Path=ActualHeight}" Value="0" />
-                                                    <Condition Binding="{Binding ElementName=SystemChecker_PluginViewItem, Path=ActualHeight}" Value="0" />
-                                                </MultiDataTrigger.Conditions>
-                                                <Setter Property="Visibility" Value="Visible" />
-                                            </MultiDataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-
-                            <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis"
-                                       VerticalAlignment="Center" 
-                                       Grid.Row="0" Grid.Column="1">
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                            <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+                                <Grid.Style>
+                                    <Style TargetType="{x:Type Grid}">
                                         <Setter Property="Visibility" Value="Visible" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ElementName=PART_TbGameName, Path=Visibility}" Value="Visible">
+                                            <DataTrigger Binding="{Binding ElementName=PART_GridDisplayName, Path=Visibility}" Value="Visible">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
+                                </Grid.Style>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis"  />
+
+                                <ContentControl x:Name="DuplicateHider_SourceSelector"
+                                                Grid.Column="1"
+                                                HorizontalAlignment="Right"
+                                                VerticalContentAlignment="Center"   
+                                                Margin="0,0,0,0"  
+                                                DockPanel.Dock="Right"
+                                                Height="24"
+                                                RenderOptions.BitmapScalingMode="Fant" />
+                            </Grid>
 
                             <StackPanel Grid.Row="1" Grid.ColumnSpan="3"
                                         Orientation="Horizontal" HorizontalAlignment="Right">
@@ -189,6 +181,117 @@
                             </StackPanel>
                         </Grid>
                     </Border>
+
+                    <!--Fade effect. Remove or comment out <ControlTemplate.Triggers> section to deactivate animation.-->
+                    <!--Check DuplicateHider_SourceSelector Visibility if animation is removed.-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsVisible" SourceName="PART_ImageIcon" Value="False">
+                            <Setter Property="Height" TargetName="DuplicateHider_SourceSelector" Value="{Binding ActualHeight, ElementName=DisplayName, Mode=OneWay}"/>
+                        </Trigger>
+                        <!--Fade in effect when mouse enters ListItem.-->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector" 
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1" Duration="0:0:0.10" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <!--Fade out effect when mouse leaves ListItem.-->
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector" 
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.20" Duration="0:0:0.10" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="DuplicateHider_IconContentControlStyle"
+        BasedOn="{StaticResource {x:Type ContentControl}}"
+        TargetType="ContentControl">
+        <Style.Resources>
+            <DropShadowEffect
+                x:Key="glowEffect"
+                BlurRadius="8"
+                Opacity="1"
+                RenderingBias="Quality"
+                ShadowDepth="0"
+                Color="{DynamicResource GlyphColor}" />
+        </Style.Resources>
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Padding" Value="0,0,0,0" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="BorderThickness" Value="0,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource GlyphBrush}" Opacity="1" Visibility="Hidden">
+                        </Border>
+                        <StackPanel Orientation="Horizontal" Opacity="{Binding Game.IsInstalled, Converter={StaticResource OpacityBoolConverter}}">
+                            <Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="1.5"/>
+                            <TextBlock x:Name="SourceText" Text="{Binding SourceName}" Style="{DynamicResource BaseTextBlockStyle}" VerticalAlignment="Center"
+                                       TextAlignment="Center" Width="70" 
+                                       TextTrimming="CharacterEllipsis">
+                                <TextBlock.LayoutTransform>
+                                    <ScaleTransform x:Name="SourceNameScale" ScaleX="0"/>
+                                </TextBlock.LayoutTransform>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource HighlightGlyphBrush}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
+                            <Setter Property="Effect" Value="{StaticResource glowEffect}" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SourceNameScale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:0.15" To="1">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SourceNameScale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:0.15" To="0">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource GlyphBrush}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
