@@ -93,8 +93,8 @@
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Bottom"
                                             VerticalContentAlignment="Center"   
-                                            Margin="0,0,0,0"  
-                                            Opacity="0" DockPanel.Dock="Right"
+                                            Opacity="0.75" Margin="0,0,0,0"  
+                                            DockPanel.Dock="Right"
                                             RenderOptions.BitmapScalingMode="Fant" />
                             
                             <StackPanel Grid.Row="2" Orientation="Horizontal" Width="{Settings GridItemWidth}">
@@ -248,7 +248,7 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="DuplicateHider_SourceSelector" 
                                             Storyboard.TargetProperty="Opacity"
-                                            To="0.20" Duration="0:0:0.10" />
+                                            To="0.75" Duration="0:0:0.10" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
@@ -291,7 +291,11 @@
                         <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource WindowBackgourndBrushHighlightHover}" Opacity="1" Visibility="Hidden">
                         </Border>
                         <StackPanel Orientation="Horizontal" Opacity="{Binding Game.IsInstalled, Converter={StaticResource OpacityBoolConverter}}">
-                            <Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3"/>
+                            <Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3">
+                                <Image.Effect>
+                                    <DropShadowEffect Color="Black" Opacity="0.75" BlurRadius="5" ShadowDepth="0" />
+                                </Image.Effect>
+                            </Image>
                             <TextBlock x:Name="SourceText" Text="{Binding SourceName}" Style="{DynamicResource BaseTextBlockStyle}" VerticalAlignment="Center"
                                        TextAlignment="Center" Width="70" 
                                        TextTrimming="CharacterEllipsis">

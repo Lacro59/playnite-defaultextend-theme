@@ -78,7 +78,7 @@
                                                 Grid.Column="1"
                                                 HorizontalAlignment="Right"
                                                 VerticalContentAlignment="Center"   
-                                                Margin="0,0,0,0"  
+                                                Opacity="0.75" Margin="0,0,0,0"  
                                                 DockPanel.Dock="Right"
                                                 Height="24"
                                                 RenderOptions.BitmapScalingMode="Fant" />
@@ -207,7 +207,7 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="DuplicateHider_SourceSelector" 
                                             Storyboard.TargetProperty="Opacity"
-                                            To="0.20" Duration="0:0:0.10" />
+                                            To="0.75" Duration="0:0:0.10" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
