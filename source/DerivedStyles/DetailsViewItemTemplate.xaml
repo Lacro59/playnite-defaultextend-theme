@@ -22,14 +22,13 @@
 
                             <Grid Grid.Column="0" Grid.RowSpan="2"
                                   Name="PART_GridImageContener"
-                                  Height="{Settings DetailsViewListIconSize}"
                                   Margin="0,0,8,0"
                                   VerticalAlignment="Center"
                                   Tag="{PluginSettings Plugin=ThemeModifier, Path=EnableIntegrationIcon}">
 
-                                <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant">
-                                    <Image.Style>
-                                        <Style TargetType="{x:Type Image}">
+                                <StackPanel>
+                                    <StackPanel.Style>
+                                        <Style TargetType="{x:Type StackPanel}">
                                             <Setter Property="Visibility" Value="Visible" />
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding ElementName=PART_GridImageContener, Path=Tag}" Value="True">
@@ -37,11 +36,13 @@
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </Image.Style>
-                                </Image>
+                                    </StackPanel.Style>
+
+                                    <Image Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" Height="{Settings DetailsViewListIconSize}" />
+                                </StackPanel>
 
                                 <!-- ThemeModifier view item -->
-                                <ContentControl x:Name="ThemeModifier_PluginIcon">
+                                <ContentControl x:Name="ThemeModifier_PluginIcon" Width="{Settings DetailsViewListIconSize}">
                                     <ContentControl.Style>
                                         <Style TargetType="{x:Type ContentControl}">
                                             <Setter Property="Visibility" Value="Collapsed" />
@@ -185,9 +186,9 @@
                     <!--Fade effect. Remove or comment out <ControlTemplate.Triggers> section to deactivate animation.-->
                     <!--Check DuplicateHider_SourceSelector Visibility if animation is removed.-->
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsVisible" SourceName="PART_ImageIcon" Value="False">
+                        <!--Trigger Property="IsVisible" SourceName="PART_ImageIcon" Value="False">
                             <Setter Property="Height" TargetName="DuplicateHider_SourceSelector" Value="{Binding ActualHeight, ElementName=DisplayName, Mode=OneWay}"/>
-                        </Trigger>
+                        </Trigger-->
                         <!--Fade in effect when mouse enters ListItem.-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
