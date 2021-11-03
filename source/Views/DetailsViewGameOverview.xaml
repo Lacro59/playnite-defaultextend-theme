@@ -1030,7 +1030,7 @@
                                             <ContentControl x:Name="SuccessStory_PluginProgressBar" Margin="0,5,0,5" />
                                             <ContentControl x:Name="SuccessStory_PluginChart" Margin="0,5,0,5" MinHeight="50" MaxHeight="200" />
                                             <ContentControl x:Name="SuccessStory_PluginCompactList" Margin="0,5,0,5" MaxHeight="150" />
-                                            <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,5,0,5" MaxHeight="150" />
+                                            <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,5,0,5" />
                                             <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,5,0,5" MaxHeight="150" />
                                             <ContentControl x:Name="SuccessStory_PluginList" Margin="0,5,0,5" MinHeight="50" MaxHeight="500" />
                                             <ContentControl x:Name="SuccessStory_PluginUserStats" Margin="0,5,0,5" MinHeight="50" MaxHeight="200" />
