@@ -26,7 +26,7 @@
                                     <Style TargetType="{x:Type StackPanel}">
                                         <Setter Property="Visibility" Value="Visible" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                            <DataTrigger Binding="{Binding ElementName=BackgroundChanger_PluginBackgroundImage, Path=Visibility}" Value="Visible">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
                                         </Style.Triggers>
@@ -47,21 +47,8 @@
                             </StackPanel>
 
                             <!-- BackgroundChanger plugin background -->
-                            <StackPanel Tag="{PluginSettings Plugin=BackgroundChanger, Path=HasDataBackground}">
-                                <StackPanel.Style>
-                                    <Style TargetType="{x:Type StackPanel}">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </StackPanel.Style>
-
-                                <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage"
-                                                HorizontalAlignment="Center" VerticalAlignment="Top" />
-                            </StackPanel>
+                            <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage"
+                                            HorizontalAlignment="Center" VerticalAlignment="Top" />
 
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -164,18 +151,15 @@
                                                 Tag="{PluginSettings Plugin=BackgroundChanger, Path=HasDataCover}">
                                         <StackPanel.Style>
                                             <Style TargetType="{x:Type StackPanel}">
-                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Setter Property="Visibility" Value="Visible" />
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                        <Setter Property="Visibility" Value="Visible" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
-                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    <DataTrigger Binding="{Binding ElementName=BackgroundChanger_PluginCoverImage, Path=Visibility}" Value="Visible">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
                                         </StackPanel.Style>
-                                        
+
                                         <Image Name="PART_ImageCover" VerticalAlignment="Bottom"
                                                Height="{Settings GameDetailsCoverHeight}"
                                                StretchDirection="Both" Stretch="Uniform"
@@ -183,26 +167,9 @@
                                     </StackPanel>
 
                                     <!-- BackgroundChanger plugin cover -->
-                                    <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom"
-                                                Tag="{PluginSettings Plugin=BackgroundChanger, Path=HasDataCover}">
-                                        <StackPanel.Style>
-                                            <Style TargetType="{x:Type StackPanel}">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
-                                                        <Setter Property="Visibility" Value="Visible" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </StackPanel.Style>
-
-                                        <ContentControl x:Name="BackgroundChanger_PluginCoverImage"
-                                                        Height="{Settings GameDetailsCoverHeight}"
-                                                        VerticalAlignment="Bottom" />
-                                    </StackPanel>
+                                    <ContentControl x:Name="BackgroundChanger_PluginCoverImage"
+                                                    DockPanel.Dock="Right" VerticalAlignment="Bottom"
+                                                    Height="{Settings GameDetailsCoverHeight}" />
 
 
                                     <StackPanel VerticalAlignment="Bottom" DockPanel.Dock="Left">
