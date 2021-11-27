@@ -20,3 +20,10 @@ Packages:
     Changelog:
       - Fixed minor issue with icon frame from ThemeModifier
       - Added icon for Indiegala in DuplicateHider
+  - Version: 0.2.1
+    RequiredApiVersion: 2.1.0
+    ReleaseDate: 2021-11-27
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.2.2/playnite-defaultextend-theme_0_2_2.pthm
+    Changelog:
+      - Added new Playnite ComboBox filter
+      - Fixed an issue with BackgroundChanger plugin
