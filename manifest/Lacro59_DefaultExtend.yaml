@@ -13,3 +13,10 @@ Packages:
     PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.2/playnite-defaultextend-theme_0_2.pthm
     Changelog:
       - Supported DuplicateHider
+  - Version: 0.2.1
+    RequiredApiVersion: 2.0.0
+    ReleaseDate: 2021-11-27
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.2.1/playnite-defaultextend-theme_0_2_1.pthm
+    Changelog:
+      - Fixed minor issue with icon frame from ThemeModifier
+      - Added icon for Indiegala in DuplicateHider

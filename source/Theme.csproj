@@ -91,6 +91,7 @@
     <Content Include="Images\csharp.ico" />
     <Content Include="Images\custom_cover_background.png" />
     <Content Include="Images\discord.png" />
+    <Content Include="Images\Icons\Indiegala.png" />
     <Content Include="Images\patreon.png" />
     <Content Include="Images\powershell.ico" />
     <Content Include="Images\python.ico" />
@@ -451,4 +452,5 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
 </Project>
