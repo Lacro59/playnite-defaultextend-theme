@@ -39,5 +39,5 @@ Packages:
     PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.3/playnite-defaultextend-theme_0_3.pthm
     Changelog:
       - Added new options (with ThemeModifier)
-      - Added new UI element (based on eMixedNite)
+      - Added new UI elements (based on eMixedNite)
       - WARNING! Completion status in ThemeModifier must be restart application to be applied
