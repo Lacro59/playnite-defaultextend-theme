@@ -54,6 +54,11 @@
                                         </Style>
                                     </ContentControl.Style>
                                 </ContentControl>
+
+                                <TextBlock FontFamily="{StaticResource FontIcoFont}" Text="" 
+                                           Tag="{Binding Favorite}"
+                                           Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                           VerticalAlignment="Bottom" HorizontalAlignment="Right" />
                             </Grid>
 
                             <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">

@@ -45,7 +45,13 @@
                                                 Height="{Binding ElementName=PART_ImageContener, Path=ActualHeight}"
                                                 Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin, Status=Installed}"
                                                 HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                
+
+                                <TextBlock FontFamily="{StaticResource FontIcoFont}" Text="" 
+                                           Tag="{Binding Favorite}" FontSize="24"
+                                           Foreground="{DynamicResource TextBrush}" 
+                                           Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                           VerticalAlignment="Top" HorizontalAlignment="Right" />
+
                                 <Grid>
                                     <Grid.Style>
                                         <Style TargetType="{x:Type Grid}">
@@ -228,7 +234,6 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="GameControls"/>
                         </Trigger>
 
-                        
                         <!--Fade in effect when mouse enters ListItem.-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
