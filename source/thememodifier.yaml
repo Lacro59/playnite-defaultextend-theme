@@ -1,4 +1,14 @@
 Constants:
+  - Completation status
+  - DE_ShowCompletationStatus: Display the game completation status
+  - DE_NotPlayedStatus: Status Not Played
+  - DE_PlayingStatus: Status Playing
+  - DE_PlayedStatus: Status Played
+  - DE_CompletedStatus: Status Played
+  - DE_BeatenStatus: Status Beaten
+  - DE_AbandonedStatus: Status Abandoned
+  - DE_OnHoldStatus: Status OnHold
+  - DE_PlanToPlayStatus: Status PlanToPlay
   - GameActivity
   - GA_ShowButton: Display a button to show the plugin view
   - GA_ShowToggleButton: Display a toogle button to show plugin data

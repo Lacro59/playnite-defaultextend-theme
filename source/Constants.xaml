@@ -1,7 +1,9 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <Visibility x:Key="DE_ShowCompletationStatus">Visible</Visibility>
+    
     <Visibility x:Key="LM_ShowFeaturesLabel">Collapsed</Visibility>
 
     <Visibility x:Key="CL_ShowLocalizationsLabel">Collapsed</Visibility>
@@ -12,6 +14,28 @@
 
     <Visibility x:Key="SS_ShowButton">Visible</Visibility>
     <Visibility x:Key="SS_ShowToggleButton">Collapsed</Visibility>
+
+
+    <!-- Compleation Status Icons-->
+    <sys:String x:Key="CustomStatusIcon"></sys:String>
+    <sys:String x:Key="NoneStatusIcon"></sys:String>
+    <sys:String x:Key="NotPlayedStatusIcon"></sys:String>
+    <sys:String x:Key="PlayingStatusIcon"></sys:String>
+    <sys:String x:Key="PlayedStatusIcon"></sys:String>
+    <sys:String x:Key="CompletedStatusIcon"></sys:String>
+    <sys:String x:Key="BeatenStatusIcon"></sys:String>
+    <sys:String x:Key="AbandonedStatusIcon"></sys:String>
+    <sys:String x:Key="OnHoldStatusIcon"></sys:String>
+    <sys:String x:Key="PlanToPlayStatusIcon"></sys:String>
+
+    <sys:String x:Key="DE_NotPlayedStatus">Not Played</sys:String>
+    <sys:String x:Key="DE_PlayingStatus">Playing</sys:String>
+    <sys:String x:Key="DE_PlayedStatus">Played</sys:String>
+    <sys:String x:Key="DE_CompletedStatus">Completed</sys:String>
+    <sys:String x:Key="DE_BeatenStatus">Beaten</sys:String>
+    <sys:String x:Key="DE_AbandonedStatus">Abandoned</sys:String>
+    <sys:String x:Key="DE_OnHoldStatus">On Hold</sys:String>
+    <sys:String x:Key="DE_PlanToPlayStatus">Plan to Play</sys:String>
 
 
 

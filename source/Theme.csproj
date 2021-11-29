@@ -36,28 +36,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Playnite">
-      <HintPath>..\..\..\Playnite.dll</HintPath>
+      <HintPath>G:\Playnite_dev\Playnite.dll</HintPath>
     </Reference>
     <Reference Include="Playnite.SDK">
-      <HintPath>..\..\..\Playnite.SDK.dll</HintPath>
+      <HintPath>G:\Playnite_dev\Playnite.SDK.dll</HintPath>
     </Reference>
     <Reference Include="Playnite.DesktopApp">
-      <HintPath>..\..\..\Playnite.DesktopApp.exe</HintPath>
+      <HintPath>G:\Playnite_dev\Playnite.DesktopApp.exe</HintPath>
     </Reference>
     <Reference Include="HtmlRenderer">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\HtmlRenderer.dll</HintPath>
+      <HintPath>G:\Playnite_dev\HtmlRenderer.dll</HintPath>
     </Reference>
     <Reference Include="HtmlRenderer.WPF">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\HtmlRenderer.WPF.dll</HintPath>
+      <HintPath>G:\Playnite_dev\HtmlRenderer.WPF.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Interactivity">
-      <HintPath>..\..\..\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>G:\Playnite_dev\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
