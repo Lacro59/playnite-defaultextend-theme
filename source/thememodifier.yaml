@@ -9,6 +9,8 @@ Constants:
   - DE_AbandonedStatus: Status Abandoned
   - DE_OnHoldStatus: Status OnHold
   - DE_PlanToPlayStatus: Status PlanToPlay
+  - Grid View
+  - DE_OneLine: Display list game with one line
   - GameActivity
   - GA_ShowButton: Display a button to show the plugin view
   - GA_ShowToggleButton: Display a toogle button to show plugin data

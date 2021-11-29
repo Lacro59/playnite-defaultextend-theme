@@ -48,7 +48,7 @@
 
                                 <TextBlock FontFamily="{StaticResource FontIcoFont}" Text="" 
                                            Tag="{Binding Favorite}" FontSize="24"
-                                           Foreground="{DynamicResource TextBrush}" 
+                                           Foreground="{DynamicResource GlyphBrush}" 
                                            Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
                                            VerticalAlignment="Top" HorizontalAlignment="Right">
                                     <TextBlock.Effect>
@@ -104,7 +104,7 @@
                                   HorizontalAlignment="Left" VerticalAlignment="Bottom"
                                   Margin="0,-2.5,10,0">
                                 <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FontIcoFont}" 
-                                           Foreground="{DynamicResource TextBrush}" FontSize="24">
+                                           Foreground="{DynamicResource GlyphBrush}" FontSize="24">
                                     <TextBlock.Effect>
                                         <DropShadowEffect Color="Black" Opacity="1" BlurRadius="5" ShadowDepth="0" />
                                     </TextBlock.Effect>
@@ -179,7 +179,7 @@
                                     </StackPanel.Style>
 
                                     <ContentControl x:Name="CheckLocalizations_PluginViewItem"
-                                                    Foreground="{DynamicResource TextBrush}" 
+                                                    Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
                                                     VerticalAlignment="Center" Margin="2,5,2,5" />
                                 </StackPanel>
 
@@ -198,7 +198,7 @@
                                     </StackPanel.Style>
 
                                     <ContentControl x:Name="ScreenshotsVisualizer_PluginViewItem"
-                                                    Foreground="{DynamicResource TextBrush}" 
+                                                    Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
                                                     VerticalAlignment="Center" Margin="8,0,0,0" />
                                 </StackPanel>
 
@@ -217,12 +217,12 @@
                                     </StackPanel.Style>
 
                                     <TextBlock Text="&#xe820;" FontFamily="{DynamicResource FontIcoFont}"
-                                               Foreground="{DynamicResource TextBrush}" 
+                                               Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
                                                Visibility="{Binding ElementName=SuccessStory_PluginViewItem, Path=Content.Visibility}"
                                                VerticalAlignment="Center" Margin="8,0,0,0" />
 
                                     <ContentControl x:Name="SuccessStory_PluginViewItem" Width="60"
-                                                    Foreground="{DynamicResource TextBrush}" 
+                                                    Foreground="{DynamicResource TextBrush}" FontSize="11" 
                                                     VerticalAlignment="Center" Margin="8,0,0,0" />
                                 </StackPanel>
 
@@ -241,12 +241,12 @@
                                     </StackPanel.Style>
 
                                     <TextBlock Text="&#xea4b;" FontFamily="{DynamicResource CommonFont}"
-                                               Foreground="{DynamicResource TextBrush}" 
+                                               Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
                                                Visibility="{Binding ElementName=HowLongToBeat_PluginViewItem, Path=Content.Visibility}"
                                                VerticalAlignment="Center" Margin="8,0,0,0" />
 
                                     <ContentControl x:Name="HowLongToBeat_PluginViewItem"
-                                                    Foreground="{DynamicResource TextBrush}"  
+                                                    Foreground="{DynamicResource TextBrush}" FontSize="11" 
                                                     VerticalAlignment="Center" Margin="8,0,0,0" />
                                 </StackPanel>
 
@@ -264,8 +264,8 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="SystemChecker_PluginViewItem" Foreground="{DynamicResource TextBrush}" 
-                                                    VerticalAlignment="Center" Margin="8,0,0,0" />
+                                    <ContentControl x:Name="SystemChecker_PluginViewItem" Foreground="{DynamicResource GlyphBrush}" 
+                                                    VerticalAlignment="Center" FontSize="12" Margin="8,0,0,0" />
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

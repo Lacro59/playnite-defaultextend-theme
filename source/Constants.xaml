@@ -3,6 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <Visibility x:Key="DE_ShowCompletationStatus">Visible</Visibility>
+    <sys:Boolean x:Key="DE_OneLine">False</sys:Boolean>
     
     <Visibility x:Key="LM_ShowFeaturesLabel">Collapsed</Visibility>
 

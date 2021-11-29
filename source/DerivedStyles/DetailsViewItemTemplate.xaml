@@ -57,6 +57,7 @@
 
                                 <TextBlock FontFamily="{StaticResource FontIcoFont}" Text="" 
                                            Tag="{Binding Favorite}"
+                                           Foreground="{DynamicResource GlyphBrush}" 
                                            Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
                                            VerticalAlignment="Bottom" HorizontalAlignment="Right" />
                             </Grid>
@@ -82,7 +83,8 @@
 
                                 <!-- COMPLETION STATUS -->
                                 <Grid Visibility="{DynamicResource DE_ShowCompletationStatus}" Grid.Column="0" Margin="0,-2.5,10,0">
-                                    <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FontIcoFont}">
+                                    <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource FontIcoFont}"
+                                               Foreground="{DynamicResource GlyphBrush}">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
                                                 <Setter Property="Text" Value="{DynamicResource CustomStatusIcon}" />
@@ -142,7 +144,23 @@
                                                 RenderOptions.BitmapScalingMode="Fant" />
                             </Grid>
 
-                            <StackPanel Grid.Row="1" Grid.Column="2"
+                            <Grid Grid.Row="1" Grid.Column="1" Tag="{DynamicResource DE_OneLine}"
+                                  Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="12" VerticalAlignment="Center"
+                                       Grid.Column="0" Foreground="{DynamicResource GlyphBrush}" />
+
+                                <TextBlock Grid.Column="1" ToolTip="{DynamicResource LOCLastPlayed}"
+                                            Text="{Binding Path=LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}"
+                                            VerticalAlignment="Center" Margin="8,0,8,0"
+                                            FontSize="11" />
+                            </Grid>
+
+                            <StackPanel Grid.Row="1" Grid.Column="2" Tag="{DynamicResource DE_OneLine}"
+                                        Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
                                         Orientation="Horizontal" HorizontalAlignment="Right">
                                 <!-- HowLongToBeat view item -->
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Name="PART_HltbViewItem"
@@ -158,11 +176,11 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <TextBlock Text="&#xea4b;" FontFamily="{DynamicResource CommonFont}"
+                                    <TextBlock Text="&#xea4b;" FontFamily="{DynamicResource CommonFont}" FontSize="12" 
                                                Visibility="{Binding ElementName=HowLongToBeat_PluginViewItem, Path=Content.Visibility}"
-                                               VerticalAlignment="Center" Margin="8,4,0,0" />
+                                               VerticalAlignment="Center" Margin="8,4,0,0" Foreground="{DynamicResource GlyphBrush}" />
 
-                                    <ContentControl x:Name="HowLongToBeat_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="HowLongToBeat_PluginViewItem" VerticalAlignment="Center" FontSize="11" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- CheckLocalizations view item -->
@@ -179,7 +197,8 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="CheckLocalizations_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="CheckLocalizations_PluginViewItem" VerticalAlignment="Center" FontSize="12" 
+                                                    Foreground="{DynamicResource GlyphBrush}" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- ScreenshotsVisualizer view item -->
@@ -196,7 +215,8 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="ScreenshotsVisualizer_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="ScreenshotsVisualizer_PluginViewItem" VerticalAlignment="Center" FontSize="12" 
+                                                    Foreground="{DynamicResource GlyphBrush}" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- SuccessStory view item -->
@@ -215,9 +235,10 @@
 
                                     <TextBlock Text="&#xe820;" FontFamily="{DynamicResource FontIcoFont}"
                                                Visibility="{Binding ElementName=SuccessStory_PluginViewItem, Path=Content.Visibility}"
-                                               VerticalAlignment="Center" Margin="8,4,0,0" />
+                                               VerticalAlignment="Center" FontSize="12" 
+                                               Foreground="{DynamicResource GlyphBrush}" Margin="8,4,0,0" />
 
-                                    <ContentControl x:Name="SuccessStory_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="SuccessStory_PluginViewItem" VerticalAlignment="Center" FontSize="11" Margin="8,4,0,0" />
                                 </StackPanel>
 
                                 <!-- SystemChecker view item -->
@@ -234,7 +255,8 @@
                                         </Style>
                                     </StackPanel.Style>
 
-                                    <ContentControl x:Name="SystemChecker_PluginViewItem" VerticalAlignment="Center" Margin="8,4,0,0" />
+                                    <ContentControl x:Name="SystemChecker_PluginViewItem" VerticalAlignment="Center" FontSize="12" 
+                                                    Foreground="{DynamicResource GlyphBrush}" Margin="8,4,0,0" />
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
