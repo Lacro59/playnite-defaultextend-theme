@@ -33,3 +33,11 @@ Packages:
     PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.2.3/playnite-defaultextend-theme_0_2_3.pthm
     Changelog:
       - Fixed an issue with BackgroundChanger plugin when is missing
+  - Version: 0.3
+    RequiredApiVersion: 2.1.0
+    ReleaseDate: 2021-11-29
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.3/playnite-defaultextend-theme_0_3.pthm
+    Changelog:
+      - Added new options (with ThemeModifier)
+      - Added new UI element (based on eMixedNite)
+      - WARNING! Completion status in ThemeModifier must be restart application to be applied
