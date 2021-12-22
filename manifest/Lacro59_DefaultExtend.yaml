@@ -41,3 +41,9 @@ Packages:
       - Added new options (with ThemeModifier)
       - Added new UI elements (based on eMixedNite)
       - WARNING! Completion status in ThemeModifier must be restart application to be applied
+  - Version: 0.4
+    RequiredApiVersion: 2.1.0
+    ReleaseDate: 2021-12-22
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.4/playnite-defaultextend-theme_0_4.pthm
+    Changelog:
+      - Supported CheckDlc
