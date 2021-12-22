@@ -142,6 +142,12 @@
                                                     Grid.Column="3" FontSize="14"
                                                     Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
+                                    
+                                    <!-- CheckDlc plugin button -->
+                                    <ContentControl x:Name="CheckDlc_PluginButton" Height="40" Margin="10,0,0,0" 
+                                                    Grid.Column="3" FontSize="14"
+                                                    Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
+                                                    Visibility="{PluginStatus Plugin=playnite-checkdlc-plugin, Status=Installed}" />
 
                                     <!-- SuccessStory Button -->
                                     <StackPanel Visibility="{DynamicResource SS_ShowButton}">
