@@ -4,6 +4,9 @@
 
     <Visibility x:Key="DE_ShowCompletationStatus">Visible</Visibility>
     <sys:Boolean x:Key="DE_OneLine">False</sys:Boolean>
+
+    <sys:Boolean x:Key="DE_LimitBackgroundHeight">False</sys:Boolean>
+    <sys:Double x:Key="DE_BackgroundHeight">300</sys:Double>
     
     <Visibility x:Key="LM_ShowFeaturesLabel">Collapsed</Visibility>
 
