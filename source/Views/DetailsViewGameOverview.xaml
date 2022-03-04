@@ -54,8 +54,17 @@
                             </StackPanel>
 
                             <!-- BackgroundChanger plugin background -->
-                            <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" HorizontalAlignment="Center" VerticalAlignment="Top"
-                                            Visibility="Collapsed" />
+                            <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <ContentControl.Style>
+                                    <Style TargetType="{x:Type ContentControl}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=PART_ImageContener, Path=Tag}" Value="True">
+                                                <Setter Property="Height" Value="{DynamicResource DE_BackgroundHeight}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentControl.Style>
+                            </ContentControl>
 
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -641,8 +650,8 @@
 
 
                                             <!-- GameActivity AvgFps -->
-                                            <StackPanel Margin="10,0,0,0"
-                                                        Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}">
+                                            <Grid Name="PART_GaFpsContener" Tag="{PluginSettings Plugin=GameActivity, Path=AvgFpsAllSession}" />
+                                            <StackPanel Margin="10,0,0,0" Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}">
                                                 <StackPanel.Style>
                                                     <Style TargetType="{x:Type StackPanel}">
                                                         <Setter Property="Visibility" Value="{DynamicResource GA_ShowAvgFps}" />
@@ -650,9 +659,9 @@
                                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                             </DataTrigger>
-                                                            <!--DataTrigger Binding="{PluginSettings Plugin=GameActivity, Path=AvgFpsAllSession}" Value="0">
+                                                            <DataTrigger Binding="{Binding ElementName=PART_GaFpsContener, Path=Tag}" Value="0">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
-                                                            </DataTrigger-->
+                                                            </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </StackPanel.Style>
@@ -674,8 +683,7 @@
                                                     </Border.Style>
 
                                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
-                                                        <Label Content="{DynamicResource LOCGameActivityAvgFps}" 
-                                                               HorizontalAlignment="Center" />
+                                                        <Label Content="{DynamicResource LOCGameActivityAvgFps}" HorizontalAlignment="Center" />
                                                         <Label Margin="10,0,0,0" 
                                                                Content="{PluginSettings Plugin=GameActivity, Path=AvgFpsAllSession}"
                                                                HorizontalAlignment="Center" />
