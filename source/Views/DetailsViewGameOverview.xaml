@@ -273,18 +273,7 @@
                                             <StackPanel Visibility="{DynamicResource SS_ShowButton}">
                                                 <ContentControl x:Name="SuccessStory_PluginButton" Height="40" Margin="10,0,0,0" FontSize="18" 
                                                                 MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                                Visibility="{PluginStatus Plugin=playnite-successstory-plugin, Status=Installed}"
-                                                                Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationButtonDetails}">
-                                                    <ContentControl.Style>
-                                                        <Style TargetType="{x:Type ContentControl}">
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                    <Setter Property="Width" Value="150" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </ContentControl.Style>
-                                                </ContentControl>
+                                                                Visibility="{PluginStatus Plugin=playnite-successstory-plugin, Status=Installed}" />
                                             </StackPanel>
 
                                             <!-- SuccessStory ToggleButton -->
@@ -483,23 +472,25 @@
                                                                         </Label>
                                                                     </StackPanel>
 
-                                                                    <ProgressBar Grid.Column="3" Grid.Row="2" Height="12"
-                                                                                 MinWidth="40" Margin="0,-2,0,0"
-                                                                                 Maximum="{PluginSettings Plugin=SuccessStory, Path=Total, FallbackValue=100}"
-                                                                                 Value="{PluginSettings Plugin=SuccessStory, Path=Unlocked, FallbackValue=0}">
-                                                                        <ProgressBar.Style>
-                                                                            <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource {x:Type ProgressBar}}">
-                                                                                <Style.Triggers>
-                                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
-                                                                                        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                                    </DataTrigger>
-                                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
-                                                                                        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                                    </DataTrigger>
-                                                                                </Style.Triggers>
-                                                                            </Style>
-                                                                        </ProgressBar.Style>
-                                                                    </ProgressBar>
+                                                                    <StackPanel Grid.Column="3" Grid.Row="2" Name="PART_GridProgressBar">
+                                                                        <ProgressBar Grid.Column="3" Grid.Row="2" Height="12"
+                                                                                     Margin="0,-2,0,0" Width="{Binding ElementName=PART_GridProgressBar, Path=ActualWidth}"
+                                                                                     Maximum="{PluginSettings Plugin=SuccessStory, Path=Total, FallbackValue=100}"
+                                                                                     Value="{PluginSettings Plugin=SuccessStory, Path=Unlocked, FallbackValue=0}">
+                                                                            <ProgressBar.Style>
+                                                                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource {x:Type ProgressBar}}">
+                                                                                    <Style.Triggers>
+                                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsMouseOver}" Value="True">
+                                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                        </DataTrigger>
+                                                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked}" Value="True">
+                                                                                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                                                        </DataTrigger>
+                                                                                    </Style.Triggers>
+                                                                                </Style>
+                                                                            </ProgressBar.Style>
+                                                                        </ProgressBar>
+                                                                    </StackPanel>
                                                                 </Grid>
                                                             </StackPanel>
                                                         </Grid>
@@ -521,17 +512,7 @@
                                             <StackPanel Visibility="{DynamicResource GA_ShowButton}">
                                                 <ContentControl x:Name="GameActivity_PluginButton" Height="40" Margin="10,0,0,0" FontSize="16" 
                                                             MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                            Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}">
-                                                    <ContentControl.Style>
-                                                        <Style TargetType="{x:Type ContentControl}">
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </ContentControl.Style>
-                                                </ContentControl>
+                                                            Visibility="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}" />
                                             </StackPanel>
 
                                             <!-- GameActivity ToggleButton -->
