@@ -850,6 +850,9 @@
                                                             <DataTrigger Value="Indiegala" Binding="{Binding SourceName}">
                                                                 <Setter Property="Source" Value="{StaticResource DuplicateHider_Indiegala_Icon}"/>
                                                             </DataTrigger>
+                                                            <DataTrigger Value="Legacy Games" Binding="{Binding SourceName}">
+                                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_LegacyGames_Icon}"/>
+                                                            </DataTrigger>
                                                             <DataTrigger Value="Riot" Binding="{Binding SourceName}">
                                                                 <Setter Property="Source" Value="{StaticResource DuplicateHider_Riot_Icon}"/>
                                                             </DataTrigger>

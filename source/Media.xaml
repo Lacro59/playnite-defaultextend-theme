@@ -10,6 +10,7 @@
     <BitmapImage x:Key="DuplicateHider_Indiegala_Icon" UriSource="{ThemeFile 'Images/Icons/Indiegala.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_Riot_Icon" UriSource="{ThemeFile 'Images/Icons/Riot.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_Switch_Icon" UriSource="{ThemeFile 'Images/Icons/Switch.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
+    <BitmapImage x:Key="DuplicateHider_LegacyGames_Icon" UriSource="{ThemeFile 'Images/Icons/LegacyGames.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
 
     <TextBlock x:Key="AddGameIcon" Text="&#xec3e;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource TextBrush}" FontWeight="Light"/>
     <TextBlock x:Key="UpdateDbIcon" Text="&#xefd1;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource TextBrush}" FontWeight="Light"/>
