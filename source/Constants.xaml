@@ -12,12 +12,9 @@
 
     <Visibility x:Key="CL_ShowLocalizationsLabel">Collapsed</Visibility>
 
-    <Visibility x:Key="GA_ShowButton">Visible</Visibility>
-    <Visibility x:Key="GA_ShowToggleButton">Collapsed</Visibility>
     <Visibility x:Key="GA_ShowAvgFps">Visible</Visibility>
 
-    <Visibility x:Key="SS_ShowButton">Visible</Visibility>
-    <Visibility x:Key="SS_ShowToggleButton">Collapsed</Visibility>
+    <sys:Boolean x:Key="SS_ShowProgressBar">False</sys:Boolean>
 
 
     <!-- Compleation Status Icons-->

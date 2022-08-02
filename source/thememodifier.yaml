@@ -14,12 +14,9 @@ Constants:
   - DE_LimitBackgroundHeight: Limit background height
   - DE_BackgroundHeight(100,1000): Background height
   - GameActivity
-  - GA_ShowButton: Display a button to show the plugin view
-  - GA_ShowToggleButton: Display a toogle button to show plugin data
   - GA_ShowAvgFps: Display the average FPS in game details view
   - SuccessStory
-  - SS_ShowButton: Display a button to show the plugin view
-  - SS_ShowToggleButton: Display a toogle button to show plugin data
+  - SS_ShowProgressBar: Display a progress bar in the tab
   - LibraryManagement
   - LM_ShowFeaturesLabel: Display the features label in FeaturesIconsList
   - CheckLocalizations
