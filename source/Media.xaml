@@ -7,8 +7,9 @@
     <BitmapImage x:Key="TrayIconBlack" UriSource="{ThemeFile 'Images/applogo_white.ico'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <TextBlock x:Key="FullscreenModeIcon" Text="&#xea48;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource TextBrush}" FontWeight="Light"/>
 
-    <BitmapImage x:Key="DuplicateHider_f7da6eb0-17d7-497c-92fd-347050914954_Icon" UriSource="{ThemeFile 'Images/Icons/Indiegala.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
-    <BitmapImage x:Key="DuplicateHider_317a5e2e-eac1-48bc-adb3-fb9e321afd3f_Icon" UriSource="{ThemeFile 'Images/Icons/Riot.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
+    <BitmapImage x:Key="DuplicateHider_Indiegala_Icon" UriSource="{ThemeFile 'Images/Icons/Indiegala.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
+    <BitmapImage x:Key="DuplicateHider_Riot_Icon" UriSource="{ThemeFile 'Images/Icons/Riot.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
+    <BitmapImage x:Key="DuplicateHider_Switch_Icon" UriSource="{ThemeFile 'Images/Icons/Switch.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
 
     <TextBlock x:Key="AddGameIcon" Text="&#xec3e;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource TextBrush}" FontWeight="Light"/>
     <TextBlock x:Key="UpdateDbIcon" Text="&#xefd1;" FontFamily="{DynamicResource FontIcoFont}" Foreground="{DynamicResource TextBrush}" FontWeight="Light"/>
