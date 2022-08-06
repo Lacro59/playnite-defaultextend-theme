@@ -47,3 +47,13 @@ Packages:
     PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.4/playnite-defaultextend-theme_0_4.pthm
     Changelog:
       - Supported CheckDlc
+  - Version: 0.5
+    RequiredApiVersion: 2.1.0
+    ReleaseDate: 2022-08-06
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v0.5/playnite-defaultextend-theme_0_5.pthm
+    Changelog:
+      - Fixed minor issues
+      - UI tweaks
+      - Added NewsViewer support
+      - Added ExtraMetadataLoader support
+      - Added Icons for DuplicateHider (Legacy Games, Riot)
