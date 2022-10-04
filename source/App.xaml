@@ -19,7 +19,7 @@
                 <ResourceDictionary Source="Constants.xaml" />
                 <ResourceDictionary Source="Common.xaml" />
                 <ResourceDictionary Source="Media.xaml" />
-                
+
                 <!--Default Controls-->
                 <ResourceDictionary Source="DefaultControls/Border.xaml" />
                 <ResourceDictionary Source="DefaultControls/TextBlock.xaml" />
@@ -51,7 +51,7 @@
                 <ResourceDictionary Source="DefaultControls/ToolTip.xaml" />
                 <ResourceDictionary Source="DefaultControls/TreeView.xaml" />
                 <ResourceDictionary Source="DefaultControls/DataGrid.xaml" />
-                
+
                 <!--Custom Controls-->
                 <ResourceDictionary Source="CustomControls/ExtendedListBox.xaml" />
                 <ResourceDictionary Source="CustomControls/ExtendedListView.xaml" />
@@ -69,7 +69,9 @@
                 <ResourceDictionary Source="CustomControls/FilterSelectionBox.xaml" />
                 <ResourceDictionary Source="CustomControls/SearchBox.xaml" />
                 <ResourceDictionary Source="CustomControls/TopPanelItem.xaml" />
-                
+                <ResourceDictionary Source="CustomControls/PathSelectionBox.xaml" />
+                <ResourceDictionary Source="CustomControls/HotKeyBox.xaml" />
+
                 <!--Derived Styles-->
                 <ResourceDictionary Source="DerivedStyles/TextBlockGameScore.xaml" />
                 <ResourceDictionary Source="DerivedStyles/PropertyItemButton.xaml" />
@@ -81,6 +83,7 @@
                 <ResourceDictionary Source="DerivedStyles/DetailsViewItemTemplate.xaml" />
                 <ResourceDictionary Source="DerivedStyles/DetailsViewGroupStyle.xaml" />
                 <ResourceDictionary Source="DerivedStyles/DetailsViewItemStyle.xaml" />
+                <ResourceDictionary Source="DerivedStyles/ListViewGroupStyle.xaml" />
                 <ResourceDictionary Source="DerivedStyles/StandardWindowStyle.xaml" />
                 <ResourceDictionary Source="DerivedStyles/WindowBarButton.xaml" />
                 <ResourceDictionary Source="DerivedStyles/BottomButton.xaml" />
@@ -90,7 +93,7 @@
                 <ResourceDictionary Source="DerivedStyles/MainWindowStyle.xaml" />
                 <ResourceDictionary Source="DerivedStyles/PlayButton.xaml" />
                 <ResourceDictionary Source="DerivedStyles/NotificationMessage.xaml" />
-                
+
                 <!--Views-->
                 <ResourceDictionary Source="Views/Sidebar.xaml" />
                 <ResourceDictionary Source="Views/ExplorerPanel.xaml" />
@@ -104,6 +107,7 @@
                 <ResourceDictionary Source="Views/LibraryListView.xaml" />
                 <ResourceDictionary Source="Views/Library.xaml" />
                 <ResourceDictionary Source="Views/MainWindow.xaml" />
+                <ResourceDictionary Source="Views/SearchView.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
