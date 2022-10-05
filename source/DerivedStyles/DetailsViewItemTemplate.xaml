@@ -333,10 +333,32 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource GlyphBrush}" Opacity="1" Visibility="Hidden">
-                        </Border>
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource GlyphBrush}" Opacity="1" Visibility="Hidden" />
                         <StackPanel Orientation="Horizontal" Opacity="{Binding Game.IsInstalled, Converter={StaticResource OpacityBoolConverter}}">
-                            <Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="1.5"/>
+                          <Image RenderOptions.BitmapScalingMode="Fant" Margin="1.5">
+                            <Image.Style>
+                              <Style TargetType="{x:Type Image}">
+                                <Setter Property="Source" Value="{Binding Icon}" />
+                                <Style.Triggers>
+                                  <DataTrigger Value="Indiegala" Binding="{Binding SourceName}">
+                                    <Setter Property="Source" Value="{StaticResource DuplicateHider_Indiegala_Icon}"/>
+                                  </DataTrigger>
+                                  <DataTrigger Value="Legacy Games" Binding="{Binding SourceName}">
+                                    <Setter Property="Source" Value="{StaticResource DuplicateHider_LegacyGames_Icon}"/>
+                                  </DataTrigger>
+                                  <DataTrigger Value="Riot" Binding="{Binding SourceName}">
+                                    <Setter Property="Source" Value="{StaticResource DuplicateHider_Riot_Icon}"/>
+                                  </DataTrigger>
+                                  <DataTrigger Value="Switch" Binding="{Binding SourceName}">
+                                    <Setter Property="Source" Value="{StaticResource DuplicateHider_Switch_Icon}"/>
+                                  </DataTrigger>
+                                </Style.Triggers>
+                              </Style>
+                            </Image.Style>
+                            <Image.Effect>
+                              <DropShadowEffect Color="Black" Opacity="0.75" BlurRadius="5" ShadowDepth="0" />
+                            </Image.Effect>
+                          </Image>
                             <TextBlock x:Name="SourceText" Text="{Binding SourceName}" Style="{DynamicResource BaseTextBlockStyle}" VerticalAlignment="Center"
                                        TextAlignment="Center" Width="70" 
                                        TextTrimming="CharacterEllipsis">
