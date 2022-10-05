@@ -57,3 +57,10 @@ Packages:
       - Added NewsViewer support
       - Added ExtraMetadataLoader support
       - Added Icons for DuplicateHider (Legacy Games, Riot)
+  - Version: 1.0
+    RequiredApiVersion: 2.3.0
+    ReleaseDate: 2022-10-05
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v1.0/playnite-defaultextend-theme_1_0.pthm
+    Changelog:
+      - Updated for Playnite 10
+      - Fixed minor issues
