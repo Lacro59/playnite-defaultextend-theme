@@ -16,6 +16,7 @@
 
                 <ResourceDictionary Source="LocSource.xaml" />
                 <ResourceDictionary Source="GlobalResources.xaml" />
+                <ResourceDictionary Source="ControlGalleryView.xaml" />
                 <ResourceDictionary Source="Constants.xaml" />
                 <ResourceDictionary Source="Common.xaml" />
                 <ResourceDictionary Source="Media.xaml" />
