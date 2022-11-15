@@ -889,6 +889,9 @@
                                                             <DataTrigger Value="Switch" Binding="{Binding SourceName}">
                                                                 <Setter Property="Source" Value="{StaticResource DuplicateHider_Switch_Icon}"/>
                                                             </DataTrigger>
+                                                            <DataTrigger Value="EA app" Binding="{Binding SourceName}">
+                                                              <Setter Property="Source" Value="{StaticResource DuplicateHider_EAapp_Icon}"/>
+                                                            </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>

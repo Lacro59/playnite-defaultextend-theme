@@ -6,6 +6,7 @@
     <BitmapImage x:Key="DuplicateHider_Riot_Icon" UriSource="{ThemeFile 'Images/Icons/Riot.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_Switch_Icon" UriSource="{ThemeFile 'Images/Icons/Switch.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_LegacyGames_Icon" UriSource="{ThemeFile 'Images/Icons/LegacyGames.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
+    <BitmapImage x:Key="DuplicateHider_EAapp_Icon" UriSource="{ThemeFile 'Images/Icons/EAapp.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
 
     <BitmapImage x:Key="TrayIcon" UriSource="{ThemeFile 'Images/applogo.ico'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="TrayIconWhite" UriSource="{ThemeFile 'Images/applogo_black.ico'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
