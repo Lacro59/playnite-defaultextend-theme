@@ -71,92 +71,140 @@
                             </ContentControl>
 
                             <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
-                                    <RowDefinition Height="auto" />
-                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                                <!-- CheckLocalizations flags -->
-                                <StackPanel HorizontalAlignment="Right" Margin="0,10,20,0" Grid.Row="0"
-                                            Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationFlags}">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
 
-                                    <Border Padding="5" VerticalAlignment="Top"
-                                            BorderBrush="{DynamicResource NormalBorderBrush}"
-                                            CornerRadius="{DynamicResource ControlCornerRadius}"
-                                            BorderThickness="{DynamicResource ControlBorderThickness}" 
-                                            Background="{DynamicResource ButtonBackgroundBrush}"  
-                                            Tag="{PluginSettings Plugin=CheckLocalizations, Path=HasData}">
-                                        <Border.Style>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="Visibility" Value="Visible" />
+                                    <!-- CheckLocalizations flags -->
+                                    <StackPanel HorizontalAlignment="Right" Margin="0,10,20,0" Grid.Row="0" 
+                                                Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationFlags}">
+                                        <StackPanel.Style>
+                                            <Style TargetType="{x:Type StackPanel}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
-                                        </Border.Style>
+                                        </StackPanel.Style>
 
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" FontSize="14"
-                                                       Foreground="{DynamicResource TextBrush}"
-                                                       Margin="5,0,5,0" VerticalAlignment="Center"
-                                                       Visibility="{DynamicResource CL_ShowLocalizationsLabel}" />
-                                            <ContentControl x:Name="CheckLocalizations_PluginFlags" Height="26" />
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-
-                                <!-- LibraryManagement plugin features list -->
-                                <StackPanel Margin="0,10,20,0" HorizontalAlignment="Right" Grid.Row="1"
-                                            Tag="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures}">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                        <Border Padding="5" VerticalAlignment="Top"
+                                                BorderBrush="{DynamicResource NormalBorderBrush}"
+                                                CornerRadius="{DynamicResource ControlCornerRadius}"
+                                                BorderThickness="{DynamicResource ControlBorderThickness}" 
+                                                Background="{DynamicResource ButtonBackgroundBrush}"  
+                                                Tag="{PluginSettings Plugin=CheckLocalizations, Path=HasData}">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
                                                     <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
 
-                                    <Border Padding="5" VerticalAlignment="Top"
-                                            BorderBrush="{DynamicResource NormalBorderBrush}"
-                                            CornerRadius="{DynamicResource ControlCornerRadius}"
-                                            BorderThickness="{DynamicResource ControlBorderThickness}" 
-                                            Background="{DynamicResource ButtonBackgroundBrush}"  
-                                            Tag="{PluginSettings Plugin=LibraryManagement, Path=HasData}">
-                                        <Border.Style>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="Visibility" Value="Visible" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" FontSize="14"
+                                                           Foreground="{DynamicResource TextBrush}"
+                                                           Margin="5,0,5,0" VerticalAlignment="Center"
+                                                           Visibility="{DynamicResource CL_ShowLocalizationsLabel}" />
+                                                <ContentControl x:Name="CheckLocalizations_PluginFlags" Height="26" />
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+
+                                    <!-- LibraryManagement plugin features list -->
+                                    <StackPanel Margin="0,10,20,0" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1"
+                                                Tag="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures}">
+                                        <StackPanel.Style>
+                                            <Style TargetType="{x:Type StackPanel}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
-                                        </Border.Style>
+                                        </StackPanel.Style>
 
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{DynamicResource LOCFeaturesLabel}" FontSize="14"
-                                                       Foreground="{DynamicResource TextBrush}"
-                                                       Margin="5,0,5,0" VerticalAlignment="Center"
-                                                       Visibility="{DynamicResource LM_ShowFeaturesLabel}" />
-                                            <ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="26" />
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
+                                        <Border Padding="5" VerticalAlignment="Top"
+                                                BorderBrush="{DynamicResource NormalBorderBrush}"
+                                                CornerRadius="{DynamicResource ControlCornerRadius}"
+                                                BorderThickness="{DynamicResource ControlBorderThickness}" 
+                                                Background="{DynamicResource ButtonBackgroundBrush}"  
+                                                Tag="{PluginSettings Plugin=LibraryManagement, Path=HasData}">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{DynamicResource LOCFeaturesLabel}" FontSize="14"
+                                                           Foreground="{DynamicResource TextBrush}"
+                                                           Margin="5,0,5,0" VerticalAlignment="Center"
+                                                           Visibility="{DynamicResource LM_ShowFeaturesLabel}" />
+                                                <ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="26" />
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+
+                                <!-- Age Ratings -->
+                                <ItemsControl ItemsSource="{Binding Game.AgeRatings}" Margin="5,10,0,0"
+                                              Grid.Column="0"
+                                              Visibility="{DynamicResource DE_ShowAgeRating}"
+                                              VerticalAlignment="Top" HorizontalAlignment="Left"
+                                              IsTabStop="False" IsEnabled="False">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" Height="Auto"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto" />
+                                                </Grid.ColumnDefinitions>
+                                                
+                                                <Border x:Name="RatingIcon" Background="White" CornerRadius="5"
+                                                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        Height="32" BorderThickness="2"
+                                                        Width="Auto"
+                                                        Margin="1" Visibility="Visible">
+                                                    <Image Grid.Column="0" x:Name="RatingIconImage"
+                                                           RenderOptions.BitmapScalingMode="Fant"
+                                                           SnapsToDevicePixels="True"
+                                                           Margin="3"
+                                                           Source="{ThemeFileBinding Name, PathFormat='Images/AgeRatings/{0}.png'}" />
+                                                </Border>
+                                            </Grid>
+
+                                            <DataTemplate.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=RatingIconImage, Path=Source}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </DataTemplate.Triggers>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
                             </Grid>
 
                             <Grid HorizontalAlignment="Stretch" Margin="20,0,20,0">

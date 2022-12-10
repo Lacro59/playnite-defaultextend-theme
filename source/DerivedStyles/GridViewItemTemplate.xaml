@@ -94,7 +94,48 @@
                                     </StackPanel>
                                 </Viewbox>
                             </Grid>
-                            
+
+                            <!-- Age Ratings -->
+                            <ItemsControl ItemsSource="{Binding Game.AgeRatings}"
+                                          Visibility="{DynamicResource DE_ShowAgeRating}"
+                                          Grid.Row="0" 
+                                          VerticalAlignment="Top" HorizontalAlignment="Left"
+                                          IsTabStop="False" IsEnabled="False">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="Auto"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Border x:Name="RatingIcon" Background="White" CornerRadius="5"
+                                                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    Height="24" BorderThickness="2"
+                                                    Width="Auto"
+                                                    Margin="1" Visibility="Visible">
+                                                <Image Grid.Column="0" x:Name="RatingIconImage"
+                                                       RenderOptions.BitmapScalingMode="Fant"
+                                                       SnapsToDevicePixels="True"
+                                                       Margin="3"
+                                                       Source="{ThemeFileBinding Name, PathFormat='Images/AgeRatings/{0}.png'}" />
+                                            </Border>
+                                        </Grid>
+
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=RatingIconImage, Path=Source}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
                             <TextBlock Grid.Row="1" Text="{Binding DisplayName}"
                                        Style="{DynamicResource BaseTextBlockStyle}"                                                                   
                                        TextAlignment="Center" TextTrimming="CharacterEllipsis"
