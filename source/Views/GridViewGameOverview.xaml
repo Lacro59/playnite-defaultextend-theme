@@ -414,7 +414,8 @@
                                         <TabControl Margin="5,0,0,0">
                                             <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab">
                                                 <StackPanel Margin="0,5,0,10" x:Name="DescriptionContent">
-                                                    <StackPanel Name="PART_ElemNotes">
+                                                    <StackPanel Name="PART_ElemNotes"
+                                                                Visibility="{DynamicResource DE_NoteInTab, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
                                                         <TextBlock Text="{DynamicResource LOCNotesLabel}" Margin="0,15,0,5"
                                                            Style="{DynamicResource BaseTextBlockStyle}" />
                                                         <Separator Background="{DynamicResource PanelSeparatorBrush}" />

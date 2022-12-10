@@ -1,4 +1,6 @@
 Constants:
+  - Miscellaneous
+  - DE_ShowAgeRating: Display age rating icons
   - Completation status
   - DE_ShowCompletationStatus: Display the game completation status
   - DE_NotPlayedStatus: Status Not Played
@@ -9,9 +11,8 @@ Constants:
   - DE_AbandonedStatus: Status Abandoned
   - DE_OnHoldStatus: Status OnHold
   - DE_PlanToPlayStatus: Status PlanToPlay
-  - Miscellaneous
-  - DE_ShowAgeRating: Dispaly age rating icons
   - Details View
+  - DE_NoteInTab: Display note in tab
   - DE_OneLine: Display list game with one line
   - DE_LimitBackgroundHeight: Limit background height
   - DE_BackgroundHeight(100,1000): Background height
