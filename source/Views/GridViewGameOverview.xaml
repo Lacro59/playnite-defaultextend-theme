@@ -412,17 +412,18 @@
                                         </StackPanel>
 
                                         <TabControl Margin="5,0,0,0">
-                                            <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab">
+                                            <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" Tag="{DynamicResource DE_NoteInTab}">
                                                 <StackPanel Margin="0,5,0,10" x:Name="DescriptionContent">
-                                                    <StackPanel Name="PART_ElemNotes"
-                                                                Visibility="{DynamicResource DE_NoteInTab, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
-                                                        <TextBlock Text="{DynamicResource LOCNotesLabel}" Margin="0,15,0,5"
-                                                           Style="{DynamicResource BaseTextBlockStyle}" />
-                                                        <Separator Background="{DynamicResource PanelSeparatorBrush}" />
-                                                        <TextBox Name="PART_TextNotes" IsReadOnly="True"
-                                                         BorderThickness="0"
-                                                         AcceptsReturn="True" TextWrapping="Wrap"
-                                                         Margin="-1,5,-1,5" Padding="5"/>
+                                                    <StackPanel Visibility="{Binding ElementName=DescriptionTab, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                                                        <StackPanel Name="PART_ElemNotes">
+                                                            <TextBlock Text="{DynamicResource LOCNotesLabel}" Margin="0,15,0,5"
+                                                                       Style="{DynamicResource BaseTextBlockStyle}" />
+                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" />
+                                                            <TextBox Name="PART_TextNotes" IsReadOnly="True"
+                                                                     BorderThickness="0"
+                                                                     AcceptsReturn="True" TextWrapping="Wrap"
+                                                                     Margin="-1,5,-1,5" Padding="5"/>
+                                                        </StackPanel>
                                                     </StackPanel>
 
                                                     <!-- HowLongToBeat progress bar -->
@@ -548,6 +549,25 @@
                                                                   ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                                                     </StackPanel>
                                                 </StackPanel>
+                                            </TabItem>
+
+                                            <TabItem Header="{DynamicResource LOCNotesLabel}">
+                                                <TabItem.Style>
+                                                    <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
+                                                        <Setter Property="Visibility" Value="{Binding ElementName=DescriptionTab, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Text, Converter={StaticResource StringNullOrEmptyToBoolConverter}}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TabItem.Style>
+
+                                                <TextBox IsReadOnly="True"
+                                                     Text="{Binding ElementName=PART_TextNotes, Path=Text}"
+                                                     BorderThickness="0"
+                                                     AcceptsReturn="True" TextWrapping="Wrap"
+                                                     Margin="0,5,0,10" />
                                             </TabItem>
 
                                             <TabItem Header="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}"

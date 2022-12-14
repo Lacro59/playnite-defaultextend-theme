@@ -80,7 +80,7 @@
                                                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
                                 </Grid>
-                                
+
                                 <Border Background="#AA000000" x:Name="BorderMouseOver" Visibility="Collapsed" />
                                 <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center"
                                          Name="GameControls"  Visibility="Collapsed">
@@ -106,14 +106,14 @@
                                         <StackPanel Orientation="Horizontal" Height="Auto"/>
                                     </ItemsPanelTemplate>
                                 </ItemsControl.ItemsPanel>
-                                
+
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Margin="0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto" />
                                             </Grid.ColumnDefinitions>
-                                            
+
                                             <Border x:Name="RatingIcon" Background="White" CornerRadius="5"
                                                     HorizontalAlignment="Center" VerticalAlignment="Center"
                                                     Height="24" BorderThickness="2"
@@ -136,6 +136,11 @@
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
 
+                            <!-- LibraryManagement plugin features list -->
+                            <ContentControl x:Name="LibraryManagement_PluginAgeRating" Height="24"
+                                          Grid.Row="0" Margin="5"
+                                          VerticalAlignment="Top" HorizontalAlignment="Left" />
+
                             <TextBlock Grid.Row="1" Text="{Binding DisplayName}"
                                        Style="{DynamicResource BaseTextBlockStyle}"                                                                   
                                        TextAlignment="Center" TextTrimming="CharacterEllipsis"
@@ -153,7 +158,7 @@
                                     <TextBlock.Effect>
                                         <DropShadowEffect Color="Black" Opacity="1" BlurRadius="5" ShadowDepth="0" />
                                     </TextBlock.Effect>
-                                    
+
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="Text" Value="{DynamicResource CustomStatusIcon}" />
@@ -207,7 +212,7 @@
                                             Opacity="0.75" Margin="0,0,0,0"  
                                             DockPanel.Dock="Right"
                                             RenderOptions.BitmapScalingMode="Fant" />
-                            
+
                             <StackPanel Grid.Row="2" Orientation="Horizontal" Width="{Settings GridItemWidth}">
                                 <!-- CheckLocalizations view item -->
                                 <StackPanel VerticalAlignment="Center"
@@ -315,7 +320,7 @@
                             </StackPanel>
                         </Grid>
                     </Border>
-                    
+
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="False">
                             <Setter Property="Content" Value="&#xef08;" TargetName="PART_ButtonPlay" />

@@ -205,6 +205,11 @@
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
+
+                                <!-- LibraryManagement plugin features list -->
+                                <ContentControl x:Name="LibraryManagement_PluginAgeRating" Height="50"
+                                                Margin="5,10,0,0" Grid.Column="0"
+                                                VerticalAlignment="Top" HorizontalAlignment="Left" />
                             </Grid>
 
                             <Grid HorizontalAlignment="Stretch" Margin="20,0,20,0">
