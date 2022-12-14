@@ -425,7 +425,7 @@
 
                                         <Separator Background="{DynamicResource PanelSeparatorBrush}" />
 
-                                        <GridEx Margin="0,5,0,10" ColumnCount="2" StarColumns="1" RowCount="21" AutoLayoutColumns="2">
+                                        <GridEx Margin="0,5,0,10" ColumnCount="2" StarColumns="1" RowCount="24" AutoLayoutColumns="2">
                                             <Grid.Resources>
                                                 <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" />
                                             </Grid.Resources>
