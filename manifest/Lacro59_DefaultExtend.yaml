@@ -64,3 +64,12 @@ Packages:
     Changelog:
       - Updated for Playnite 10
       - Fixed minor issues
+  - Version: 1.1
+    RequiredApiVersion: 2.4.0
+    ReleaseDate: 2022-12-14
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v1.1/playnite-defaultextend-theme_1_1.pthm
+    Changelog:
+      - Fixed UI issues
+      - Added age rating icon (based from Reskin XBOXSX Ext by Dukobpa3)
+      - Added option to display note in tab
+      - Added PluginAgeRating

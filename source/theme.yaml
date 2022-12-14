@@ -1,8 +1,8 @@
-ThemeApiVersion: 2.3.0
+ThemeApiVersion: 2.4.0
 Id: playnite-defaultextend-theme
 Name: DefaultExtend
 Author: Lacro59
-Version: 1.0
+Version: 1.1
 Links:
   - Name: Theme forum
     Url: https://playnite.link/forum/
