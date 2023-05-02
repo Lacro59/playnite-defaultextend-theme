@@ -970,6 +970,12 @@
                                                             <DataTrigger Value="EA app" Binding="{Binding SourceName}">
                                                               <Setter Property="Source" Value="{StaticResource DuplicateHider_EAapp_Icon}"/>
                                                             </DataTrigger>
+                                                            <DataTrigger Value="Hacked" Binding="{Binding SourceName}">
+                                                              <Setter Property="Source" Value="{StaticResource DuplicateHider_Devil_Icon}"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Value="Android" Binding="{Binding SourceName}">
+                                                              <Setter Property="Source" Value="{StaticResource DuplicateHider_Android_Icon}"/>
+                                                            </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>

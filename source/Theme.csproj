@@ -138,6 +138,9 @@
     <Content Include="Images\csharp.ico" />
     <Content Include="Images\custom_cover_background.png" />
     <Content Include="Images\discord.png" />
+    <Content Include="Images\Icons\Android.png" />
+    <Content Include="Images\Icons\Devil.png" />
+    <Content Include="Images\Icons\EAapp.png" />
     <Content Include="Images\Icons\Indiegala.png" />
     <Content Include="Images\Icons\LegacyGames.png" />
     <Content Include="Images\Icons\Riot.png" />
