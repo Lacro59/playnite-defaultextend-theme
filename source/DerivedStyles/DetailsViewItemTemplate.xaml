@@ -163,9 +163,26 @@
                                        Grid.Column="0" Foreground="{DynamicResource GlyphBrush}" />
 
                                 <TextBlock Grid.Column="1" ToolTip="{DynamicResource LOCLastPlayed}"
-                                            Text="{Binding Path=LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}"
-                                            VerticalAlignment="Center" Margin="8,0,8,0"
-                                            FontSize="11" />
+                                           Text="{Binding Path=LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}"
+                                           VerticalAlignment="Center" Margin="8,0,8,0"
+                                           FontSize="11" />
+
+                                <TextBlock Grid.Column="2" ToolTip="{DynamicResource LOCTimePlayed}"
+                                           Tag="{DynamicResource DE_ShowPlayTime}"
+                                           Text="{Binding Playtime, Converter={StaticResource PlayTimeToStringConverter}}"
+                                           VerticalAlignment="Center" Margin="75,0,8,0"
+                                           FontSize="11">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </Grid>
 
                             <StackPanel Grid.Row="1" Grid.Column="2" Tag="{DynamicResource DE_OneLine}" Orientation="Horizontal" HorizontalAlignment="Right">

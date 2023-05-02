@@ -6,6 +6,7 @@
     <sys:Boolean x:Key="DE_OneLine">False</sys:Boolean>
     <sys:Boolean x:Key="DE_NoteInTab">False</sys:Boolean>
     <Visibility x:Key="DE_ShowAgeRating">Visible</Visibility>
+    <sys:Boolean x:Key="DE_ShowPlayTime">True</sys:Boolean>
 
     <sys:Boolean x:Key="DE_LimitBackgroundHeight">False</sys:Boolean>
     <sys:Double x:Key="DE_BackgroundHeight">300</sys:Double>
