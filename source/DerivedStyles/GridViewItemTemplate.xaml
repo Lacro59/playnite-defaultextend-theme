@@ -9,8 +9,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GameListItem}">
                     <Border BorderThickness="{Settings GridItemMargin}" BorderBrush="{DynamicResource GridItemBackgroundBrush}">
-                        <Grid Name="PART_PanelHost" Width="{Settings GridItemWidth}" Height="{Settings GridItemHeight}"
-                                    d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
+                        <Grid Name="PART_PanelHost"
+                              d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -18,10 +18,12 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
 
-                            <Grid Grid.Row="0" Name="PART_ImageContener">
-                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
+                            <Grid Grid.Row="0" Name="PART_ImageContener" 
+                                  Width="{Settings GridItemWidth}" Height="{Settings GridItemHeight}">
+
+                                <Grid>
+                                    <Grid.Style>
+                                        <Style TargetType="{x:Type Grid}">
                                             <Setter Property="Visibility" Value="Visible" />
                                             <Style.Triggers>
                                                 <MultiDataTrigger>
@@ -33,15 +35,13 @@
                                                 </MultiDataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </StackPanel.Style>
+                                    </Grid.Style>
 
                                     <Image Name="PART_ImageCover" 
-                                           Width="{Binding ElementName=PART_ImageContener, Path=ActualWidth}"
-                                           Height="{Binding ElementName=PART_ImageContener, Path=ActualHeight}"
                                            HorizontalAlignment="Center" VerticalAlignment="Center"
                                            RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                            Stretch="{Settings CoverArtStretch}" />
-                                </StackPanel>
+                                </Grid>                   
 
                                 <!-- BackgroundChanger plugin cover -->
                                 <ContentControl x:Name="BackgroundChanger_PluginCoverImage"
