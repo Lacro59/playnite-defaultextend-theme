@@ -73,3 +73,11 @@ Packages:
       - Added age rating icon (based from Reskin XBOXSX Ext by Dukobpa3)
       - Added option to display note in tab
       - Added PluginAgeRating
+  - Version: 1.2
+    RequiredApiVersion: 2.5.0
+    ReleaseDate: 2023-05-03
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v1.2/playnite-defaultextend-theme_1_2.pthm
+    Changelog:
+      - Fixed minor issues
+      - Added new options (with ThemeModifier)
+      - Added Icons for DuplicateHider
