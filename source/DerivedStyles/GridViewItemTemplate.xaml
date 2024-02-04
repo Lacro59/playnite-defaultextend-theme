@@ -317,18 +317,9 @@
         </Setter>
     </Style>
 
-    <Style
-        x:Key="DuplicateHider_IconContentControlStyle"
-        BasedOn="{StaticResource {x:Type ContentControl}}"
-        TargetType="ContentControl">
+    <Style x:Key="DuplicateHider_IconContentControlStyle" BasedOn="{StaticResource {x:Type ContentControl}}" TargetType="ContentControl">
         <Style.Resources>
-            <DropShadowEffect
-                x:Key="glowEffect"
-                BlurRadius="8"
-                Opacity="1"
-                RenderingBias="Quality"
-                ShadowDepth="0"
-                Color="{DynamicResource GlyphColor}" />
+            <DropShadowEffect x:Key="glowEffect" BlurRadius="8" Opacity="1" RenderingBias="Quality" ShadowDepth="0" Color="{DynamicResource GlyphColor}" />
         </Style.Resources>
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="Foreground" Value="{x:Null}" />
@@ -343,13 +334,43 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Grid.ToolTip>
-                            <TextBlock Text="{Binding DisplayString}"/>
-                        </Grid.ToolTip>
-                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource WindowBackgourndBrushHighlightHover}" Opacity="1" Visibility="Hidden">
-                        </Border>
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource GlyphBrush}" Opacity="1" Visibility="Hidden" />
                         <StackPanel Orientation="Horizontal" Opacity="{Binding Game.IsInstalled, Converter={StaticResource OpacityBoolConverter}}">
-                            <Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3">
+                            <Image RenderOptions.BitmapScalingMode="Fant" Margin="1.5">
+                                <Image.Style>
+                                    <Style TargetType="{x:Type Image}">
+                                        <Setter Property="Source" Value="{Binding Icon}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Value="Indiegala" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_Indiegala_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="Legacy Games" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_LegacyGames_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="Riot" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_Riot_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="Switch" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_Switch_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="EA app" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_EAapp_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="Hacked" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_Devil_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="Android" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_Android_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="Oculus" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_Oculus_Icon}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Value="Microsoft Store" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_MicrosoftStore_Icon}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
                                 <Image.Effect>
                                     <DropShadowEffect Color="Black" Opacity="0.75" BlurRadius="5" ShadowDepth="0" />
                                 </Image.Effect>
@@ -366,7 +387,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Background" Value="{DynamicResource WindowBackgourndBrushBright}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource HighlightGlyphBrush}" TargetName="IconBackground"/>
                             <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
                             <Setter Property="Effect" Value="{StaticResource glowEffect}" />
                             <Trigger.EnterActions>
@@ -394,7 +415,7 @@
                         </Trigger>
                         <DataTrigger Binding="{Binding IsCurrent}" Value="True">
                             <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Background" Value="{DynamicResource WindowBackgourndBrushHighlight}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource GlyphBrush}" TargetName="IconBackground"/>
                             <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>

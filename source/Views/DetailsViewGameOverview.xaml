@@ -1256,6 +1256,9 @@
                                                             <DataTrigger Value="Oculus" Binding="{Binding SourceName}">
                                                                 <Setter Property="Source" Value="{StaticResource DuplicateHider_Oculus_Icon}"/>
                                                             </DataTrigger>
+                                                            <DataTrigger Value="Microsoft Store" Binding="{Binding SourceName}">
+                                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_MicrosoftStore_Icon}"/>
+                                                            </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>

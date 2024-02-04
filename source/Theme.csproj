@@ -143,6 +143,7 @@
     <Content Include="Images\Icons\EAapp.png" />
     <Content Include="Images\Icons\Indiegala.png" />
     <Content Include="Images\Icons\LegacyGames.png" />
+    <Content Include="Images\Icons\MicrosoftStore.png" />
     <Content Include="Images\Icons\Oculus.png" />
     <Content Include="Images\Icons\Riot.png" />
     <Content Include="Images\Icons\Switch.png" />
@@ -441,6 +442,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ControlGalleryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CustomControls\ComboBoxList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -473,6 +478,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DerivedStyles\ListViewGroupStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PluginLocalizations\CheckLocalizations.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -498,6 +507,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FilterPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
