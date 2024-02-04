@@ -449,7 +449,45 @@
                                                         <TextBlock Text="{DynamicResource LOCFeaturesLabel}" />
                                                     </StackPanel>
                                                 </Label>
-                                                <ItemsControl Name="PART_ItemsFeatures" />
+                                                <ItemsControl Name="PART_ItemsFeatures" Tag="{DynamicResource DE_LimitFeaturesHeight}"
+                                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                          ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                                    <ItemsControl.Style>
+                                                        <Style TargetType="{x:Type ItemsControl}" BasedOn="{StaticResource {x:Type ItemsControl}}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ElementName=PART_ItemsTags, Path=Tag}" Value="True">
+                                                                    <Setter Property="MaxHeight" Value="{DynamicResource DE_FeaturesHeight}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ItemsControl.Style>
+
+                                                    <ItemsControl.Template>
+                                                        <ControlTemplate TargetType="{x:Type ItemsControl}">
+                                                            <Border x:Name="Border"
+                                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                    Background="{TemplateBinding Background}"
+                                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                                                <ScrollViewer Margin="0"
+                                                                              Focusable="False"
+                                                                              Padding="{TemplateBinding Padding}"
+                                                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                              HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                                              VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                                                              CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}">
+                                                                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                                </ScrollViewer>
+                                                            </Border>
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsEnabled" Value="False">
+                                                                    <Setter TargetName="Border" Property="Background" Value="Gray" />
+                                                                    <Setter TargetName="Border" Property="BorderBrush" Value="Silver" />
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </ItemsControl.Template>
+                                                </ItemsControl>
 
                                                 <Label Name="PART_ElemTags">
                                                     <StackPanel Orientation="Horizontal">
@@ -457,7 +495,45 @@
                                                         <TextBlock Text="{DynamicResource LOCTagsLabel}" />
                                                     </StackPanel>
                                                 </Label>
-                                                <ItemsControl Name="PART_ItemsTags" />
+                                                <ItemsControl Name="PART_ItemsTags" Tag="{DynamicResource DE_LimitTagsHeight}"
+                                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                              ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                                    <ItemsControl.Style>
+                                                        <Style TargetType="{x:Type ItemsControl}" BasedOn="{StaticResource {x:Type ItemsControl}}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ElementName=PART_ItemsTags, Path=Tag}" Value="True">
+                                                                    <Setter Property="MaxHeight" Value="{DynamicResource DE_TagsHeight}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ItemsControl.Style>
+                                                    
+                                                    <ItemsControl.Template>
+                                                        <ControlTemplate TargetType="{x:Type ItemsControl}">
+                                                            <Border x:Name="Border"
+                                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                    Background="{TemplateBinding Background}"
+                                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                                                <ScrollViewer Margin="0"
+                                                                              Focusable="False"
+                                                                              Padding="{TemplateBinding Padding}"
+                                                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                              HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                                              VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                                                              CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}">
+                                                                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                                </ScrollViewer>
+                                                            </Border>
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsEnabled" Value="False">
+                                                                    <Setter TargetName="Border" Property="Background" Value="Gray" />
+                                                                    <Setter TargetName="Border" Property="BorderBrush" Value="Silver" />
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </ItemsControl.Template>
+                                                </ItemsControl>
 
                                                 <Label Name="PART_ElemAgeRating">
                                                     <StackPanel Orientation="Horizontal">

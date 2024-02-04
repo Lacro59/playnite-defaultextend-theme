@@ -4,6 +4,12 @@
 
     <Visibility x:Key="DE_DetailsIconsVisibility">Visible</Visibility>
     <Visibility x:Key="DE_ShowCompletationStatus">Visible</Visibility>
+
+    <sys:Boolean x:Key="DE_LimitFeaturesHeight">True</sys:Boolean>
+    <sys:Double x:Key="DE_FeaturesHeight">200</sys:Double>
+    <sys:Boolean x:Key="DE_LimitTagsHeight">True</sys:Boolean>
+    <sys:Double x:Key="DE_TagsHeight">200</sys:Double>
+
     <sys:Boolean x:Key="DE_OneLine">False</sys:Boolean>
     <sys:Boolean x:Key="DE_NoteInTab">False</sys:Boolean>
     <Visibility x:Key="DE_ShowAgeRating">Visible</Visibility>

@@ -2,6 +2,10 @@ Constants:
   - Miscellaneous
   - DE_DetailsIconsVisibility: Visibility of icons in details
   - DE_ShowAgeRating: Display age rating icons
+  - DE_LimitFeaturesHeight: Limit features height
+  - DE_FeaturesHeight(100,1000): Features height
+  - DE_LimitTagsHeight: Limit tags height
+  - DE_TagsHeight(100,1000): Tags height
   - Completation status
   - DE_ShowCompletationStatus: Display the game completation status
   - DE_NotPlayedStatus: Status Not Played
