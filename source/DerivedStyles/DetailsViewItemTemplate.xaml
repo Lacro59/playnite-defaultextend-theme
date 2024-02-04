@@ -296,6 +296,9 @@
                                             <DataTrigger Value="Android" Binding="{Binding SourceName}">
                                                 <Setter Property="Source" Value="{StaticResource DuplicateHider_Android_Icon}"/>
                                             </DataTrigger>
+                                            <DataTrigger Value="Oculus" Binding="{Binding SourceName}">
+                                                <Setter Property="Source" Value="{StaticResource DuplicateHider_Oculus_Icon}"/>
+                                            </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </Image.Style>

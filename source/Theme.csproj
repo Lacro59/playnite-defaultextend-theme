@@ -143,6 +143,7 @@
     <Content Include="Images\Icons\EAapp.png" />
     <Content Include="Images\Icons\Indiegala.png" />
     <Content Include="Images\Icons\LegacyGames.png" />
+    <Content Include="Images\Icons\Oculus.png" />
     <Content Include="Images\Icons\Riot.png" />
     <Content Include="Images\Icons\Switch.png" />
     <Content Include="Images\patreon.png" />

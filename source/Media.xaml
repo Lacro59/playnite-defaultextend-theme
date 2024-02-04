@@ -9,6 +9,7 @@
     <BitmapImage x:Key="DuplicateHider_EAapp_Icon" UriSource="{ThemeFile 'Images/Icons/EAapp.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_Devil_Icon" UriSource="{ThemeFile 'Images/Icons/Devil.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_Android_Icon" UriSource="{ThemeFile 'Images/Icons/Android.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
+    <BitmapImage x:Key="DuplicateHider_Oculus_Icon" UriSource="{ThemeFile 'Images/Icons/Oculus.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
 
     <BitmapImage x:Key="TrayIcon" UriSource="{ThemeFile 'Images/applogo.ico'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="TrayIconWhite" UriSource="{ThemeFile 'Images/applogo_black.ico'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
