@@ -1,5 +1,6 @@
 Constants:
   - Miscellaneous
+  - DE_DetailsIconsVisibility: Visibility of icons in details
   - DE_ShowAgeRating: Display age rating icons
   - Completation status
   - DE_ShowCompletationStatus: Display the game completation status
