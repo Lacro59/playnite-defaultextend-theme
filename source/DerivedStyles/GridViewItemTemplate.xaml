@@ -170,41 +170,34 @@
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_NotPlayedStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource NotPlayedStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusNotPlayed}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_PlayingStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource PlayingStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusPlaying}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_PlayedStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource PlayedStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusPlayed}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_CompletedStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource CompletedStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusCompleted}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_BeatenStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource BeatenStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusBeaten}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_AbandonedStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource AbandonedStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusAbandoned}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_OnHoldStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource OnHoldStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusOnHold}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding CompletionStatus.Name}" Value="{StaticResource DE_PlanToPlayStatus}">
                                                     <Setter Property="Text" Value="{DynamicResource PlanToPlayStatusIcon}" />
-                                                    <Setter Property="ToolTip" Value="{DynamicResource LOCCompletionStatusPlanToPlay}" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
                             </Grid>
+                            
                             <ContentControl x:Name="DuplicateHider_SourceSelector" MaxHeight="24"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Bottom"
@@ -216,17 +209,7 @@
                             <StackPanel Grid.Row="2" Orientation="Horizontal" Width="{Settings GridItemWidth}">
                                 <!-- CheckLocalizations view item -->
                                 <StackPanel VerticalAlignment="Center"
-                                            Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem}">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                            Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationViewItem, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
 
                                     <ContentControl x:Name="CheckLocalizations_PluginViewItem"
                                                     Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
@@ -235,17 +218,7 @@
 
                                 <!-- ScreenshotsVisualizer view item -->
                                 <StackPanel VerticalAlignment="Center"
-                                            Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationViewItem}">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                            Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationViewItem, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
 
                                     <ContentControl x:Name="ScreenshotsVisualizer_PluginViewItem"
                                                     Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
@@ -254,17 +227,7 @@
 
                                 <!-- SuccessStory view item -->
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
-                                            Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationViewItem}">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                            Visibility="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationViewItem, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
 
                                     <TextBlock Text="&#xe820;" FontFamily="{DynamicResource FontIcoFont}"
                                                Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
@@ -278,17 +241,7 @@
 
                                 <!-- HowLongToBeat view item -->
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
-                                            Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem}">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                            Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationViewItem, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
 
                                     <TextBlock Text="&#xea4b;" FontFamily="{DynamicResource CommonFont}"
                                                Foreground="{DynamicResource GlyphBrush}" FontSize="12" 
@@ -302,17 +255,7 @@
 
                                 <!-- SystemChecker view item -->
                                 <StackPanel VerticalAlignment="Center"
-                                            Tag="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationViewItem}">
-                                    <StackPanel.Style>
-                                        <Style TargetType="{x:Type StackPanel}">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
+                                            Visibility="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationViewItem, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
 
                                     <ContentControl x:Name="SystemChecker_PluginViewItem" Foreground="{DynamicResource GlyphBrush}" 
                                                     VerticalAlignment="Center" FontSize="12" Margin="8,0,0,0" />
