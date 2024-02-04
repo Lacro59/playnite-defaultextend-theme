@@ -11,6 +11,7 @@
     <BitmapImage x:Key="DuplicateHider_Android_Icon" UriSource="{ThemeFile 'Images/Icons/Android.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_Oculus_Icon" UriSource="{ThemeFile 'Images/Icons/Oculus.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="DuplicateHider_MicrosoftStore_Icon" UriSource="{ThemeFile 'Images/Icons/MicrosoftStore.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
+    <BitmapImage x:Key="DuplicateHider_JastUSA_Icon" UriSource="{ThemeFile 'Images/Icons/JastUSA.png'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
 
     <BitmapImage x:Key="TrayIcon" UriSource="{ThemeFile 'Images/applogo.ico'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>
     <BitmapImage x:Key="TrayIconWhite" UriSource="{ThemeFile 'Images/applogo_black.ico'}" RenderOptions.BitmapScalingMode="Fant" popt:Freeze="True"/>

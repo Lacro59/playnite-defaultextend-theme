@@ -142,6 +142,7 @@
     <Content Include="Images\Icons\Devil.png" />
     <Content Include="Images\Icons\EAapp.png" />
     <Content Include="Images\Icons\Indiegala.png" />
+    <Content Include="Images\Icons\JastUSA.png" />
     <Content Include="Images\Icons\LegacyGames.png" />
     <Content Include="Images\Icons\MicrosoftStore.png" />
     <Content Include="Images\Icons\Oculus.png" />
