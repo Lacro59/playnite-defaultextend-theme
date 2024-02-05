@@ -611,128 +611,59 @@
 
                                         <TabControl Margin="5,0,0,0">
                                             <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab">
-                                                <StackPanel Margin="0,5,0,10" x:Name="DescriptionContent">
+                                                <StackPanel Margin="10" x:Name="DescriptionContent">
                                                     <!-- HowLongToBeat progress bar -->
-                                                    <StackPanel Name="PART_HltbProgressBar" DockPanel.Dock="Top" Margin="5,0,5,15" 
-			                                                    Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar}">
-                                                        <StackPanel.Style>
-                                                            <Style TargetType="{x:Type StackPanel}">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </StackPanel.Style>
-
-                                                        <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
-                                                            <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" />
-                                                            <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,5,0,5" Height="50"
-						                                                    Width="{Binding ElementName=PART_HltbProgressBar, Path=ActualWidth}" />
+                                                    <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                            <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                            <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Height="50" />
                                                         </StackPanel>
                                                     </StackPanel>
 
                                                     <!-- CheckLocalizations list languages -->
-                                                    <StackPanel Name="PART_CheckLocContenerListLanguages" DockPanel.Dock="Top" Margin="5,0,5,15" 
-				                                                Tag="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationListLanguages}">
-                                                        <StackPanel.Style>
-                                                            <Style TargetType="{x:Type StackPanel}">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </StackPanel.Style>
-
-                                                        <StackPanel Visibility="{Binding ElementName=CheckLocalizations_PluginListLanguages, Path=Content.Visibility}">
-                                                            <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" />
-                                                            <ContentControl x:Name="CheckLocalizations_PluginListLanguages" Margin="0,5,0,5"
-						                                                    MinHeight="60" MaxHeight="300"
-						                                                    Width="{Binding ElementName=PART_CheckLocContenerListLanguages, Path=ActualWidth}" />
+                                                    <StackPanel Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationListLanguages, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <StackPanel Visibility="{Binding ElementName=CheckLocalizations_PluginListLanguages, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                            <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                            <ContentControl x:Name="CheckLocalizations_PluginListLanguages" MinHeight="60" MaxHeight="300" />
                                                         </StackPanel>
                                                     </StackPanel>
 
                                                     <!-- ScreenshotsVisualizer single picture -->
-                                                    <StackPanel Name="PART_SsvContenerListLanguages" DockPanel.Dock="Top" Margin="5,0,5,15" 
-				                                                Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowSinglePicture}">
-                                                        <StackPanel.Style>
-                                                            <Style TargetType="{x:Type StackPanel}">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </StackPanel.Style>
-
-                                                        <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginSinglePicture, Path=Content.Visibility}">
-                                                            <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" />
-                                                            <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" Margin="0,5,0,5"
-						                                                    MinHeight="100" MaxHeight="300"
-						                                                    Width="{Binding ElementName=PART_SsvContenerListLanguages, Path=ActualWidth}" />
+                                                    <StackPanel Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowSinglePicture, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginSinglePicture, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                            <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                            <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" MinHeight="100" MaxHeight="300" />
                                                         </StackPanel>
                                                     </StackPanel>
 
                                                     <!-- ScreenshotsVisualizer list pictures -->
-                                                    <StackPanel Name="PART_SsvContenerListPictures" DockPanel.Dock="Top" Margin="5,0,5,15" 
-				                                                Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPictures}">
-                                                        <StackPanel.Style>
-                                                            <Style TargetType="{x:Type StackPanel}">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </StackPanel.Style>
-
-                                                        <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginListScreenshots, Path=Content.Visibility}">
-                                                            <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,15,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" />
-                                                            <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" Margin="0,5,0,5"
-						                                                    MinHeight="50" MaxHeight="300"
-						                                                    Width="{Binding ElementName=PART_SsvContenerListPictures, Path=ActualWidth}" />
+                                                    <StackPanel Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPictures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginListScreenshots, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                            <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                            <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" MinHeight="50" MaxHeight="300" />
                                                         </StackPanel>
                                                     </StackPanel>
-                                                    <StackPanel Name="PART_SsvContenerListPicturesVertical"
-			                                                    Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPicturesVertical}">
-                                                        <StackPanel.Style>
-                                                            <Style TargetType="{x:Type StackPanel}">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </StackPanel.Style>
-
-                                                        <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginListScreenshotsVertical, Path=Content.Visibility}">
-                                                            <TextBlock Text="{DynamicResource LOCSsvTitle}" Margin="0,5,0,5" Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" />
-                                                            <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" Margin="0,5,0,5"
-						                                                    MinHeight="50" Height="300"
-						                                                    Width="{Binding ElementName=PART_SsvContenerListPicturesVertical, Path=ActualWidth}" />
+                                                    <StackPanel Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPicturesVertical, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginListScreenshotsVertical, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                            <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                            <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" MinHeight="50" Height="300" />
                                                         </StackPanel>
                                                     </StackPanel>
 
                                                     <StackPanel Name="PART_ElemDescription">
                                                         <HtmlTextView Name="PART_HtmlDescription"
-                                                                  Margin="0,5,0,5"
-                                                                  HtmlFontSize="{DynamicResource FontSize}"
-                                                                  HtmlFontFamily="{DynamicResource FontFamily}"
-                                                                  HtmlForeground="{DynamicResource TextColor}"
-                                                                  LinkForeground="{DynamicResource GlyphColor}"                                      
-                                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                                                                Margin="0,0,0,5"
+                                                                HtmlFontSize="{DynamicResource FontSize}"
+                                                                HtmlFontFamily="{DynamicResource FontFamily}"
+                                                                HtmlForeground="{DynamicResource TextColor}"
+                                                                LinkForeground="{DynamicResource GlyphColor}"                                      
+                                                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                                                     </StackPanel>
                                                 </StackPanel>
                                             </TabItem>
@@ -753,29 +684,22 @@
                                                 </TabItem.Style>
 
                                                 <StackPanel Margin="10">
-                                                    <TextBox Name="PART_TextNotes" IsReadOnly="True"
-                                                         BorderThickness="0"
-                                                         AcceptsReturn="True" TextWrapping="Wrap"
-                                                         Margin="0,0,0,10" />
+                                                    <TextBox Name="PART_TextNotes" Margin="0,0,15,0"
+                                                        IsReadOnly="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" />
 
                                                     <ContentControl x:Name="PlayNotes_NotesViewerControl"
-                                                                Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
+                                                            Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
                                                 </StackPanel>
                                             </TabItem>
 
-                                            <TabItem Header="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}" Visibility="{PluginSettings Plugin=NewsViewer, Path=ReviewsAvailable, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
-                                                <ContentControl x:Name="NewsViewer_NewsViewerControl" ClipToBounds="True" Margin="0,10,0,10" VerticalAlignment="Top" />
+                                            <TabItem Header="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}"
+                                                Visibility="{PluginSettings Plugin=NewsViewer, Path=ReviewsAvailable, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <ContentControl x:Name="NewsViewer_NewsViewerControl" ClipToBounds="True" Margin="10" VerticalAlignment="Top" />
                                             </TabItem>
 
                                             <TabItem Header="{DynamicResource LOCReview_Viewer_ReviewsLabel}"
-                                                 Visibility="{PluginSettings Plugin=ReviewViewer, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                <Grid>
-                                                    <Border Style="{DynamicResource OutlineBorderSidePanelsBorder}" />
-                                                    <Border Style="{DynamicResource OutlineBorderSidePanels}" />
-                                                    <Border Padding="10">
-                                                        <ContentControl x:Name="ReviewViewer_ReviewsControl" />
-                                                    </Border>
-                                                </Grid>
+                                                Visibility="{PluginSettings Plugin=ReviewViewer, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <ContentControl x:Name="ReviewViewer_ReviewsControl" Margin="10" VerticalAlignment="Top" />
                                             </TabItem>
 
                                             <TabItem Header="{DynamicResource LOCExtra_Metadata_Loader_VideoLabel}">
@@ -794,7 +718,7 @@
                                                     </Style>
                                                 </TabItem.Style>
 
-                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Margin="0,10,0,10" VerticalAlignment="Top">
+                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Margin="10" VerticalAlignment="Top">
                                                     <ContentControl.Resources>
                                                         <Style x:Key="SliderThump" TargetType="{x:Type Thumb}">
                                                             <Setter Property="Background" Value="{DynamicResource NormalBrush}" />
@@ -803,10 +727,10 @@
                                                                     <ControlTemplate TargetType="{x:Type Thumb}">
                                                                         <Grid>
                                                                             <Rectangle x:Name="HoverRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                                                                                               Width="Auto" Height="Auto" RadiusX="3" RadiusY="3"
-                                                                                                               Stroke="{x:Null}" Margin="1,1,1,1" MinHeight="10"
-                                                                                                               Fill="{TemplateBinding Background}"
-                                                                                                               RenderTransformOrigin="0.5,0.5">
+                                                                                                            Width="Auto" Height="Auto" RadiusX="3" RadiusY="3"
+                                                                                                            Stroke="{x:Null}" Margin="1,1,1,1" MinHeight="10"
+                                                                                                            Fill="{TemplateBinding Background}"
+                                                                                                            RenderTransformOrigin="0.5,0.5">
                                                                                 <Rectangle.RenderTransform>
                                                                                     <ScaleTransform ScaleX="1" ScaleY="1" x:Name="BorderScale"/>
                                                                                 </Rectangle.RenderTransform>
@@ -820,13 +744,13 @@
                                                                                     <BeginStoryboard>
                                                                                         <Storyboard>
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1.01"
-                                                                                                                                     Storyboard.TargetName="BorderScale"
-                                                                                                                                     Storyboard.TargetProperty="ScaleX"
-                                                                                                                                     />
+                                                                                                                                    Storyboard.TargetName="BorderScale"
+                                                                                                                                    Storyboard.TargetProperty="ScaleX"
+                                                                                                                                    />
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1.01"
-                                                                                                                                     Storyboard.TargetName="BorderScale"
-                                                                                                                                     Storyboard.TargetProperty="ScaleY"
-                                                                                                                                     />
+                                                                                                                                    Storyboard.TargetName="BorderScale"
+                                                                                                                                    Storyboard.TargetProperty="ScaleY"
+                                                                                                                                    />
                                                                                         </Storyboard>
                                                                                     </BeginStoryboard>
                                                                                 </Trigger.EnterActions>
@@ -834,13 +758,13 @@
                                                                                     <BeginStoryboard>
                                                                                         <Storyboard>
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1"
-                                                                                                                                     Storyboard.TargetName="BorderScale"
-                                                                                                                                     Storyboard.TargetProperty="ScaleX" 
-                                                                                                                                     />
+                                                                                                                                    Storyboard.TargetName="BorderScale"
+                                                                                                                                    Storyboard.TargetProperty="ScaleX" 
+                                                                                                                                    />
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1"
-                                                                                                                                     Storyboard.TargetName="BorderScale"
-                                                                                                                                     Storyboard.TargetProperty="ScaleY"
-                                                                                                                                     />
+                                                                                                                                    Storyboard.TargetName="BorderScale"
+                                                                                                                                    Storyboard.TargetProperty="ScaleY"
+                                                                                                                                    />
                                                                                         </Storyboard>
                                                                                     </BeginStoryboard>
                                                                                 </Trigger.ExitActions>
@@ -867,16 +791,16 @@
                                                                                 <RowDefinition Height="Auto" />
                                                                             </Grid.RowDefinitions>
                                                                             <TickBar x:Name="TopTick" Visibility="Collapsed" Height="4" Placement="Top"
-                                                                                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  Fill="{DynamicResource GlyphBrush}" />
+                                                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  Fill="{DynamicResource GlyphBrush}" />
                                                                             <Border x:Name="Border" Grid.Row="1" Margin="0" Height="6" CornerRadius="{DynamicResource ControlCornerRadius}"
-                                                                                                Background="{TemplateBinding Background}" BorderBrush="{DynamicResource NormalBorderBrush}"
-                                                                                                BorderThickness="{DynamicResource ControlBorderThickness}" Opacity="0.5"/>
+                                                                                            Background="{TemplateBinding Background}" BorderBrush="{DynamicResource NormalBorderBrush}"
+                                                                                            BorderThickness="{DynamicResource ControlBorderThickness}" Opacity="0.5"/>
                                                                             <Track Grid.Row="1" x:Name="PART_Track" Height="{TemplateBinding Height}"
-                                                                                               Effect="{DynamicResource TextDropShadow}"
-                                                                                               UseLayoutRounding="True">
+                                                                                            Effect="{DynamicResource TextDropShadow}"
+                                                                                            UseLayoutRounding="True">
                                                                                 <Track.Thumb>
                                                                                     <Thumb Width="10" RenderTransformOrigin="0.5,0.5" x:Name="SliderThumb"
-                                                                                                    Style="{DynamicResource SliderThump}">
+                                                                                                Style="{DynamicResource SliderThump}">
                                                                                         <Thumb.RenderTransform>
                                                                                             <ScaleTransform ScaleX="1" ScaleY="1" x:Name="BorderScale"/>
                                                                                         </Thumb.RenderTransform>
@@ -884,15 +808,15 @@
                                                                                 </Track.Thumb>
                                                                                 <Track.DecreaseRepeatButton>
                                                                                     <RepeatButton Style="{StaticResource SliderTrackButton}"
-                                                                                                            Command="Slider.DecreaseLarge" />
+                                                                                                        Command="Slider.DecreaseLarge" />
                                                                                 </Track.DecreaseRepeatButton>
                                                                                 <Track.IncreaseRepeatButton>
                                                                                     <RepeatButton Style="{StaticResource SliderTrackButton}"
-                                                                                                            Command="Slider.IncreaseLarge" />
+                                                                                                        Command="Slider.IncreaseLarge" />
                                                                                 </Track.IncreaseRepeatButton>
                                                                             </Track>
                                                                             <TickBar x:Name="BottomTick" Visibility="Collapsed" Grid.Row="2" Height="4" Placement="Bottom"
-                                                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Fill="{TemplateBinding Foreground}" />
+                                                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Fill="{TemplateBinding Foreground}" />
                                                                         </Grid>
                                                                         <ControlTemplate.Triggers>
                                                                             <Trigger Property="IsMouseOver" SourceName="SliderThumb" Value="True">
@@ -900,13 +824,13 @@
                                                                                     <BeginStoryboard>
                                                                                         <Storyboard>
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1.025"
-                                                                                                                         Storyboard.TargetName="BorderScale"
-                                                                                                                         Storyboard.TargetProperty="ScaleX"
-                                                                                                                         />
+                                                                                                                        Storyboard.TargetName="BorderScale"
+                                                                                                                        Storyboard.TargetProperty="ScaleX"
+                                                                                                                        />
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1.025"
-                                                                                                                         Storyboard.TargetName="BorderScale"
-                                                                                                                         Storyboard.TargetProperty="ScaleY"
-                                                                                                                         />
+                                                                                                                        Storyboard.TargetName="BorderScale"
+                                                                                                                        Storyboard.TargetProperty="ScaleY"
+                                                                                                                        />
                                                                                         </Storyboard>
                                                                                     </BeginStoryboard>
                                                                                 </Trigger.EnterActions>
@@ -914,13 +838,13 @@
                                                                                     <BeginStoryboard>
                                                                                         <Storyboard>
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1"
-                                                                                                                         Storyboard.TargetName="BorderScale"
-                                                                                                                         Storyboard.TargetProperty="ScaleX" 
-                                                                                                                         />
+                                                                                                                        Storyboard.TargetName="BorderScale"
+                                                                                                                        Storyboard.TargetProperty="ScaleX" 
+                                                                                                                        />
                                                                                             <DoubleAnimation Duration="0:0:0.1" To="1"
-                                                                                                                         Storyboard.TargetName="BorderScale"
-                                                                                                                         Storyboard.TargetProperty="ScaleY"
-                                                                                                                         />
+                                                                                                                        Storyboard.TargetName="BorderScale"
+                                                                                                                        Storyboard.TargetProperty="ScaleY"
+                                                                                                                        />
                                                                                         </Storyboard>
                                                                                     </BeginStoryboard>
                                                                                 </Trigger.ExitActions>
@@ -973,7 +897,7 @@
                                                 </TabItem.Style>
 
                                                 <TabItem.Header>
-                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                                         <TextBlock Text="{DynamicResource LOCSsvTitle}" />
                                                         <TextBlock Text="(" Margin="5,0,0,0" />
                                                         <TextBlock Text="{PluginSettings Plugin=ScreenshotsVisualizer, Path=ListScreenshots.Count, Mode=OneWay, FallbackValue='0'}" />
@@ -981,113 +905,83 @@
                                                     </StackPanel>
                                                 </TabItem.Header>
 
-                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginScreenshots" Margin="0,10,0,10" MinHeight="100" Height="500"
-                                                            VerticalAlignment="Top" />
+                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginScreenshots" Margin="10" 
+                                                        MinHeight="100" Height="500" VerticalAlignment="Top" />
                                             </TabItem>
 
                                             <TabItem Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
                                                 <TabItem.Header>
                                                     <StackPanel Orientation="Horizontal" Tag="{DynamicResource SS_ShowProgressBar}" Name="PART_SSTabHeader">
-                                                        <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" />
+                                                        <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" VerticalAlignment="Center" />
 
-                                                        <Grid Margin="5,0,0,0">
-                                                            <ProgressBar Minimum="0" Maximum="100" Height="20" Width="80"
-                                                                     Visibility="{Binding ElementName=PART_SSTabHeader, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                                                     Value="{PluginSettings Plugin=SuccessStory, Path=Percent}" />
+                                                        <ProgressBar Minimum="0" Maximum="100" Height="20" Width="80" Margin="5,0,0,0"
+                                                                VerticalAlignment="Center"
+                                                                Visibility="{Binding ElementName=PART_SSTabHeader, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                                Value="{PluginSettings Plugin=SuccessStory, Path=Percent}" />
 
-                                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                <TextBlock Text="(" Visibility="{Binding ElementName=PART_SSTabHeader, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
-                                                                <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Unlocked, Mode=OneWay, FallbackValue=''}" />
-                                                                <TextBlock Text="/" />
-                                                                <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Total, Mode=OneWay, FallbackValue=''}" />
-                                                                <TextBlock Text=")" Visibility="{Binding ElementName=PART_SSTabHeader, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
-                                                            </StackPanel>
-                                                        </Grid>
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5,0,0,0"
+                                                            Visibility="{Binding ElementName=PART_SSTabHeader, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                                                            <TextBlock Text="("  />
+                                                            <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Unlocked, Mode=OneWay, FallbackValue=''}" />
+                                                            <TextBlock Text="/" />
+                                                            <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Total, Mode=OneWay, FallbackValue=''}" />
+                                                            <TextBlock Text=")" />
+                                                        </StackPanel>
                                                     </StackPanel>
                                                 </TabItem.Header>
 
-                                                <StackPanel Margin="0,5,0,10"
-                                                            Width="{Binding ElementName=DescriptionContent, Path=ActualWidth}">
-                                                    <ContentControl x:Name="SuccessStory_PluginProgressBar" Margin="0,5,0,5" />
-                                                    <ContentControl x:Name="SuccessStory_PluginChart" Margin="0,5,0,5" MinHeight="50" MaxHeight="200" />
-                                                    <ContentControl x:Name="SuccessStory_PluginCompactList" Margin="0,5,0,5" MaxHeight="150" />
-                                                    <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,5,0,5" />
-                                                    <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,5,0,5" MaxHeight="150" />
-                                                    <ContentControl x:Name="SuccessStory_PluginList" Margin="0,5,0,5" MinHeight="50" MaxHeight="500" />
-                                                    <ContentControl x:Name="SuccessStory_PluginUserStats" Margin="0,5,0,5" MinHeight="50" MaxHeight="200" />
+                                                <StackPanel Margin="10">
+                                                    <ContentControl x:Name="SuccessStory_PluginProgressBar" />
+                                                    <ContentControl x:Name="SuccessStory_PluginChart" Margin="0,15,0,0" MinHeight="50" MaxHeight="200" />
+                                                    <ContentControl x:Name="SuccessStory_PluginCompactList" Margin="0,15,0,0" MaxHeight="150" />
+                                                    <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,15,0,0" />
+                                                    <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,15,0,0" MaxHeight="150" />
+                                                    <ContentControl x:Name="SuccessStory_PluginList" Margin="0,15,0,0" MinHeight="50" MaxHeight="500" />
+                                                    <ContentControl x:Name="SuccessStory_PluginUserStats" Margin="0,15,0,0" MinHeight="50" MaxHeight="200" />
                                                 </StackPanel>
                                             </TabItem>
 
                                             <TabItem Header="{DynamicResource LOCGameActivityTitle}"
-                                                     Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
-                                                <StackPanel Margin="0,5,0,10"
-                                                            Width="{Binding ElementName=DescriptionContent, Path=ActualWidth}">
+                                                Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
+                                                <StackPanel Margin="10">
                                                     <!-- GameActivity time chart -->
-                                                    <ContentControl x:Name="GameActivity_PluginChartTime" Margin="0,5,0,10"
-                                                                MinHeight="50" MaxHeight="300" />
+                                                    <ContentControl x:Name="GameActivity_PluginChartTime" MinHeight="50" MaxHeight="300" />
 
                                                     <!-- GameActivity log chart -->
-                                                    <ContentControl x:Name="GameActivity_PluginChartLog" Margin="0,10,0,5"
-                                                                MinHeight="50" MaxHeight="300" />
+                                                    <ContentControl x:Name="GameActivity_PluginChartLog" MinHeight="50" MaxHeight="300" Margin="0,15,0,0" />
                                                 </StackPanel>
                                             </TabItem>
 
-                                            <TabItem Visibility="{Binding ElementName=GameRelationsVisibilityProxy, Path=Tag}">
-                                                <TabItem.Header>
-                                                    <TextBlock Text="{DynamicResource LOCGameRelations_RelatedGamesLabel}"
-                                                               Style="{DynamicResource DetailsViewTabHeaderStyle}" />
-                                                </TabItem.Header>
-                                                <StackPanel Orientation="Vertical" Margin="0,15,0,0">
-                                                    <TextBlock x:Name="GameRelationsVisibilityProxy" Visibility="Collapsed">
-                                                        <TextBlock.Style>
-                                                            <Style TargetType="TextBlock">
-                                                                <Setter Property="Tag" Value="Collapsed" />
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding ElementName=Panel_GameRelations_SimilarGamesControl, Path=Visibility}" Value="Visible">
-                                                                        <Setter Property="Tag" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding ElementName=Panel_GameRelations_SameSeriesControl, Path=Visibility}" Value="Visible">
-                                                                        <Setter Property="Tag" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding ElementName=Panel_GameRelations_SameDeveloperControl, Path=Visibility}" Value="Visible">
-                                                                        <Setter Property="Tag" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding ElementName=Panel_GameRelations_SamePublisherControl, Path=Visibility}" Value="Visible">
-                                                                        <Setter Property="Tag" Value="Visible" />
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </TextBlock.Style>
-                                                    </TextBlock>
+                                            <TabItem Header="{DynamicResource LOCGameRelations_RelatedGamesLabel}" Visibility="{Binding ElementName=GameRelationsVisibilityProxy, Path=Tag}">
+                                                <StackPanel Orientation="Vertical" Margin="10">
                                                     <Expander x:Name="Panel_GameRelations_SimilarGamesControl"
-                                                              Header="{DynamicResource LOCGameRelations_SimilarGamesLabel}"
-                                                              IsExpanded="True"
-                                                              Margin="0,10,0,0"
-                                                              Visibility="{PluginSettings Plugin=GameRelations, Path=SimilarGamesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                        Header="{DynamicResource LOCGameRelations_SimilarGamesLabel}"
+                                                        IsExpanded="True"
+                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SimilarGamesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
                                                         <ContentControl x:Name="GameRelations_SimilarGamesControl" Margin="0,10,0,0" />
                                                     </Expander>
 
                                                     <Expander x:Name="Panel_GameRelations_SameSeriesControl"
-                                                              Header="{DynamicResource LOCGameRelations_SameSeriesLabel}"
-                                                              IsExpanded="True"
-                                                              Margin="0,10,0,0"
-                                                              Visibility="{PluginSettings Plugin=GameRelations, Path=SameSeriesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                        Header="{DynamicResource LOCGameRelations_SameSeriesLabel}"
+                                                        IsExpanded="True"
+                                                        Margin="0,15,0,0"
+                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SameSeriesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
                                                         <ContentControl x:Name="GameRelations_SameSeriesControl" Margin="0,10,0,0" />
                                                     </Expander>
 
                                                     <Expander x:Name="Panel_GameRelations_SameDeveloperControl"
-                                                              Header="{DynamicResource LOCGameRelations_SameDeveloperLabel}"
-                                                              IsExpanded="True"
-                                                              Margin="0,10,0,0"
-                                                              Visibility="{PluginSettings Plugin=GameRelations, Path=SameDeveloperControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                        Header="{DynamicResource LOCGameRelations_SameDeveloperLabel}"
+                                                        IsExpanded="True"
+                                                        Margin="0,15,0,0"
+                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SameDeveloperControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
                                                         <ContentControl x:Name="GameRelations_SameDeveloperControl" Margin="0,10,0,0" />
                                                     </Expander>
 
                                                     <Expander x:Name="Panel_GameRelations_SamePublisherControl"
-                                                              Header="{DynamicResource LOCGameRelations_SamePublisherLabel}"
-                                                              IsExpanded="True"
-                                                              Margin="0,10,0,0"
-                                                              Visibility="{PluginSettings Plugin=GameRelations, Path=SamePublisherControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                        Header="{DynamicResource LOCGameRelations_SamePublisherLabel}"
+                                                        IsExpanded="True"
+                                                        Margin="0,15,0,0"
+                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SamePublisherControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
                                                         <ContentControl x:Name="GameRelations_SamePublisherControl" Margin="0,10,0,0" />
                                                     </Expander>
                                                 </StackPanel>
