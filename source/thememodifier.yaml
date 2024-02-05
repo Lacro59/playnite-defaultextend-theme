@@ -17,7 +17,6 @@ Constants:
   - DE_OnHoldStatus: Status OnHold
   - DE_PlanToPlayStatus: Status PlanToPlay
   - Details View
-  - DE_NoteInTab: Display note in tab
   - DE_OneLine: Display list game with one line
   - DE_ShowLastPlayed: Display the date to last played
   - DE_ShowPlayTime: Display the playtime

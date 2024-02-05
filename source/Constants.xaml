@@ -11,7 +11,6 @@
     <sys:Double x:Key="DE_TagsHeight">200</sys:Double>
 
     <sys:Boolean x:Key="DE_OneLine">False</sys:Boolean>
-    <sys:Boolean x:Key="DE_NoteInTab">False</sys:Boolean>
     <Visibility x:Key="DE_ShowAgeRating">Visible</Visibility>
     <sys:Boolean x:Key="DE_ShowPlayTime">True</sys:Boolean>
     <sys:Boolean x:Key="DE_ShowLastPlayed">True</sys:Boolean>

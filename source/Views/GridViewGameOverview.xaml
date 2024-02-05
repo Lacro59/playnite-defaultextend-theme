@@ -610,20 +610,8 @@
                                         </StackPanel>
 
                                         <TabControl Margin="5,0,0,0">
-                                            <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" Tag="{DynamicResource DE_NoteInTab}">
+                                            <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab">
                                                 <StackPanel Margin="0,5,0,10" x:Name="DescriptionContent">
-                                                    <StackPanel Visibility="{Binding ElementName=DescriptionTab, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
-                                                        <StackPanel Name="PART_ElemNotes">
-                                                            <TextBlock Text="{DynamicResource LOCNotesLabel}" Margin="0,15,0,5"
-                                                                       Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" />
-                                                            <TextBox Name="PART_TextNotes" IsReadOnly="True"
-                                                                     BorderThickness="0"
-                                                                     AcceptsReturn="True" TextWrapping="Wrap"
-                                                                     Margin="-1,5,-1,5" Padding="5"/>
-                                                        </StackPanel>
-                                                    </StackPanel>
-
                                                     <!-- HowLongToBeat progress bar -->
                                                     <StackPanel Name="PART_HltbProgressBar" DockPanel.Dock="Top" Margin="5,0,5,15" 
 			                                                    Tag="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar}">
@@ -752,20 +740,27 @@
                                             <TabItem Header="{DynamicResource LOCNotesLabel}">
                                                 <TabItem.Style>
                                                     <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
-                                                        <Setter Property="Visibility" Value="{Binding ElementName=DescriptionTab, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                        <Setter Property="Visibility" Value="Visible" />
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Text, Converter={StaticResource StringNullOrEmptyToBoolConverter}}" Value="False">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, FallbackValue=False}" Value="True">
+                                                                <Setter Property="Visibility" Value="Visible" />
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </TabItem.Style>
 
-                                                <TextBox IsReadOnly="True" VerticalAlignment="Top"
-                                                     Text="{Binding ElementName=PART_TextNotes, Path=Text}"
-                                                     BorderThickness="0"
-                                                     AcceptsReturn="True" TextWrapping="Wrap"
-                                                     Margin="0,10,0,10" />
+                                                <StackPanel Margin="10">
+                                                    <TextBox Name="PART_TextNotes" IsReadOnly="True"
+                                                         BorderThickness="0"
+                                                         AcceptsReturn="True" TextWrapping="Wrap"
+                                                         Margin="0,0,0,10" />
+
+                                                    <ContentControl x:Name="PlayNotes_NotesViewerControl"
+                                                                Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
+                                                </StackPanel>
                                             </TabItem>
 
                                             <TabItem Header="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}" Visibility="{PluginSettings Plugin=NewsViewer, Path=ReviewsAvailable, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
