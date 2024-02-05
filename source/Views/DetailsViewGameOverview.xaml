@@ -866,6 +866,17 @@
                                             <ContentControl x:Name="NewsViewer_NewsViewerControl" ClipToBounds="True" Margin="0,10,0,10" VerticalAlignment="Top" />
                                         </TabItem>
 
+                                        <TabItem Header="{DynamicResource LOCReview_Viewer_ReviewsLabel}"
+                                                 Visibility="{PluginSettings Plugin=ReviewViewer, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <Grid>
+                                                <Border Style="{DynamicResource OutlineBorderSidePanelsBorder}" />
+                                                <Border Style="{DynamicResource OutlineBorderSidePanels}" />
+                                                <Border Padding="10">
+                                                    <ContentControl x:Name="ReviewViewer_ReviewsControl" />
+                                                </Border>
+                                            </Grid>
+                                        </TabItem>
+
                                         <TabItem Header="{DynamicResource LOCExtra_Metadata_Loader_VideoLabel}">
                                             <TabItem.Style>
                                                 <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
