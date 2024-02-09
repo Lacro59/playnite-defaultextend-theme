@@ -82,7 +82,7 @@ Packages:
       - Added new options (with ThemeModifier)
       - Added Icons for DuplicateHider
   - Version: 1.3
-    RequiredApiVersion: 2.5.0
+    RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-02-09
     PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v1.3/playnite-defaultextend-theme_1_3.pthm
     Changelog:
