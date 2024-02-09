@@ -12,12 +12,12 @@ Theme for [Playnite](https://playnite.link).
 ## Informations
 This theme includes many extensions in the default theme.
 
-<a href="https://github.com/Lacro59/playnite-defaultextend-theme/blob/master/screenshots/theme_detailsview.gif?raw=true">
+<a href="https://github.com/Lacro59/playnite-defaultextend-theme/blob/master/screenshots/theme_detailsview.jpg?raw=true">
   <picture>
     <img alt="theme_detailsview.gif" src="https://github.com/Lacro59/playnite-defaultextend-theme/blob/master/screenshots/theme_detailsview.gif?raw=true" height="150px">
   </picture>
 </a>
-<a href="https://github.com/Lacro59/playnite-defaultextend-theme/blob/master/screenshots/theme_gridview.gif?raw=true">
+<a href="https://github.com/Lacro59/playnite-defaultextend-theme/blob/master/screenshots/theme_gridview.jpg?raw=true">
   <picture>
     <img alt="theme_gridview.gif" src="https://github.com/Lacro59/playnite-defaultextend-theme/blob/master/screenshots/theme_gridview.gif?raw=true" height="150px">
   </picture>
