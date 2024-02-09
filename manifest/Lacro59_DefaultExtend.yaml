@@ -81,3 +81,14 @@ Packages:
       - Fixed minor issues
       - Added new options (with ThemeModifier)
       - Added Icons for DuplicateHider
+  - Version: 1.3
+    RequiredApiVersion: 2.5.0
+    ReleaseDate: 2024-02-09
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v1.3/playnite-defaultextend-theme_1_3.pthm
+    Changelog:
+      - Fixed minor issues
+      - Added new options (with ThemeModifier)
+      - Added Icons for DuplicateHider
+      - Added SteamReviewsViewer
+      - Added icons in details (from darklinkpower)
+      - Added GameRelations support
