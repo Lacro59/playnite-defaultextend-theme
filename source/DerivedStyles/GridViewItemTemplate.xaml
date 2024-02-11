@@ -350,6 +350,9 @@
                                             <DataTrigger Value="Riot" Binding="{Binding SourceName}">
                                                 <Setter Property="Source" Value="{StaticResource DuplicateHider_Riot_Icon}"/>
                                             </DataTrigger>
+											<DataTrigger Value="Riot Games" Binding="{Binding SourceName}">
+												<Setter Property="Source" Value="{StaticResource DuplicateHider_Riot_Icon}"/>
+											</DataTrigger>
                                             <DataTrigger Value="Switch" Binding="{Binding SourceName}">
                                                 <Setter Property="Source" Value="{StaticResource DuplicateHider_Switch_Icon}"/>
                                             </DataTrigger>
