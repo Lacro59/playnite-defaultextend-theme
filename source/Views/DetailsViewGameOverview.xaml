@@ -403,7 +403,7 @@
                                 </DockPanel>
 
                                 <DockPanel Grid.Row="2">
-                                    <StackPanel DockPanel.Dock="Left" Width="350" Margin="2,0,0,0">
+                                    <StackPanel DockPanel.Dock="Left" Width="380" Margin="2,0,0,0">
                                         <StackPanel.Resources>
                                             <Style TargetType="ItemsControl">
                                                 <Setter Property="VerticalAlignment" Value="Center" />

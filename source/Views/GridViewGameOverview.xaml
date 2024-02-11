@@ -140,25 +140,25 @@
                                     <ContentControl x:Name="CheckLocalizations_PluginButton" Height="40" Margin="10,0,0,0" 
                                                     Grid.Column="3" FontSize="14"
                                                     Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                    Visibility="{PluginStatus Plugin=playnite-checklocalizations-plugin, Status=Installed}" />
+													Visibility="{PluginSettings Plugin=CheckLocalizations, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                     
                                     <!-- CheckDlc plugin button -->
                                     <ContentControl x:Name="CheckDlc_PluginButton" Height="40" Margin="10,0,0,0" 
                                                     Grid.Column="4" FontSize="14"
                                                     Width="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                    Visibility="{PluginStatus Plugin=playnite-checkdlc-plugin, Status=Installed}" />
+													Visibility="{PluginSettings Plugin=CheckDlc, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                                     <!-- SuccessStory Button -->
                                     <ContentControl x:Name="SuccessStory_PluginButton" Height="40" Margin="10,0,0,0" FontSize="18"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     MaxWidth="150" Grid.Column="5" 
-                                                    Visibility="{PluginStatus Plugin=playnite-successstory-plugin, Status=Installed}" />
+													Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                                     <!-- ScreenshootsVisualizer plugin button -->
                                     <ContentControl x:Name="ScreenshotsVisualizer_PluginButton" Height="40" Margin="10,0,0,0"
                                                     FontSize="16" Grid.Column="6"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                    Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin, Status=Installed}">
+													Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                         <ContentControl.Style>
                                             <Style TargetType="{x:Type ContentControl}">
                                                 <Style.Triggers>
@@ -174,13 +174,13 @@
                                     <ContentControl x:Name="HowLongToBeat_PluginButton" Height="40" Margin="10,0,0,0"
                                                     FontSize="12" Grid.Column="7"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                    Visibility="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" />
+													Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                                     <!-- GameActivity Button -->
                                     <ContentControl x:Name="GameActivity_PluginButton" Height="40" Margin="10,0,0,0" FontSize="18"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
                                                     MaxWidth="150" Grid.Column="8" 
-                                                    Tag="{PluginStatus Plugin=playnite-gameactivity-plugin, Status=Installed}" />
+													Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                                     <!-- LibraryManagement plugin features list -->
                                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="9"
@@ -268,7 +268,7 @@
                                     <ContentControl x:Name="SystemChecker_PluginButton" Height="40" Margin="10,0,0,0" 
                                                     FontSize="16" Grid.Column="11"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
-                                                    Visibility="{PluginStatus Plugin=playnite-systemchecker-plugin, Status=Installed}" />
+													Visibility="{PluginSettings Plugin=SystemChecker, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                                     <!-- GameActivity AvgFps -->
                                     <StackPanel Margin="10,0,0,0" Grid.Column="12"
