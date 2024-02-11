@@ -159,16 +159,6 @@
                                                     FontSize="16" Grid.Column="6"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
 													Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                        <ContentControl.Style>
-                                            <Style TargetType="{x:Type ContentControl}">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
-                                                        <Setter Property="Width" Value="150" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </ContentControl.Style>
-                                    </ContentControl>
 
                                     <!-- HowLongToBeat plugin button -->
                                     <ContentControl x:Name="HowLongToBeat_PluginButton" Height="40" Margin="10,0,0,0"
