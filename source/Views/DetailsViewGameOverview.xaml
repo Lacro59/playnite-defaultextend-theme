@@ -782,8 +782,22 @@
                                             </StackPanel>
                                         </TabItem>
 
-                                        <TabItem Header="{DynamicResource LOCPaActivities}"
-                                                 Visibility="{PluginSettings Plugin=PlayerActivities, Path=EnableIntegrationActivities, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <TabItem Header="{DynamicResource LOCPaActivities}">
+                                            <TabItem.Style>
+                                                <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{PluginSettings Plugin=PlayerActivities, Path=EnableIntegrationActivities, FallbackValue=False}" Value="True" />
+                                                                <Condition Binding="{PluginSettings Plugin=PlayerActivities, Path=HasData, FallbackValue=False}" Value="True" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TabItem.Style>
+
                                             <StackPanel Margin="10">
                                                 <ContentControl x:Name="PlayerActivities_PluginActivities" MinHeight="500"
                                                                 MaxHeight="{Binding ElementName=PART_GridEx, Path=ActualHeight}" />
