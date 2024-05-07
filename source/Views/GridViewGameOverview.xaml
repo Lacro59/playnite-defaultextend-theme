@@ -682,6 +682,14 @@
                                                 </StackPanel>
                                             </TabItem>
 
+                                            <TabItem Header="{DynamicResource LOCPaActivities}"
+                                                 Visibility="{PluginSettings Plugin=PlayerActivities, Path=EnableIntegrationActivities, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <StackPanel Margin="10">
+                                                    <ContentControl x:Name="PlayerActivities_PluginActivities" MinHeight="500"
+                                                                MaxHeight="{Binding ElementName=PART_GridEx, Path=ActualHeight}" />
+                                                </StackPanel>
+                                            </TabItem>
+
                                             <TabItem Header="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}"
                                                 Visibility="{PluginSettings Plugin=NewsViewer, Path=ReviewsAvailable, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                 <ContentControl x:Name="NewsViewer_NewsViewerControl" ClipToBounds="True" Margin="10" VerticalAlignment="Top" />
