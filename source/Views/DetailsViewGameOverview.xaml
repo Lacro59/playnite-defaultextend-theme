@@ -1018,7 +1018,7 @@
                                             </TabItem.Header>
 
                                             <ContentControl x:Name="ScreenshotsVisualizer_PluginScreenshots" Margin="10" 
-                                                            MinHeight="100" Height="500" VerticalAlignment="Top" />
+                                                            MaxHeight="{Binding ElementName=PART_GridEx, Path=ActualHeight}" VerticalAlignment="Top" />
                                         </TabItem>
 
                                         <TabItem Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
