@@ -25,6 +25,8 @@
     <Visibility x:Key="GA_ShowAvgFps">Visible</Visibility>
 
     <sys:Boolean x:Key="SS_ShowProgressBar">False</sys:Boolean>
+
+    <sys:Boolean x:Key="SSV_ShowCountImage">True</sys:Boolean>
    
 
 

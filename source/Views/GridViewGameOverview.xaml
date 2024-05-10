@@ -154,7 +154,7 @@
                                                     MaxWidth="150" Grid.Column="5" 
 													Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-                                    <!-- ScreenshootsVisualizer plugin button -->
+                                    <!-- ScreenshotsVisualizer plugin button -->
                                     <ContentControl x:Name="ScreenshotsVisualizer_PluginButton" Height="40" Margin="10,0,0,0"
                                                     FontSize="16" Grid.Column="6"
                                                     MinWidth="{Binding ElementName=PART_ButtonEditGame, Path=ActualWidth}"
@@ -909,10 +909,10 @@
 
                                                 <TabItem.Header>
                                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                                        <TextBlock Text="{DynamicResource LOCSsvTitle}" />
-                                                        <TextBlock Text="(" Margin="5,0,0,0" />
-                                                        <TextBlock Text="{PluginSettings Plugin=ScreenshotsVisualizer, Path=ListScreenshots.Count, Mode=OneWay, FallbackValue='0'}" />
-                                                        <TextBlock Text=")" />
+                                                        <TextBlock Text="{DynamicResource LOCSsvTitle}" Tag="{StaticResource SSV_ShowCountImage}" Name="PART_SsvTab" />
+                                                        <TextBlock Text="(" Margin="5,0,0,0" Visibility="{Binding ElementName=PART_SsvTab, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                        <TextBlock Text="{PluginSettings Plugin=ScreenshotsVisualizer, Path=ListScreenshots.Count, Mode=OneWay, FallbackValue='0'}" Visibility="{Binding ElementName=PART_SsvTab, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                        <TextBlock Text=")" Visibility="{Binding ElementName=PART_SsvTab, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                     </StackPanel>
                                                 </TabItem.Header>
 

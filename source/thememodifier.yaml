@@ -30,3 +30,5 @@ Constants:
   - LM_ShowFeaturesLabel: Display the features label in FeaturesIconsList
   - CheckLocalizations
   - CL_ShowLocalizationsLabel: Display the localizations label in FeaturesIconsList
+  - ScreenshotsVisualizer
+  - SSV_ShowCountImage: Show number of screenshots with large list
