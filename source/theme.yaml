@@ -2,9 +2,11 @@ ThemeApiVersion: 2.6.0
 Id: playnite-defaultextend-theme
 Name: DefaultExtend
 Author: Lacro59
-Version: 1.3
+Version: 1.4
 Links:
-  - Name: Theme forum
-    Url: https://playnite.link/forum/
-  - Name: Theme Github
+  - Name: Github
     Url: https://github.com/Lacro59/playnite-defaultextend-theme
+  - Name: Issues Tracker
+    Url: https://github.com/Lacro59/playnite-defaultextend-theme/issues
+  - Name: Ko-fi (Tips and Donations)
+    Url: https://ko-fi.com/lacro59

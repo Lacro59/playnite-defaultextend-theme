@@ -92,3 +92,13 @@ Packages:
       - Added SteamReviewsViewer
       - Added icons in details (from darklinkpower)
       - Added GameRelations support
+  - Version: 1.4
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2024-05-15
+    PackageUrl: https://github.com/Lacro59/playnite-defaultextend-theme/releases/download/v1.4/playnite-defaultextend-theme_1_4.pthm
+    Changelog:
+      - Fixed minor issues
+      - Added new options (with ThemeModifier)
+      - Added PlayerActivities element
+      - UI optimizations
+      - Added new ScreenshotsVisualizer element
